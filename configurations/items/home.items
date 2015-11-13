@@ -45,3 +45,62 @@ Switch   NestTStatHome_is_online "Is Online [%s]"                               
 DateTime NestTStatHome_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> {nest="<[thermostats(Living Room).last_connection]"}
 /* Added in openHAB 1.7.1: */
 String   NestTStatHome_hvac_state "HVAC State [%s]"                                  {nest="<[thermostats(Living Room).hvac_state]"}
+
+/* Integra Receiver binding Items */
+
+// Power
+Switch onkyoPower          "Power"                   {onkyo="INIT:hometheater:POWER_QUERY, ON:hometheater:POWER_ON, OFF:hometheater:POWER_OFF"}
+// Sleep
+Number onkyoSleep          "Sleep Timer [%d Min]"    {onkyo="INIT:hometheater:#SLPQSTN, 0:hometheater:#SLPOFF, *:hometheater:#SLP%02X, 0:hometheater:#SLPOFF"}
+// Mute
+Switch onkyoMute           "Mute"                    {onkyo="INIT:hometheater:MUTE_QUERY, ON:hometheater:MUTE, OFF:hometheater:UNMUTE"}
+// Volume
+Dimmer onkyoVolume         "Volume [%d]"             {onkyo="INIT:hometheater:VOLUME_QUERY, INCREASE:hometheater:VOLUME_UP, DECREASE:hometheater:VOLUME_DOWN, *:hometheater:VOLUME_SET"}
+//Source
+Number onkyoSource         "Source"                  {onkyo="INIT:hometheater:SOURCE_QUERY, INCREASE:hometheater:SOURCE_UP, DECREASE:hometheater:SOURCE_DOWN, *:hometheater:SOURCE_SET"}
+//Video Modes
+Number onkyoVideoWide      "Video Wide Mode"         {onkyo="INIT:hometheater:VIDEO_WIDE_QUERY, INCREASE:hometheater:VIDEO_WIDE_NEXT, *:hometheater:#VWM%02X"}
+Number onkyoVideoPicture   "Video Picture Mode"      {onkyo="INIT:hometheater:#VPMQSTN, INCREASE:hometheater:#VPMUP, *:hometheater:#VPM%02X"}
+//Audio Mode
+Number onkyoListenMode     "Listen Mode"             {onkyo="INIT:hometheater:LISTEN_MODE_QUERY, INCREASE:hometheater:LISTEN_MODE_UP, DECREASE:hometheater:LISTEN_MODE_DOWN, *:hometheater:#LMD%02X"}
+Switch onkyoAudysseyDynEQ  "Audysses Dynamic EQ"     {onkyo="INIT:hometheater:#ADQQSTN, OFF:hometheater:#ADQ00, ON:hometheater:#ADQ01"}
+Number onkyoAudysseyDynVol "Audysses Dynamic Volume" {onkyo="INIT:hometheater:#ADVQSTN, INCREASE:hometheater:#ADVUP, *:hometheater:#ADV%02X"}
+//Information
+String onkyoAudio          "Audio [%s]"              {onkyo="INIT:hometheater:#IFAQSTN"}
+String onkyoVideo          "Video [%s]"              {onkyo="INIT:hometheater:#IFVQSTN"}
+// Display
+Number onkyoDisplayMode    "Display Mode"            {onkyo="INIT:hometheater:#DIFQSTN, INCREASE:hometheater:#DIFTG, *:hometheater:#DIF%02X"}
+Number onkyoDimmerLevel    "Display Dimmer Level"    {onkyo="INIT:hometheater:#DIMQSTN, INCREASE:hometheater:#DIMDIM, *:hometheater:#DIM%02X"}
+
+//
+// Zone 2
+//
+// Power
+Switch onkyoZ2Power   "Power"       {onkyo="INIT:hometheater:ZONE2_POWER_QUERY, ON:hometheater:ZONE2_POWER_ON, OFF:hometheater:ZONE2_POWER_OFF"}
+// Mute
+Switch onkyoZ2Mute    "Mute"        {onkyo="INIT:hometheater:ZONE2_MUTE_QUERY:, ON:hometheater:ZONE2_MUTE, OFF:hometheater:ZONE2_UNMUTE"}
+// Volume
+Dimmer onkyoZ2Volume  "Volume [%d]" {onkyo="INIT:hometheater:ZONE2_VOLUME_QUERY, INCREASE:hometheater:ZONE2_VOLUME_UP, DECREASE:hometheater:ZONE2_VOLUME_DOWN, *:hometheater:ZONE2_VOLUME_SET"}
+//Source
+Number onkyoZ2Source  "Source"      {onkyo="INIT:hometheater:ZONE2_SOURCE_QUERY, INCREASE:hometheater:ZONE2_SOURCE_UP, DECREASE:hometheater:ZONE2_SOURCE_DOWN, *:hometheater:ZONE2_SOURCE_SET"}
+
+//
+// NET/USB
+//
+// Controls
+Switch onkyoNETPlay      "Play"             { onkyo="ON:hometheater:NETUSB_OP_PLAY", autoupdate="false"}
+Switch onkyoNETPause     "Pause"            { onkyo="ON:hometheater:NETUSB_OP_PAUSE", autoupdate="false"}
+Switch onkyoNETStop      "Stop"             { onkyo="ON:hometheater:NETUSB_OP_STOP", autoupdate="false"}
+Switch onkyoNETTrackUp   "Track Up"         { onkyo="ON:hometheater:NETUSB_OP_TRACKUP", autoupdate="false"}
+Switch onkyoNETTrackDown "Track Down"       { onkyo="ON:hometheater:NETUSB_OP_TRACKDWN", autoupdate="false"}
+Switch onkyoNETFF        "Fast Forward"     { onkyo="ON:hometheater:NETUSB_OP_FF", autoupdate="false"}
+Switch onkyoNETREW       "Rewind"           { onkyo="ON:hometheater:NETUSB_OP_REW", autoupdate="false"}
+Number onkyoNETService   "Service"          { onkyo="INIT:hometheater:#NSVQST, *:hometheater:#NSV%02X0"}
+Number onkyoNETList      "Select List Item" { onkyo="*:hometheater:#NLSL%01X"}
+// Information
+String onkyoNETArtist     "Artist [%s]"      {onkyo="INIT:hometheater:NETUSB_SONG_ARTIST_QUERY"}
+String onkyoNETAlbum      "Album [%s]"       {onkyo="INIT:hometheater:NETUSB_SONG_ALBUM_QUERY"}
+String onkyoNETTitle      "Title [%s]"       {onkyo="INIT:hometheater:NETUSB_SONG_TITLE_QUERY"}
+String onkyoNETTrack      "Track [%s]"       {onkyo="INIT:hometheater:NETUSB_SONG_TRACK_QUERY"}
+String onkyoNETTime       "Time [%s]"        {onkyo="INIT:hometheater:NETUSB_SONG_ELAPSEDTIME_QUERY"}
+String onkyoNETPlayStatus "Play Status [%s]" {onkyo="INIT:hometheater:NETUSB_PLAY_STATUS_QUERY"}
