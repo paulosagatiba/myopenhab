@@ -2,11 +2,11 @@ Strategies {
 	default = everyChange
 	everyMinute : "0 * * * * ?"
 	everyHour   : "0 0 * * * ?"
-  everyDay    : "0 0 0 * * ?"
+  	everyDay    : "0 0 0 * * ?"
 }
 Items {
 	* : strategy = everyChange
 	
 	// additionally, persist all temperature and weather values every hour
-  //Temperature*, Weather* : strategy = everyHour
+  	//Temperature*, Weather* : strategy = everyHour
 }
