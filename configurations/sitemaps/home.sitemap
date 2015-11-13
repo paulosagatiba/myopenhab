@@ -17,4 +17,73 @@ sitemap home label="Falcons Fire Home"
       Text item=NestTStatHome_last_connection
     }
   }
+  
+  Text label="Basement Home Theater" icon="house" {
+    Frame label="Zones" {
+      Text label="Main" icon="sofa" {
+        Frame label="Power" {
+          Switch    item=onkyoPower
+          Selection item=onkyoSleep mappings=[0=Off, 5="5 Min", 10="10 Min", 15="15 Min", 30="30 Min", 77="77 Min", 90="90 Min"]
+        }
+        Frame label="Volume" {
+          Switch item=onkyoMute
+          Slider item=onkyoVolume
+        }
+        Frame label="Source" {
+          Selection item=onkyoSource mappings=[0="VCR/DVR", 1="CBL/SAT", 2=GAME, 5=PC, 16="BD/DVD", 35=CD, 43="NET/USB", 45=Airplay, 127=OFF]
+        }
+        Frame label="Video Modes" {
+          Selection item=onkyoVideoWide label="Video Wide" mappings=[0=Auto, 1="4:3", 2=Full, 3=Zoom, 4="Wide Zoom", 5="Smart Zoom"]
+          Selection item=onkyoVideoPicture label="Video Picture" mappings=[0=Trough, 1=Custom, 2=Cinema, 3=Game, 5="ISF Day", 6="ISF Night", 7="Streaming", 8=Direct]
+        }
+        Frame label="Audio Modes" {
+          Selection item=onkyoListenMode mappings=[0=Stereo, 1=Direct, 2=Surround, 15=Mono, 31="Whole House Mode", 66="THX Cinema", 31="Whole House"]
+          Switch    item=onkyoAudysseyDynEQ
+          Selection item=onkyoAudysseyDynVol mappings=[0=OFF, 1=Low, 2=Mid, 3=High]
+        }
+        Frame label="Information" {
+          Text item=onkyoAudio
+          Text item=onkyoVideo
+        }
+        Frame label="Display" {
+          Selection item=onkyoDisplayMode mappings=[0="Source + Vol", 2="Digital Format (temporary)", 3="Video Format (temporary)"]
+          Selection item=onkyoDimmerLevel mappings=[0="Bright", 1="Dim", 2="Dark", 3="Shut-Off", 8="Bright & LED OFF"]
+        }
+      }
+      
+      Text label="Zone 2" icon="bedroom" {
+        Frame label="Power" {
+          Switch item=onkyoZ2Power
+        }
+        Frame label="Volume" {
+          Switch item=onkyoZ2Mute
+          Slider item=onkyoZ2Volume
+        }
+        Frame label="Source" {
+          Selection  item=onkyoZ2Source label="Source Selection" mappings=[0="VCR/DVR", 1="CBL/SAT", 2=GAME, 5=PC, 16="BD/DVD", 35=CD, 43="NET/USB", 45=Airplay, 127=OFF]
+        }
+      }
+
+      Text label="NET/USB" icon="video" {
+        Frame label="Controls" {
+          Switch    item=onkyoNETPlay
+          Switch    item=onkyoNETPause
+          Switch    item=onkyoNETStop
+          Switch    item=onkyoNETTrackUp
+          Switch    item=onkyoNETTrackDown
+          Switch    item=onkyoNETFF
+          Switch    item=onkyoNETREW
+          Selection item=onkyoNETService mappings=[0="Media Server (DLNA)", 1=Favorite, 2=vTuner, 3=SIRIUS, 6="Last.fm", 14=TuneIn Radio]
+          Selection item=onkyoNETList    mappings=[0="1", 1="2", 2="3", 3="4", 4="5", 5="6", 6="7", 7="8", 8="9", 9="10"]
+        }
+        Frame label="Information" {
+          Text item=onkyoNETArtist
+          Text item=onkyoNETAlbum
+          Text item=onkyoNETTitle
+          Text item=onkyoNETTrack
+          Text item=onkyoNETTime
+        }
+      }
+    }
+  }
 }
