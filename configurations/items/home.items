@@ -104,3 +104,22 @@ String onkyoNETTitle      "Title [%s]"       {onkyo="INIT:hometheater:NETUSB_SON
 String onkyoNETTrack      "Track [%s]"       {onkyo="INIT:hometheater:NETUSB_SONG_TRACK_QUERY"}
 String onkyoNETTime       "Time [%s]"        {onkyo="INIT:hometheater:NETUSB_SONG_ELAPSEDTIME_QUERY"}
 String onkyoNETPlayStatus "Play Status [%s]" {onkyo="INIT:hometheater:NETUSB_PLAY_STATUS_QUERY"}
+
+/* Epson binding Items */
+
+Switch epsonPower                          { epsonprojector="hometheater:Power:60000" }
+String epsonSource        "Source [%s]"    { epsonprojector="hometheater:Source:ON,60000" }
+Number epsonDirectSource  "Direct Source"  { epsonprojector="hometheater:DirectSource:ON,60000"}
+
+Switch epsonMute               { epsonprojector="hometheater:Mute:ON,60000" }
+
+Switch epsonHorizontalReverse  { epsonprojector="hometheater:HorizontalReverse:ON,60000" }
+Switch epsonVerticalReverse    { epsonprojector="hometheater:VerticalReverse:ON,60000" }
+
+String epsonAspectRatio       "AspectRatio [%s]"        { epsonprojector="hometheater:AspectRatio:ON,60000" }
+String epsonColorMode         "ColorMode [%s]"          { epsonprojector="hometheater:ColorMode:ON,60000" }
+Number epsonColorTemperature  "Color Temperature [%d]"  <colorwheel>   { epsonprojector="<hometheater:ColorTemperature:ON,60000" }
+
+Number epsonLampTime    "Lamp Time [%d h]"  <switch>       { epsonprojector="<hometheater:LampTime:60000" }
+Number epsonErrCode     "ErrCode [%d]"      <"siren-on">   { epsonprojector="<hometheater:ErrCode:ON,60000" }
+String epsonErrMessage  "ErrMessage [%s]"   <"siren-off">  { epsonprojector="<hometheater:ErrMessage:ON,60000" }
