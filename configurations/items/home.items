@@ -13,7 +13,7 @@ String   NestHome_structure_id "Structure Id [%s]" {nest="<[structures(Living Ro
 
 /* Thermostats - change Upstairs to your thermostat's name */
 
-Number   NestTStatHome_humidity "Humidity [%d %%]" <humidity>                                 {nest="<[thermostats(Living Room).humidity]"}
+Number   NestTStatHome_humidity "Humidity [%d %%]" <softner>                                 {nest="<[thermostats(Living Room).humidity]"}
 String   NestTStatHome_locale "Locale [%s]"                                                   {nest="<[thermostats(Living Room).locale]"}
 String   NestTStatHome_temperature_scale "Temperature Scale [%s]"                             {nest="<[thermostats(Living Room).temperature_scale]"}
 Switch   NestTStatHome_is_using_emergency_heat "Is using emergency heat [%s]"                 {nest="<[thermostats(Living Room).is_using_emergency_heat]"}
