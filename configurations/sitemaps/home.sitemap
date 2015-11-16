@@ -1,6 +1,6 @@
 sitemap home label="Falcons Fire Home"
 {
-  Frame label="Home" {
+  Frame {
     Text label="Thermostat" icon="house" {
       Frame label="Home" {
         Switch item=NestHome_away mappings=[home="Home",away="Away"]
