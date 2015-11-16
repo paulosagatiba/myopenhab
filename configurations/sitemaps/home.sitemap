@@ -99,4 +99,8 @@ sitemap home label="Falcons Fire Home"
       }
     }
   }
+  Frame {
+		Group item=gBasement label="Basement" icon="firstfloor"
+		Group item=g1F label="Thermostat" icon="groundfloor"
+	}
 }
