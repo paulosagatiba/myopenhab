@@ -138,10 +138,10 @@ String epsonErrMessage  "ErrMessage [%s]"               <"siren-off"> (gB_Projec
 /* Weather Items */
 
 Group Weather_Chart													(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °C]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
+Number Weather_Temperature 		"Outside Temperature [%.1f °F]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current" }
 Number Weather_Humidity 		"Outside Humidity [%.1f %%]"	<temperature> (Weather) { weather="locationId=home, type=atmosphere, property=humidity" }
 Number Weather_Humidex			"Humidex [SCALE(humidex.scale):%s]" 			(Weather)
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °C]"	<temperature> (Weather_Chart)
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °C]"	<temperature> (Weather_Chart)
+Number Weather_Temp_Max 		"Todays Maximum [%.1f °F]"	<temperature> (Weather_Chart)
+Number Weather_Temp_Min 		"Todays Minimum [%.1f °F]"	<temperature> (Weather_Chart)
 Number Weather_Chart_Period		"Chart Period"
 DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
