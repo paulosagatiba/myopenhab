@@ -5,8 +5,5 @@ Strategies {
   	everyDay    : "0 0 0 * * ?"
 }
 Items {
-	* : strategy = everyChange
-	
-	// additionally, persist all temperature and weather values every hour
-  	//Temperature*, Weather* : strategy = everyHour
+	gMyOpenHAB* : strategy = everyChange
 }
