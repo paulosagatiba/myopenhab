@@ -1,1 +1,11 @@
-
+rule "homeTheaterOn"
+    when   
+            Item onkyoPower changed from OFF to ON
+    then
+    end
+    
+rule "homeTheaterOff"
+    when   
+            Item onkyoPower changed from ON to OFF
+    then
+    end
