@@ -2,10 +2,12 @@ rule "homeTheaterOn"
     when   
             Item onkyoPower changed from OFF to ON
     then
+            say("Receiver is On")
     end
     
 rule "homeTheaterOff"
     when   
             Item onkyoPower changed from ON to OFF
     then
+            say("Receiver is Off")
     end
