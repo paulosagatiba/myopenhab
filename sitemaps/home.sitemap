@@ -20,17 +20,6 @@ sitemap home label="Falcons Fire Home"
     }
   
     Text label="Basement Home Theater" icon="house" {
-      Frame label="Projector" {
-        Switch item=epsonPower label="Power"
-        Text   item=epsonSource
-        Selection item=epsonDirectSource label="DirectorSource" mappings=[48=HDMI1, 160=HDMI2]
-        Text  item=epsonAspectRatio
-        Text  item=epsonColorMode
-        Text  item=epsonColorTemperature
-        Text  item=epsonLampTime
-        Text  item=epsonErrCode
-        Text  item=epsonErrMessage
-      }
       Frame label="Zones" {
         Text label="Main" icon="sofa" {
           Frame label="Power" {
