@@ -119,7 +119,7 @@ String onkyoNETPlayStatus "Play Status [%s]" {onkyo="INIT:hometheater:NETUSB_PLA
 
 /* Epson binding Items */
 
-Switch epsonPower                          { epsonprojector="hometheater:Power:60000" } (gB_Projector)
+/*Switch epsonPower                          { epsonprojector="hometheater:Power:60000" } (gB_Projector)
 String epsonSource        "Source [%s]"    { epsonprojector="hometheater:Source:ON,60000" } (gB_Projector)
 Number epsonDirectSource  "Direct Source"  { epsonprojector="hometheater:DirectSource:ON,60000"} (gB_Projector)
 
@@ -135,3 +135,4 @@ Number epsonColorTemperature  "Color Temperature [%d]"  <colorwheel>   { epsonpr
 Number epsonLampTime    "Lamp Time [%d h]"  <switch>       { epsonprojector="<hometheater:LampTime:60000" } (gB_Projector)
 Number epsonErrCode     "ErrCode [%d]"      <"siren-on">   { epsonprojector="<hometheater:ErrCode:ON,60000" } (gB_Projector)
 String epsonErrMessage  "ErrMessage [%s]"   <"siren-off">  { epsonprojector="<hometheater:ErrMessage:ON,60000" } (gB_Projector)
+*/
