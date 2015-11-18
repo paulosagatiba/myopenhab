@@ -21,4 +21,4 @@ String   NestTStatHome_hvac_state "HVAC State [%s]"                             
 /* Integra Receiver binding Items */
 
 // Power
-Switch onkyoPower           "Power"                     {onkyo="INIT:hometheater:POWER_QUERY, ON:hometheater:POWER_ON, OFF:hometheater:POWER_OFF"}
+Switch onkyoPower           "Power"                     {onkyo="INIT:integrareceiver:POWER_QUERY, ON:integrareceiver:POWER_ON, OFF:integrareceiver:POWER_OFF"}
