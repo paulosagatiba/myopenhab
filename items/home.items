@@ -8,7 +8,7 @@ String   NestHome_name "Name [%s]"                    {nest="<[structures(Home).
 String   NestHome_country_code "Country Code [%s]"    {nest="<[structures(Home).country_code]"}
 String   NestHome_postal_code "Postal Code [%s]"      {nest="<[structures(Home).postal_code]"}
 String   NestHome_time_zone "Time Zone [%s]"          {nest="<[structures(Home).time_zone]"}
-String   NestHome_away "Home/Away [%s]" <present>     {nest="=[structures(Home).away]"}
+String   NestHome_away "Home/Away [%s]"               {nest="=[structures(Home).away]"}
 String   NestHome_structure_id "Structure Id [%s]"    {nest="<[structures(Home).structure_id]"}
 
 /* Thermostats - change Upstairs to your thermostat's name */
