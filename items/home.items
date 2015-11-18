@@ -10,8 +10,6 @@ Group gB_Projector "Epson Projector" <video> (gBasement)
 
 Group g1_Thermostat "Thermostat" <temperature> (g1F)
 
-Group 
-
 /* Nest binding Items */
 
 DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]"  (g1_Thermostat) {nest="<[last_connection]"}
