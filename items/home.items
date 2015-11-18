@@ -1,145 +1,24 @@
-Group All
-Group gBasement (All)
-Group g1F (All)
-Group g2F (All)
-Group gMyOpenHAB
-Group Weather (All)
-
-Group gB_Receiver "Integra Receiver" <video> (gBasement)
-Group gB_Projector "Epson Projector" <video> (gBasement)
-
-Group g1_Thermostat "Thermostat" <temperature> (g1F)
-
 /* Nest binding Items */
 
-DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]"  (g1_Thermostat) {nest="<[last_connection]"}
+DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]"  {nest="<[last_connection]"}
 
 /* Structures - change Home to your structure's name */
 
-String   NestHome_name "Name [%s]"                    <temperature> (g1_Thermostat) {nest="<[structures(Home).name]"}
-String   NestHome_country_code "Country Code [%s]"    <temperature> (g1_Thermostat) {nest="<[structures(Home).country_code]"}
-String   NestHome_postal_code "Postal Code [%s]"      <temperature> (g1_Thermostat) {nest="<[structures(Home).postal_code]"}
-String   NestHome_time_zone "Time Zone [%s]"          <temperature> (g1_Thermostat) {nest="<[structures(Home).time_zone]"}
-String   NestHome_away "Home/Away [%s]" <present>     <temperature> (g1_Thermostat) {nest="=[structures(Home).away]"}
-String   NestHome_structure_id "Structure Id [%s]"    <temperature> (g1_Thermostat) {nest="<[structures(Home).structure_id]"}
+String   NestHome_name "Name [%s]"                    {nest="<[structures(Home).name]"}
+String   NestHome_country_code "Country Code [%s]"    {nest="<[structures(Home).country_code]"}
+String   NestHome_postal_code "Postal Code [%s]"      {nest="<[structures(Home).postal_code]"}
+String   NestHome_time_zone "Time Zone [%s]"          {nest="<[structures(Home).time_zone]"}
+String   NestHome_away "Home/Away [%s]" <present>     {nest="=[structures(Home).away]"}
+String   NestHome_structure_id "Structure Id [%s]"    {nest="<[structures(Home).structure_id]"}
 
 /* Thermostats - change Upstairs to your thermostat's name */
 
-Number   NestTStatHome_humidity "Humidity [%d %%]"                                                  <softner> (g1_Thermostat) {nest="<[thermostats(Home).humidity]"}
-String   NestTStatHome_locale "Locale [%s]"                                                         <temperature> (g1_Thermostat) {nest="<[thermostats(Home).locale]"}
-String   NestTStatHome_temperature_scale "Temperature Scale [%s]"                                   <temperature> (g1_Thermostat) {nest="<[thermostats(Home).temperature_scale]"}
-Switch   NestTStatHome_is_using_emergency_heat "Is using emergency heat [%s]"                       <temperature> (g1_Thermostat) {nest="<[thermostats(Home).is_using_emergency_heat]"}
-Switch   NestTStatHome_has_fan "Has Fan [%s]"                                                       <temperature> (g1_Thermostat) {nest="<[thermostats(Home).has_fan]"}
-String   NestTStatHome_software_version "Software Version [%s]"                                     <temperature> (g1_Thermostat) {nest="<[thermostats(Home).software_version]"}
-Switch   NestTStatHome_has_leaf "Has Leaf [%s]"                                                     <temperature> (g1_Thermostat) {nest="<[thermostats(Home).has_leaf]"}
-String   NestTStatHome_device_id "Device Id [%s]"                                                   <temperature> (g1_Thermostat) {nest="<[thermostats(Home).device_id]"}
-String   NestTStatHome_name "Name [%s]"                                                             <temperature> (g1_Thermostat) {nest="<[thermostats(Home).name]"}
-Switch   NestTStatHome_can_heat "Can Heat [%s]"                                                     <temperature> (g1_Thermostat) {nest="<[thermostats(Home).can_heat]"}
-Switch   NestTStatHome_can_cool "Can Cool [%s]"                                                     <temperature> (g1_Thermostat) {nest="<[thermostats(Home).can_cool]"}
-String   NestTStatHome_hvac_mode "HVAC Mode [%s]" <climate>                                         <temperature> (g1_Thermostat) {nest="=[thermostats(Home).hvac_mode]"}
-Number   NestTStatHome_target_temperature_c "Target Temperature [%.1f °C]"                          <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_c]"}
-Number   NestTStatHome_target_temperature_f "Target Temperature [%.1f °F]" <temperature>            <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_f]"}
-Number   NestTStatHome_target_temperature_high_c "Target Temperature High [%.1f °C]"                <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_high_c]"}
-Number   NestTStatHome_target_temperature_high_f "Target Temperature High [%.1f °F]"                <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_high_f]"}
-Number   NestTStatHome_target_temperature_low_c "Target Temperature Low [%.1f °C]"                  <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_low_c]"}
-Number   NestTStatHome_target_temperature_low_f "Target Temperature Low [%.1f °F]"                  <temperature> (g1_Thermostat) {nest="=[thermostats(Home).target_temperature_low_f]"}
-Number   NestTStatHome_ambient_temperature_c "Ambient Temperature [%.1f °C]"                        <temperature> (g1_Thermostat) {nest="<[thermostats(Home).ambient_temperature_c]"}
-Number   NestTStatHome_ambient_temperature_f "Ambient Temperature [%.1f °F]"                        <temperature> (g1_Thermostat) {nest="<[thermostats(Home).ambient_temperature_f]"}
-Number   NestTStatHome_away_temperature_high_c "Away Temperature High [%.1f °C]"                    <temperature> (g1_Thermostat) {nest="<[thermostats(Home).away_temperature_high_c]"}
-Number   NestTStatHome_away_temperature_high_f "Away Temperature High [%.1f °F]"                    <temperature> (g1_Thermostat) {nest="<[thermostats(Home).away_temperature_high_f]"}
-Number   NestTStatHome_away_temperature_low_c "Away Temperature Low [%.1f °C]"                      <temperature> (g1_Thermostat) {nest="<[thermostats(Home).away_temperature_low_c]"}
-Number   NestTStatHome_away_temperature_low_f "Away Temperature Low [%.1f °F]"                      <temperature> (g1_Thermostat) {nest="<[thermostats(Home).away_temperature_low_f]"}
-String   NestTStatHome_structure_id "Structure Id [%s]"                                             <temperature> (g1_Thermostat) {nest="<[thermostats(Home).structure_id]"}
-Switch   NestTStatHome_fan_timer_active "Fan Timer Active [%s]"                                     <temperature> (g1_Thermostat) {nest="=[thermostats(Home).fan_timer_active]"}
-DateTime NestTStatHome_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"  <calendar> (g1_Thermostat) {nest="<[thermostats(Home).fan_timer_timeout]"}
-String   NestTStatHome_name_long "Name Long [%s]"                                                   <temperature> (g1_Thermostat) {nest="<[thermostats(Home).name_long]"}
-Switch   NestTStatHome_is_online "Is Online [%s]"                                                   <temperature> (g1_Thermostat) {nest="<[thermostats(Home).is_online]"}
-DateTime NestTStatHome_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"      <calendar> (g1_Thermostat) {nest="<[thermostats(Home).last_connection]"}
-/* Added in openHAB 1.7.1: */
-String   NestTStatHome_hvac_state "HVAC State [%s]"                                                 <temperature> (g1_Thermostat, gMyOpenHAB) {nest="<[thermostats(Home).hvac_state]"}
+Number   NestTStatHome_humidity "Humidity [%d %%]"                                                  {nest="<[thermostats(Hallway).humidity]"}
+Switch   NestTStatHome_is_online "Is Online [%s]"                                                   {nest="<[thermostats(Hallway).is_online]"}
+DateTime NestTStatHome_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"      {nest="<[thermostats(Hallway).last_connection]"}
+String   NestTStatHome_hvac_state "HVAC State [%s]"                                                 {nest="<[thermostats(Hallway).hvac_state]"}
 
 /* Integra Receiver binding Items */
 
 // Power
-Switch onkyoPower           "Power"                     <video> (gB_Receiver, gMyOpenHAB) {onkyo="INIT:hometheater:POWER_QUERY, ON:hometheater:POWER_ON, OFF:hometheater:POWER_OFF"}
-// Sleep
-Number onkyoSleep           "Sleep Timer [%d Min]"      <video> (gB_Receiver) {onkyo="INIT:hometheater:#SLPQSTN, 0:hometheater:#SLPOFF, *:hometheater:#SLP%02X, 0:hometheater:#SLPOFF"}
-// Mute
-Switch onkyoMute            "Mute"                      <video> (gB_Receiver) {onkyo="INIT:hometheater:MUTE_QUERY, ON:hometheater:MUTE, OFF:hometheater:UNMUTE"}
-// Volume
-Dimmer onkyoVolume          "Volume [%d]"               <video> (gB_Receiver) {onkyo="INIT:hometheater:VOLUME_QUERY, INCREASE:hometheater:VOLUME_UP, DECREASE:hometheater:VOLUME_DOWN, *:hometheater:VOLUME_SET"}
-//Source
-Number onkyoSource          "Source"                    <video> (gB_Receiver) {onkyo="INIT:hometheater:SOURCE_QUERY, INCREASE:hometheater:SOURCE_UP, DECREASE:hometheater:SOURCE_DOWN, *:hometheater:SOURCE_SET"}
-//Video Modes
-Number onkyoVideoWide       "Video Wide Mode"           <video> (gB_Receiver) {onkyo="INIT:hometheater:VIDEO_WIDE_QUERY, INCREASE:hometheater:VIDEO_WIDE_NEXT, *:hometheater:#VWM%02X"}
-Number onkyoVideoPicture    "Video Picture Mode"        <video> (gB_Receiver) {onkyo="INIT:hometheater:#VPMQSTN, INCREASE:hometheater:#VPMUP, *:hometheater:#VPM%02X"}
-//Audio Mode
-Number onkyoListenMode      "Listen Mode"               <video> (gB_Receiver) {onkyo="INIT:hometheater:LISTEN_MODE_QUERY, INCREASE:hometheater:LISTEN_MODE_UP, DECREASE:hometheater:LISTEN_MODE_DOWN, *:hometheater:#LMD%02X"}
-Switch onkyoAudysseyDynEQ   "Audysses Dynamic EQ"       <video> (gB_Receiver) {onkyo="INIT:hometheater:#ADQQSTN, OFF:hometheater:#ADQ00, ON:hometheater:#ADQ01"}
-Number onkyoAudysseyDynVol  "Audysses Dynamic Volume"   <video> (gB_Receiver) {onkyo="INIT:hometheater:#ADVQSTN, INCREASE:hometheater:#ADVUP, *:hometheater:#ADV%02X"}
-//Information
-String onkyoAudio           "Audio [%s]"                <video> (gB_Receiver) {onkyo="INIT:hometheater:#IFAQSTN"}
-String onkyoVideo           "Video [%s]"                <video> (gB_Receiver) {onkyo="INIT:hometheater:#IFVQSTN"}
-// Display
-Number onkyoDisplayMode     "Display Mode"              <video> (gB_Receiver) {onkyo="INIT:hometheater:#DIFQSTN, INCREASE:hometheater:#DIFTG, *:hometheater:#DIF%02X"}
-Number onkyoDimmerLevel     "Display Dimmer Level"      <video> (gB_Receiver) {onkyo="INIT:hometheater:#DIMQSTN, INCREASE:hometheater:#DIMDIM, *:hometheater:#DIM%02X"}
-
-// Zone 2
-// Power
-Switch onkyoZ2Power         "Power"                     <video> (gB_Receiver) {onkyo="INIT:hometheater:ZONE2_POWER_QUERY, ON:hometheater:ZONE2_POWER_ON, OFF:hometheater:ZONE2_POWER_OFF"}
-// Mute
-Switch onkyoZ2Mute          "Mute"                      <video> (gB_Receiver) {onkyo="INIT:hometheater:ZONE2_MUTE_QUERY:, ON:hometheater:ZONE2_MUTE, OFF:hometheater:ZONE2_UNMUTE"}
-// Volume
-Dimmer onkyoZ2Volume        "Volume [%d]"               <video> (gB_Receiver) {onkyo="INIT:hometheater:ZONE2_VOLUME_QUERY, INCREASE:hometheater:ZONE2_VOLUME_UP, DECREASE:hometheater:ZONE2_VOLUME_DOWN, *:hometheater:ZONE2_VOLUME_SET"}
-//Source
-Number onkyoZ2Source        "Source"                    <video> (gB_Receiver) {onkyo="INIT:hometheater:ZONE2_SOURCE_QUERY, INCREASE:hometheater:ZONE2_SOURCE_UP, DECREASE:hometheater:ZONE2_SOURCE_DOWN, *:hometheater:ZONE2_SOURCE_SET"}
-
-// NET/USB
-// Controls
-Switch onkyoNETPlay         "Play"                      <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_PLAY", autoupdate="false"}
-Switch onkyoNETPause        "Pause"                     <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_PAUSE", autoupdate="false"}
-Switch onkyoNETStop         "Stop"                      <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_STOP", autoupdate="false"}
-Switch onkyoNETTrackUp      "Track Up"                  <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_TRACKUP", autoupdate="false"}
-Switch onkyoNETTrackDown    "Track Down"                <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_TRACKDWN", autoupdate="false"}
-Switch onkyoNETFF           "Fast Forward"              <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_FF", autoupdate="false"}
-Switch onkyoNETREW          "Rewind"                    <video> (gB_Receiver) { onkyo="ON:hometheater:NETUSB_OP_REW", autoupdate="false"}
-Number onkyoNETService      "Service"                   <video> (gB_Receiver) { onkyo="INIT:hometheater:#NSVQST, *:hometheater:#NSV%02X0"}
-Number onkyoNETList         "Select List Item"          <video> (gB_Receiver) { onkyo="*:hometheater:#NLSL%01X"}
-// Information
-String onkyoNETArtist       "Artist [%s]"               <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_SONG_ARTIST_QUERY"}
-String onkyoNETAlbum        "Album [%s]"                <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_SONG_ALBUM_QUERY"}
-String onkyoNETTitle        "Title [%s]"                <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_SONG_TITLE_QUERY"}
-String onkyoNETTrack        "Track [%s]"                <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_SONG_TRACK_QUERY"}
-String onkyoNETTime         "Time [%s]"                 <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_SONG_ELAPSEDTIME_QUERY"}
-String onkyoNETPlayStatus   "Play Status [%s]"          <video> (gB_Receiver) {onkyo="INIT:hometheater:NETUSB_PLAY_STATUS_QUERY"}
-
-/* Epson binding Items */
-
-/*Switch epsonPower                             <video> (gB_Projector) { epsonprojector="hometheater:Power:60000" }
-String epsonSource        "Source [%s]"         <video> (gB_Projector) { epsonprojector="hometheater:Source:ON,60000" }
-Number epsonDirectSource  "Direct Source"       <video> (gB_Projector) { epsonprojector="hometheater:DirectSource:ON,60000"}
-
-Switch epsonMute                                <video> (gB_Projector) { epsonprojector="hometheater:Mute:ON,60000" }
-
-Switch epsonHorizontalReverse                   <video> (gB_Projector) { epsonprojector="hometheater:HorizontalReverse:ON,60000" }
-Switch epsonVerticalReverse                     <video> (gB_Projector) { epsonprojector="hometheater:VerticalReverse:ON,60000" }
-
-String epsonAspectRatio       "AspectRatio [%s]"        <video> (gB_Projector) { epsonprojector="hometheater:AspectRatio:ON,60000" }
-String epsonColorMode         "ColorMode [%s]"          <video> (gB_Projector) { epsonprojector="hometheater:ColorMode:ON,60000" }
-Number epsonColorTemperature  "Color Temperature [%d]"  <colorwheel> (gB_Projector) { epsonprojector="<hometheater:ColorTemperature:ON,60000" }
-
-Number epsonLampTime    "Lamp Time [%d h]"              <switch> (gB_Projector) { epsonprojector="<hometheater:LampTime:60000" }
-Number epsonErrCode     "ErrCode [%d]"                  <"siren-on"> (gB_Projector) { epsonprojector="<hometheater:ErrCode:ON,60000" }
-String epsonErrMessage  "ErrMessage [%s]"               <"siren-off"> (gB_Projector) { epsonprojector="<hometheater:ErrMessage:ON,60000" }
-*/
-
-/* Weather Items */
-
-Group Weather_Chart													(Weather)
-Number Weather_Temperature 		"Outside Temperature [%.1f °F]"	<temperature> (Weather_Chart) { weather="locationId=home, type=temperature, property=current", unit=fahrenheit }
-Number Weather_Humidity 		"Outside Humidity [%.1f %%]"	<temperature> (Weather) { weather="locationId=home, type=atmosphere, property=humidity" }
-Number Weather_Humidex			"Humidex [SCALE(humidex.scale):%s]" 			(Weather)
-Number Weather_Temp_Max 		"Todays Maximum [%.1f °F]"	<temperature> (Weather_Chart)
-Number Weather_Temp_Min 		"Todays Minimum [%.1f °F]"	<temperature> (Weather_Chart)
-Number Weather_Chart_Period		"Chart Period"
-DateTime Weather_LastUpdate		"Last Update [%1$ta %1$tR]"	<clock>
+Switch onkyoPower           "Power"                     {onkyo="INIT:hometheater:POWER_QUERY, ON:hometheater:POWER_ON, OFF:hometheater:POWER_OFF"}
