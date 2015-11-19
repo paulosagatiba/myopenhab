@@ -53,3 +53,18 @@ String   Nest_hvac_state "HVAC State [%s]"                                  (nes
 /* Integra Receiver binding Items */
 
 Switch integraPower           "Power"                     (integraBasement) {onkyo="INIT:integrareceiver:POWER_QUERY, ON:integrareceiver:POWER_ON, OFF:integrareceiver:POWER_OFF"}
+//Number integraSleep           "Sleep Timer [%d Min]"      {onkyo="INIT:integrareceiver:#SLPQSTN, 0:integrareceiver:#SLPOFF, *:integrareceiver:#SLP%02X, 0:integrareceiver:#SLPOFF"}
+Switch integraMute            "Mute"                      (integraBasement) {onkyo="INIT:integrareceiver:MUTE_QUERY, ON:integrareceiver:MUTE, OFF:integrareceiver:UNMUTE"}
+Dimmer integraVolume          "Volume [%d]"               (integraBasement) {onkyo="INIT:integrareceiver:VOLUME_QUERY, INCREASE:integrareceiver:VOLUME_UP, DECREASE:integrareceiver:VOLUME_DOWN, *:integrareceiver:VOLUME_SET"}
+Number integraSource          "Source"                    (integraBasement) {onkyo="INIT:integrareceiver:SOURCE_QUERY, INCREASE:integrareceiver:SOURCE_UP, DECREASE:integrareceiver:SOURCE_DOWN, *:integrareceiver:SOURCE_SET"}
+String integraAudio           "Audio [%s]"                (integraBasement) {onkyo="INIT:integrareceiver:#IFAQSTN"}
+//Zone 2
+Switch integraZ2Power         "Zone 2 Power"              (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_POWER_QUERY, ON:integrareceiver:ZONE2_POWER_ON, OFF:integrareceiver:ZONE2_POWER_OFF"}
+Switch integraZ2Mute          "Zone 2 Mute"               (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_MUTE_QUERY:, ON:integrareceiver:ZONE2_MUTE, OFF:integrareceiver:ZONE2_UNMUTE"}
+Dimmer integraZ2Volume        "Zone 2 Volume [%d]"        (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_VOLUME_QUERY, INCREASE:integrareceiver:ZONE2_VOLUME_UP, DECREASE:integrareceiver:ZONE2_VOLUME_DOWN, *:integrareceiver:ZONE2_VOLUME_SET"}
+Number integraZ2Source        "Zone 2 Source"             (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_SOURCE_QUERY, INCREASE:integrareceiver:ZONE2_SOURCE_UP, DECREASE:integrareceiver:ZONE2_SOURCE_DOWN, *:integrareceiver:ZONE2_SOURCE_SET"}
+//NET/USB
+String integraNETPlayStatus   "Play Status [%s]"          (integraBasement) {onkyo="INIT:integrareceiver:NETUSB_PLAY_STATUS_QUERY"}
+Switch integraNETPlay         "Play"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PLAY", autoupdate="false"}
+Switch integraNETPause        "Pause"                     (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PAUSE", autoupdate="false"}
+Switch integraNETStop         "Stop"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_STOP", autoupdate="false"}
