@@ -9,21 +9,62 @@ DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]"  
 
 /* Structures - change Home to your structure's name */
 
-String   NestHome_name "Name [%s]"                    {nest="<[structures(Home).name]"}
-String   NestHome_country_code "Country Code [%s]"    {nest="<[structures(Home).country_code]"}
-String   NestHome_postal_code "Postal Code [%s]"      {nest="<[structures(Home).postal_code]"}
-String   NestHome_time_zone "Time Zone [%s]"          {nest="<[structures(Home).time_zone]"}
-String   NestHome_away "Home/Away [%s]"               (nestThermostat) {nest="=[structures(Home).away]"}
-String   NestHome_structure_id "Structure Id [%s]"    {nest="<[structures(Home).structure_id]"}
+//String   NestHome_name "Name [%s]"                    {nest="<[structures(Home).name]"}
+//String   NestHome_country_code "Country Code [%s]"    {nest="<[structures(Home).country_code]"}
+//String   NestHome_postal_code "Postal Code [%s]"      {nest="<[structures(Home).postal_code]"}
+//String   NestHome_time_zone "Time Zone [%s]"          {nest="<[structures(Home).time_zone]"}
+String   NestHome_away "Home/Away [%s]"               <present> (nestThermostat) {nest="=[structures(Home).away]"}
+//String   NestHome_structure_id "Structure Id [%s]"    {nest="<[structures(Home).structure_id]"}
 
-/* Thermostats - change Upstairs to your thermostat's name */
+/* Thermostats - change to your thermostat's name */
 
-Number   NestTStatHome_humidity "Humidity [%d %%]"                                                  {nest="<[thermostats(Hallway).humidity]"}
-Switch   NestTStatHome_is_online "Is Online [%s]"                                                   {nest="<[thermostats(Hallway).is_online]"}
-DateTime NestTStatHome_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"      {nest="<[thermostats(Hallway).last_connection]"}
-String   NestTStatHome_hvac_state "HVAC State [%s]"                                                 {nest="<[thermostats(Hallway).hvac_state]"}
+Number   Nest_humidity "Humidity [%d %%]"                                   (nestThermostat) {nest="<[thermostats(Hallway).humidity]"}
+//String   Nest_locale "Locale [%s]"                                          {nest="<[thermostats(Hallway).locale]"}
+//String   Nest_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Hallway).temperature_scale]"}
+//Switch   Nest_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Hallway).is_using_emergency_heat]"}
+//Switch   Nest_has_fan "Has Fan [%s]"                                        {nest="<[thermostats(Hallway).has_fan]"}
+//String   Nest_software_version "Software Version [%s]"                      {nest="<[thermostats(Hallway).software_version]"}
+Switch   Nest_has_leaf "Has Leaf [%s]"                                      (nestThermostat) {nest="<[thermostats(Hallway).has_leaf]"}
+//String   Nest_device_id "Device Id [%s]"                                    {nest="<[thermostats(Hallway).device_id]"}
+//String   Nest_name "Name [%s]"                                              {nest="<[thermostats(Hallway).name]"}
+Switch   Nest_can_heat "Can Heat [%s]"                                      (nestThermostat) {nest="<[thermostats(Hallway).can_heat]"}
+Switch   Nest_can_cool "Can Cool [%s]"                                      (nestThermostat) {nest="<[thermostats(Hallway).can_cool]"}
+String   Nest_hvac_mode "HVAC Mode [%s]"                                    (nestThermostat) {nest="=[thermostats(Hallway).hvac_mode]"}
+//Number   Nest_target_temperature_c "Target Temperature [%.1f °C]"           {nest="=[thermostats(Hallway).target_temperature_c]"}
+Number   Nest_target_temperature_f "Target Temperature [%.1f °F]"           (nestThermostat) {nest="=[thermostats(Hallway).target_temperature_f]"}
+//Number   Nest_target_temperature_high_c "Target Temperature High [%.1f °C]" {nest="=[thermostats(Hallway).target_temperature_high_c]"}
+Number   Nest_target_temperature_high_f "Target Temperature High [%.1f °F]" (nestThermostat) {nest="=[thermostats(Hallway).target_temperature_high_f]"}
+//Number   Nest_target_temperature_low_c "Target Temperature Low [%.1f °C]"   {nest="=[thermostats(Hallway).target_temperature_low_c]"}
+Number   Nest_target_temperature_low_f "Target Temperature Low [%.1f °F]"   (nestThermostat) {nest="=[thermostats(Hallway).target_temperature_low_f]"}
+//Number   Nest_ambient_temperature_c "Ambient Temperature [%.1f °C]"         {nest="<[thermostats(Hallway).ambient_temperature_c]"}
+Number   Nest_ambient_temperature_f "Ambient Temperature [%.1f °F]"         (nestThermostat) {nest="<[thermostats(Hallway).ambient_temperature_f]"}
+//Number   Nest_away_temperature_high_c "Away Temperature High [%.1f °C]"     {nest="<[thermostats(Hallway).away_temperature_high_c]"}
+Number   Nest_away_temperature_high_f "Away Temperature High [%.1f °F]"     (nestThermostat) {nest="<[thermostats(Hallway).away_temperature_high_f]"}
+//Number   Nest_away_temperature_low_c "Away Temperature Low [%.1f °C]"       {nest="<[thermostats(Hallway).away_temperature_low_c]"}
+Number   Nest_away_temperature_low_f "Away Temperature Low [%.1f °F]"       (nestThermostat) {nest="<[thermostats(Hallway).away_temperature_low_f]"}
+//String   Nest_structure_id "Structure Id [%s]"                              {nest="<[thermostats(Hallway).structure_id]"}
+Switch   Nest_fan_timer_active "Fan Timer Active [%s]"                      (nestThermostat) {nest="=[thermostats(Hallway).fan_timer_active]"}
+DateTime Nest_fan_timer_timeout "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> (nestThermostat) {nest="<[thermostats(Hallway).fan_timer_timeout]"}
+//String   Nest_name_long "Name Long [%s]"                                    {nest="<[thermostats(Hallway).name_long]"}
+//Switch   Nest_is_online "Is Online [%s]"                                    {nest="<[thermostats(Hallway).is_online]"}
+DateTime Nest_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> (nestThermostat) {nest="<[thermostats(Hallway).last_connection]"}
+String   Nest_hvac_state "HVAC State [%s]"                                  (nestThermostat) {nest="<[thermostats(Hallway).hvac_state]"}                                        {nest="<[thermostats(Hallway).hvac_state]"}
 
 /* Integra Receiver binding Items */
 
-// Power
-Switch onkyoPower           "Power"                     (integraBasement) {onkyo="INIT:integrareceiver:POWER_QUERY, ON:integrareceiver:POWER_ON, OFF:integrareceiver:POWER_OFF"}
+Switch integraPower           "Power"                     (integraBasement) {onkyo="INIT:integrareceiver:POWER_QUERY, ON:integrareceiver:POWER_ON, OFF:integrareceiver:POWER_OFF"}
+//Number integraSleep           "Sleep Timer [%d Min]"      {onkyo="INIT:integrareceiver:#SLPQSTN, 0:integrareceiver:#SLPOFF, *:integrareceiver:#SLP%02X, 0:integrareceiver:#SLPOFF"}
+Switch integraMute            "Mute"                      (integraBasement) {onkyo="INIT:integrareceiver:MUTE_QUERY, ON:integrareceiver:MUTE, OFF:integrareceiver:UNMUTE"}
+Dimmer integraVolume          "Volume [%d]"               (integraBasement) {onkyo="INIT:integrareceiver:VOLUME_QUERY, INCREASE:integrareceiver:VOLUME_UP, DECREASE:integrareceiver:VOLUME_DOWN, *:integrareceiver:VOLUME_SET"}
+Number integraSource          "Source"                    (integraBasement) {onkyo="INIT:integrareceiver:SOURCE_QUERY, INCREASE:integrareceiver:SOURCE_UP, DECREASE:integrareceiver:SOURCE_DOWN, *:integrareceiver:SOURCE_SET"}
+String integraAudio           "Audio [%s]"                (integraBasement) {onkyo="INIT:integrareceiver:#IFAQSTN"}
+//Zone 2
+Switch integraZ2Power         "Zone 2 Power"              (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_POWER_QUERY, ON:integrareceiver:ZONE2_POWER_ON, OFF:integrareceiver:ZONE2_POWER_OFF"}
+Switch integraZ2Mute          "Zone 2 Mute"               (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_MUTE_QUERY:, ON:integrareceiver:ZONE2_MUTE, OFF:integrareceiver:ZONE2_UNMUTE"}
+Dimmer integraZ2Volume        "Zone 2 Volume [%d]"        (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_VOLUME_QUERY, INCREASE:integrareceiver:ZONE2_VOLUME_UP, DECREASE:integrareceiver:ZONE2_VOLUME_DOWN, *:integrareceiver:ZONE2_VOLUME_SET"}
+Number integraZ2Source        "Zone 2 Source"             (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_SOURCE_QUERY, INCREASE:integrareceiver:ZONE2_SOURCE_UP, DECREASE:integrareceiver:ZONE2_SOURCE_DOWN, *:integrareceiver:ZONE2_SOURCE_SET"}
+//NET/USB
+String integraNETPlayStatus   "Play Status [%s]"          (integraBasement) {onkyo="INIT:integrareceiver:NETUSB_PLAY_STATUS_QUERY"}
+Switch integraNETPlay         "Play"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PLAY", autoupdate="false"}
+Switch integraNETPause        "Pause"                     (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PAUSE", autoupdate="false"}
+Switch integraNETStop         "Stop"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_STOP", autoupdate="false"}
