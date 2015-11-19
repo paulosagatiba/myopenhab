@@ -1,5 +1,10 @@
 sitemap home label="Falcons Fire Home"
 {
+  Frame label="Home Theater Modes" {
+    Selection item=Home_Theater_Mode label="Mode Selection" mappings=[0=off, 1=Cable, 2=CablePandora]
+    Switch item=Home_Theater_Mode label="Mode" mappings=[0=off, 1=Cable, 2=CablePandora]
+  }
+  
   Frame {
     Group item=nestThermostat
     Group item=integraBasement
