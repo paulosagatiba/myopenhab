@@ -1,25 +1,7 @@
 sitemap home label="Falcons Fire Home"
 {
   Frame {
-    Text label="Thermostat" icon="house" {
-      Frame label="Home" {
-        Text item=NestHome_name
-        Text item=NestHome_country_code
-        Text item=NestHome_postal_code
-        Text item=NestHome_time_zone
-        Text item=NestHome_away
-        Text item=NestHome_structure_id
-      }
-      Frame label="Thermostat" {
-        Text item=NestTStatHome_humidity
-        Text item=NestTStatHome_is_online
-        Text item=NestTStatHome_last_connection
-        Text item=NestTStatHome_hvac_state
-      }
-    }
-  
-    Text label="Basement Home Theater" icon="house" {
-    	Switch item=onkyoPower
-    }
+    Group item=nestThermostat
+    Group item=integraBasement
   }
 }
