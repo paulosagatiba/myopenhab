@@ -16,3 +16,10 @@ rule "Home Theater ON Mode"
   then
     sendCommand(integraPower, ON)
   end
+  
+  rule "Set Home Theater Mode"
+    when
+      Item integraPower received update OFF
+    then
+      sendCommand(Home_Theater_Mode, 0)
+    end
