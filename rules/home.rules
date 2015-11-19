@@ -1,5 +1,6 @@
 import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
+import org.openhab.core.persistence.*
 
 rule "Home Theater OFF Mode"
   when
