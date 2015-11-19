@@ -1,7 +1,7 @@
 Group All
 
-Group nestThermostat (All)
-Group integraBasement (All)
+Group nestThermostat "Nest Thermostat" (All)
+Group integraBasement "Home Theater" (All)
 
 /* Nest binding Items */
 
