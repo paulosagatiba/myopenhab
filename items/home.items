@@ -68,3 +68,7 @@ String integraNETPlayStatus   "Play Status [%s]"          (integraBasement) {onk
 Switch integraNETPlay         "Play"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PLAY", autoupdate="false"}
 Switch integraNETPause        "Pause"                     (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PAUSE", autoupdate="false"}
 Switch integraNETStop         "Stop"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_STOP", autoupdate="false"}
+
+/* Scene Controller for Home Theater */
+
+Number Home_Theater_Mode			"Home Theater Mode"

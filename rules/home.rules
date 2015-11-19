@@ -1,1 +1,16 @@
+import org.openhab.core.library.types.*
 
+rule "Home Theater OFF Mode"
+  when
+    Item Home_Theater_Mode received update 0
+  then
+    sendcommand(integraPower, OFF)
+  end
+  
+rule "Home Theater ON Mode"
+  when
+    Item Home_Theater_Mode received update 1 or
+    Item Home_Theater_Mode received update 2
+  then
+    sendcommand(integraPower, ON)
+  end
