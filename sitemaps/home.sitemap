@@ -1,7 +1,7 @@
 sitemap home label="Falcons Fire Home"
 {
   Frame label="Home Theater Modes" {
-    Selection item=Home_Theater_Mode label="Mode" mappings=[0=off, 1=Cable, 2=CablePandora]
+    Selection item=Home_Theater_Mode label="Mode" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=CablePandora]
   }
   Frame label="Source" {
     Selection item=integraSource mappings=[0="VCR/DVR", 1="CBL/SAT", 2=GAME, 5=PC, 16="BD/DVD", 35=CD, 43="NET/USB", 45=Airplay, 127=OFF]
