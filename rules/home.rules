@@ -32,8 +32,8 @@ rule "Home Theater Chromecast Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 43) {
-      sendCommand(integraSource, 43)
+    if (integraSource != 2) {
+      sendCommand(integraSource, 2)
     }
   end 
 
