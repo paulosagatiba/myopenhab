@@ -4,22 +4,31 @@ import org.openhab.core.persistence.*
 
 rule "Home Theater OFF Mode"
   when
-    Item Home_Theater_Mode received update 0
+    Item Home_Theater_Mode changed from 1 to 0 or
+    Item Home_Theater_Mode changed from 2 to 0
   then
     sendCommand(integraPower, OFF)
   end
   
 rule "Home Theater ON Mode"
   when
-    Item Home_Theater_Mode received update 1 or
-    Item Home_Theater_Mode received update 2
+    Item Home_Theater_Mode changed from 0 to 1 or
+    Item Home_Theater_Mode changed from 2 to 1
   then
     sendCommand(integraPower, ON)
   end
   
-rule "Set Home Theater Mode"
+rule "Set Home Theater Mode OFF"
   when
-    Item integraPower received update OFF
+    Item integraPower changed from ON to OFF
   then
     sendCommand(Home_Theater_Mode, 0)
+  end
+
+rule "Set Home Theater Mode Cable"
+  when
+    Item integraPower received update ON and
+    Item integraSource received update 1
+  then
+    sendCommand(Home_Theater_Mode, 1)
   end
