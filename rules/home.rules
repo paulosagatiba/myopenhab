@@ -4,18 +4,71 @@ import org.openhab.core.persistence.*
 
 rule "Home Theater OFF Mode"
   when
-    Item Home_Theater_Mode changed from 1 to 0 or
-    Item Home_Theater_Mode changed from 2 to 0
+    Item Home_Theater_Mode received update 0
   then
-    sendCommand(integraPower, OFF)
+    if (integraPower == ON) {
+      sendCommand(integraPower, OFF)
+    }
   end
   
-rule "Home Theater ON Mode"
+rule "Home Theater Cable Mode"
   when
-    Item Home_Theater_Mode changed from 0 to 1 or
-    Item Home_Theater_Mode changed from 2 to 1
+    Item Home_Theater_Mode received update 1
   then
-    sendCommand(integraPower, ON)
+    if (integraPower == OFF) {
+      sendCommand(integraPower, ON)
+    }
+    if (integraSource != 1) {
+      sendCommand(integraSource, 1)
+    }
+  end
+ 
+rule "Home Theater Chromecast Mode"
+  when
+    Item Home_Theater_Mode received update 2
+  then
+    if (integraPower == OFF) {
+      sendCommand(integraPower, ON)
+    }
+    if (integraSource != 43) {
+      sendCommand(integraSource, 43)
+    }
+  end 
+
+rule "Home Theater Fire TV Mode"
+  when
+    Item Home_Theater_Mode received update 3
+  then
+    if (integraPower == OFF) {
+      sendCommand(integraPower, ON)
+    }
+    if (integraSource != 3) {
+      sendCommand(integraSource, 3)
+    }
+  end
+  
+rule "Home Theater Pandora Mode"
+  when
+    Item Home_Theater_Mode received update 4
+  then
+    if (integraPower == OFF) {
+      sendCommand(integraPower, ON)
+    }
+    if (integraSource != 43) {
+      sendCommand(integraSource, 43)
+    }
+  end
+
+rule "Home Theater Cable with Pandora Mode"
+  when
+    Item Home_Theater_Mode received update 5
+  then
+    if (integraPower == OFF) {
+      sendCommand(integraPower, ON)
+    }
+    if (integraSource != 43) {
+      sendCommand(integraSource, 43)
+    }
   end
   
 rule "Set Home Theater Mode OFF"
@@ -25,10 +78,42 @@ rule "Set Home Theater Mode OFF"
     sendCommand(Home_Theater_Mode, 0)
   end
 
-rule "Set Home Theater Mode NET/Pandora"
+rule "Set Home Theater Mode Cable"
+  when
+    Item integraPower received update ON and
+    Item integraSource received update 1
+  then
+    sendCommand(Home_Theater_Mode, 1)
+  end
+  
+rule "Set Home Theater Mode Chromecast"
+  when
+    Item integraPower received update ON and
+    Item integraSource received update 2
+  then
+    sendCommand(Home_Theater_Mode, 2)
+  end
+  
+rule "Set Home Theater Mode Fire TV"
+  when
+    Item integraPower received update ON and
+    Item integraSource received update 3
+  then
+    sendCommand(Home_Theater_Mode, 3)
+  end
+
+rule "Set Home Theater Mode Pandora"
   when
     Item integraPower received update ON and
     Item integraSource received update 43
   then
-    sendCommand(Home_Theater_Mode, 2)
+    sendCommand(Home_Theater_Mode, 4)
+  end
+  
+rule "Set Home Theater Mode Cable with Pandora"
+  when
+    Item integraPower received update ON and
+    Item integraSource received update 55
+  then
+    sendCommand(Home_Theater_Mode, 5)
   end
