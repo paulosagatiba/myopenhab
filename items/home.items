@@ -74,3 +74,4 @@ Switch integraNETStop         "Stop"                      (integraBasement) { on
 /* Scene Controller for Home Theater */
 
 Number Home_Theater_Mode			"Home Theater Mode"
+Number Bar_Speaker_Mode       "Bar Speaker Mode"
