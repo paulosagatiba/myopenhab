@@ -67,9 +67,11 @@ Dimmer integraZ2Volume        "Zone 2 Volume [%d]"        (integraBasement) {onk
 Number integraZ2Source        "Zone 2 Source"             (integraBasement) {onkyo="INIT:integrareceiver:ZONE2_SOURCE_QUERY, INCREASE:integrareceiver:ZONE2_SOURCE_UP, DECREASE:integrareceiver:ZONE2_SOURCE_DOWN, *:integrareceiver:ZONE2_SOURCE_SET"}
 //NET/USB
 String integraNETPlayStatus   "Play Status [%s]"          (integraBasement) {onkyo="INIT:integrareceiver:NETUSB_PLAY_STATUS_QUERY"}
-Switch integraNETPlay         "Play"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PLAY", autoupdate="false"}
-Switch integraNETPause        "Pause"                     (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_PAUSE", autoupdate="false"}
-Switch integraNETStop         "Stop"                      (integraBasement) { onkyo="ON:integrareceiver:NETUSB_OP_STOP", autoupdate="false"}
+Switch integraNETPlay         "Play"                      (integraBasement) {onkyo="ON:integrareceiver:NETUSB_OP_PLAY", autoupdate="false"}
+Switch integraNETPause        "Pause"                     (integraBasement) {onkyo="ON:integrareceiver:NETUSB_OP_PAUSE", autoupdate="false"}
+Switch integraNETStop         "Stop"                      (integraBasement) {onkyo="ON:integrareceiver:NETUSB_OP_STOP", autoupdate="false"}
+Number integraNETService      "Service"                   {onkyo="INIT:integrareceiver:#NSVQST, *:integrareceiver:#NSV%02X0"}
+Number integraNETList         "Select List Item"          {onkyo="*:integrareceiver:#NLSL%01X"}
 
 /* Scene Controller for Home Theater */
 
