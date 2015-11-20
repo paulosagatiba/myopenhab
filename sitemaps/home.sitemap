@@ -1,7 +1,8 @@
 sitemap home label="Falcons Fire Home"
 {
-  Frame label="Home Theater Modes" {
-    Selection item=Home_Theater_Mode label="Mode" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora]
+  Frame {
+    Selection item=Home_Theater_Mode label="Home Theater Mode" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora]
+    Selection item=Bar_Speaker_Mode label="Bar Speaker Mode" mappings=[0=off, 4=Pandora]
   }
   Text label="Basement Receiver" {
     Frame label="Main" {
@@ -11,7 +12,7 @@ sitemap home label="Falcons Fire Home"
       Text item=integraAudio
       Text item=integraVideo
     }
-    Frame label="Zone 2" {
+    Frame label="Bar Speakers" {
       Switch item=integraZ2Power
       Selection item=integraZ2Source mappings=[43="NET/USB", 45="Airplay", 127="OFF"]
     }
