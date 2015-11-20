@@ -25,10 +25,10 @@ rule "Set Home Theater Mode OFF"
     sendCommand(Home_Theater_Mode, 0)
   end
 
-rule "Set Home Theater Mode Cable"
+rule "Set Home Theater Mode NET/Pandora"
   when
     Item integraPower received update ON and
-    Item integraSource received update 1
+    Item integraSource received update 43
   then
-    sendCommand(Home_Theater_Mode, 1)
+    sendCommand(Home_Theater_Mode, 2)
   end
