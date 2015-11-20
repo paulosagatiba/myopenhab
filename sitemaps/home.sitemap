@@ -4,21 +4,20 @@ sitemap home label="Falcons Fire Home"
     Selection item=Home_Theater_Mode mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora]
     Selection item=Bar_Speaker_Mode mappings=[0=off, 4=Pandora]
   }
-  Text label="Basement Receiver" {
-    Frame label="Main" {
-      Switch item=integraPower
-      Selection item=integraSource mappings=[0="DVD", 1="CBL/SAT", 2="Chromecast", 3="FireTV", 4="HDMI AUX 5", 5="HDMI AUX 6", 16="BD/DVD", 35="CD", 36="FM", 43="NET/USB", 45=Airplay, 127=OFF]
-      Selection item=integraListenMode mappings=[0=Stereo, 1=Direct, 2=Surround, 15=Mono, 31="Whole House Mode", 66="THX Cinema", 31="Whole House"]
-      Text item=integraAudio
-      Text item=integraVideo
-    }
-    Frame label="Bar Speakers" {
-      Switch item=integraZ2Power
-      Selection item=integraZ2Source mappings=[43="NET/USB", 45="Airplay", 127="OFF"]
-    }
-  }
-  
   Frame {
+    Text label="Basement Receiver" {
+      Frame label="Main" {
+        Switch item=integraPower
+        Selection item=integraSource mappings=[0="DVD", 1="CBL/SAT", 2="Chromecast", 3="FireTV", 4="HDMI AUX 5", 5="HDMI AUX 6", 16="BD/DVD", 35="CD", 36="FM", 43="NET/USB", 45=Airplay, 127=OFF]
+        Selection item=integraListenMode mappings=[0=Stereo, 1=Direct, 2=Surround, 15=Mono, 31="Whole House Mode", 66="THX Cinema", 31="Whole House"]
+        Text item=integraAudio
+        Text item=integraVideo
+      }
+      Frame label="Bar Speakers" {
+        Switch item=integraZ2Power
+        Selection item=integraZ2Source mappings=[43="NET/USB", 45="Airplay", 127="OFF"]
+      }
+    }
     Group item=nestThermostat
   }
 }
