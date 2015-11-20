@@ -2,6 +2,8 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
+// Sending Commands for Home Theater to Receiver
+
 rule "Home Theater OFF Mode"
   when
     Item Home_Theater_Mode received update 0
@@ -70,7 +72,9 @@ rule "Home Theater Cable with Pandora Mode"
       sendCommand(integraSource, 43)
     }
   end
-  
+
+// Check Receiver and make sure Home_Theater_Mode reflects correct mode
+
 rule "Set Home Theater Mode OFF"
   when
     Item integraPower changed from ON to OFF
@@ -116,4 +120,44 @@ rule "Set Home Theater Mode Cable with Pandora"
     Item integraSource received update 55
   then
     sendCommand(Home_Theater_Mode, 5)
+  end
+
+// Sending Commands for Bar Speaker Mode to Receiver
+
+rule "Bar Speakers OFF Mode"
+  when
+    Item Bar_Speaker_Mode received update 0
+  then
+    if (integraZ2Power == ON) {
+      sendCommand(integraZ2Power, OFF)
+    }
+  end
+  
+rule "Bar Speakers Pandora Mode"
+  when
+    Item Bar_Speaker_Mode received update 4
+  then
+    if (integraZ2Power == OFF) {
+      sendCommand(integraZ2Power, ON)
+    }
+    if (integraZ2Source != 43) {
+      sendCommand(integraZ2Source, 43)
+    }
+  end
+  
+// Check Receiver and make sure Bar_Speaker_Mode reflects correct mode
+
+rule "Set Bar Speaker Mode OFF"
+  when
+    Item integraZ2Power changed from ON to OFF
+  then
+    sendCommand(Bar_Speaker_Mode, 0)
+  end
+  
+rule "Set Bar Speaker Mode Pandora"
+  when
+    Item integraZ2Power received update ON and
+    Item integraZ2Source received update 43
+  then
+    sendCommand(Bar_Speaker_Mode, 4)
   end
