@@ -57,6 +57,7 @@ Switch integraPower           "Power"                     (integraBasement) {onk
 Switch integraMute            "Mute"                      (integraBasement) {onkyo="INIT:integrareceiver:MUTE_QUERY, ON:integrareceiver:MUTE, OFF:integrareceiver:UNMUTE"}
 Dimmer integraVolume          "Volume [%d]"               (integraBasement) {onkyo="INIT:integrareceiver:VOLUME_QUERY, INCREASE:integrareceiver:VOLUME_UP, DECREASE:integrareceiver:VOLUME_DOWN, *:integrareceiver:VOLUME_SET"}
 Number integraSource          "Source"                    (integraBasement) {onkyo="INIT:integrareceiver:SOURCE_QUERY, INCREASE:integrareceiver:SOURCE_UP, DECREASE:integrareceiver:SOURCE_DOWN, *:integrareceiver:SOURCE_SET"}
+Number integraListenMode     "Listen Mode"                {onkyo="INIT:integrareceiver:LISTEN_MODE_QUERY, INCREASE:integrareceiver:LISTEN_MODE_UP, DECREASE:integrareceiver:LISTEN_MODE_DOWN, *:integrareceiver:#LMD%02X"}
 String integraAudio           "Audio [%s]"                (integraBasement) {onkyo="INIT:integrareceiver:#IFAQSTN"}
 String integraVideo           "Video [%s]"                {onkyo="INIT:integrareceiver:#IFVQSTN"}
 //Zone 2
