@@ -1,8 +1,8 @@
 sitemap home label="Falcons Fire Home"
 {
   Frame {
-    Selection item=Home_Theater_Mode label="Home Theater Mode" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora]
-    Selection item=Bar_Speaker_Mode label="Bar Speaker Mode" mappings=[0=off, 4=Pandora]
+    Selection item=Home_Theater_Mode mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora]
+    Selection item=Bar_Speaker_Mode mappings=[0=off, 4=Pandora]
   }
   Text label="Basement Receiver" {
     Frame label="Main" {
