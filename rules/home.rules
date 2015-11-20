@@ -32,8 +32,8 @@ rule "Home Theater Chromecast Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 3) {
-      sendCommand(integraSource, 3)
+    if (integraSource != 7) {
+      sendCommand(integraSource, 7)
     }
   end 
 
@@ -44,8 +44,8 @@ rule "Home Theater Fire TV Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 4) {
-      sendCommand(integraSource, 4)
+    if (integraSource != 5) {
+      sendCommand(integraSource, 5)
     }
   end
   
@@ -68,8 +68,8 @@ rule "Home Theater Cable with Pandora Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 5) {
-      sendCommand(integraSource, 5)
+    if (integraSource != 8) {
+      sendCommand(integraSource, 8)
     }
   end
 
