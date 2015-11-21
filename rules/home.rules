@@ -60,15 +60,15 @@ rule "Home Theater Mode"
     
     if (integraPower.state == OFF) {
       sendCommand(Home_Theater_Mode, 0)
-    } else if (integraPower.state == ON && integraSource.state = 1) {
+    } else if (integraPower.state == ON && integraSource.state == 1) {
       sendCommand(Home_Theater_Mode, 1)
-    } else if (integraPower.state == ON && integraSource.state = 11) {
+    } else if (integraPower.state == ON && integraSource.state == 11) {
       sendCommand(Home_Theater_Mode, 2)
-    } else if (integraPower.state == ON && integraSource.state = 5) {
+    } else if (integraPower.state == ON && integraSource.state == 5) {
       sendCommand(Home_Theater_Mode, 3)
-    } else if (integraPower.state == ON && integraSource.state = 43) {
+    } else if (integraPower.state == ON && integraSource.state == 43) {
       sendCommand(Home_Theater_Mode, 4)
-    } else if (integraPower.state == ON && integraSource.state = 43) {
+    } else if (integraPower.state == ON && integraSource.state == 43) {
       sendCommand(Home_Theater_Mode, 5)
     } else {
       sendCommand(Home_Theater_Mode, 6)
