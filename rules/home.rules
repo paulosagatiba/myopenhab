@@ -8,69 +8,47 @@ rule "Home Theater OFF Mode"
   when
     Item Home_Theater_Mode received update 0
   then
-    if (integraPower == ON) {
-      sendCommand(integraPower, OFF)
-    }
+    sendCommand(integraPower, OFF)
   end
   
 rule "Home Theater Cable Mode"
   when
     Item Home_Theater_Mode received update 1
   then
-    if (integraPower == OFF) {
-      sendCommand(integraPower, ON)
-    }
-    if (integraSource != 1) {
-      sendCommand(integraSource, 1)
-    }
+    sendCommand(integraPower, ON)
+    sendCommand(integraSource, 1)
   end
  
 rule "Home Theater Chromecast Mode"
   when
     Item Home_Theater_Mode received update 2
   then
-    if (integraPower == OFF) {
-      sendCommand(integraPower, ON)
-    }
-    if (integraSource != 13) {
-      sendCommand(integraSource, 13)
-    }
+    sendCommand(integraPower, ON)
+    sendCommand(integraSource, 11)
   end 
 
 rule "Home Theater Fire TV Mode"
   when
     Item Home_Theater_Mode received update 3
   then
-    if (integraPower == OFF) {
-      sendCommand(integraPower, ON)
-    }
-    if (integraSource != 5) {
-      sendCommand(integraSource, 5)
-    }
+    sendCommand(integraPower, ON)
+    sendCommand(integraSource, 5)
   end
   
 rule "Home Theater Pandora Mode"
   when
     Item Home_Theater_Mode received update 4
   then
-    if (integraPower == OFF) {
-      sendCommand(integraPower, ON)
-    }
-    if (integraSource != 43) {
-      sendCommand(integraSource, 43)
-    }
+    sendCommand(integraPower, ON)
+    sendCommand(integraSource, 43)
   end
 
 rule "Home Theater Cable with Pandora Mode"
   when
     Item Home_Theater_Mode received update 5
   then
-    if (integraPower == OFF) {
-      sendCommand(integraPower, ON)
-    }
-    if (integraSource != 43) {
-      sendCommand(integraSource, 43)
-    }
+    sendCommand(integraPower, ON)
+    sendCommand(integraSource, 43)
   end
 
 // Check Receiver and make sure Home_Theater_Mode reflects correct mode
@@ -93,7 +71,7 @@ rule "Set Home Theater Mode Cable"
 rule "Set Home Theater Mode Chromecast"
   when
     Item integraPower received update ON and
-    Item integraSource received update 13
+    Item integraSource received update 11
   then
     sendCommand(Home_Theater_Mode, 2)
   end
@@ -128,21 +106,15 @@ rule "Bar Speakers OFF Mode"
   when
     Item Bar_Speaker_Mode received update 0
   then
-    if (integraZ2Power == ON) {
-      sendCommand(integraZ2Power, OFF)
-    }
+    sendCommand(integraZ2Power, OFF)
   end
   
 rule "Bar Speakers Pandora Mode"
   when
     Item Bar_Speaker_Mode received update 4
   then
-    if (integraZ2Power == OFF) {
-      sendCommand(integraZ2Power, ON)
-    }
-    if (integraZ2Source != 43) {
-      sendCommand(integraZ2Source, 43)
-    }
+    sendCommand(integraZ2Power, ON)
+    sendCommand(integraZ2Source, 43)
   end
   
 // Check Receiver and make sure Bar_Speaker_Mode reflects correct mode
