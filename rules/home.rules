@@ -25,13 +25,6 @@ rule "Home Theater Mode"
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
-      if (integraSource.state != 2) {
-        sendCommand(integraSource, 2)
-      }
-    } else if (Home_Theater_Mode.state == 2) {
-      if (integraPower.state == OFF) {
-        sendCommand(integraPower, ON)
-      }
       if (integraSource.state != 11) {
         sendCommand(integraSource, 11)
       }
