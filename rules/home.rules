@@ -32,8 +32,8 @@ rule "Home Theater Chromecast Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 7) {
-      sendCommand(integraSource, 7)
+    if (integraSource != 13) {
+      sendCommand(integraSource, 13)
     }
   end 
 
@@ -68,8 +68,8 @@ rule "Home Theater Cable with Pandora Mode"
     if (integraPower == OFF) {
       sendCommand(integraPower, ON)
     }
-    if (integraSource != 8) {
-      sendCommand(integraSource, 8)
+    if (integraSource != 43) {
+      sendCommand(integraSource, 43)
     }
   end
 
@@ -93,7 +93,7 @@ rule "Set Home Theater Mode Cable"
 rule "Set Home Theater Mode Chromecast"
   when
     Item integraPower received update ON and
-    Item integraSource received update 2
+    Item integraSource received update 13
   then
     sendCommand(Home_Theater_Mode, 2)
   end
@@ -101,7 +101,7 @@ rule "Set Home Theater Mode Chromecast"
 rule "Set Home Theater Mode Fire TV"
   when
     Item integraPower received update ON and
-    Item integraSource received update 3
+    Item integraSource received update 5
   then
     sendCommand(Home_Theater_Mode, 3)
   end
