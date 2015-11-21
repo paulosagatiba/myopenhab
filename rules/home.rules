@@ -6,8 +6,8 @@ import org.openhab.core.persistence.*
 
 rule "Home Theater Mode"
   when
-    Item Home_Theater_Mode received update and
-    Item integraPower received update and
+    Item Home_Theater_Mode received update or
+    Item integraPower received update or
     Item integraSource received update
   then
     if (Home_Theater_Mode.state == 0) {
