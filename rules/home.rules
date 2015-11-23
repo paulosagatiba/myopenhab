@@ -10,6 +10,7 @@ rule "Home Theater Mode"
     Item integraPower received update or
     Item integraSource received update
   then
+    logDebug("rules", "Home Theater Mode Rule Ran")
     if (Home_Theater_Mode.state == 0) {
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
