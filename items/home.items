@@ -75,5 +75,6 @@ Number integraNETList         "Select List Item"          {onkyo="*:integrarecei
 
 /* Scene Controller for Home Theater */
 
-Number Home_Theater_Mode			"Home Theater Mode"
-Number Bar_Speaker_Mode       "Bar Speaker Mode"
+Number Home_Theater_Mode			    "Home Theater Mode"
+Number Home_Theater_Actual_Mode   "Current Home Theater Mode"
+Number Bar_Speaker_Mode           "Bar Speaker Mode"
