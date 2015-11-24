@@ -6,11 +6,10 @@ import org.openhab.core.persistence.*
 
 rule "Home Theater Mode"
   when
-    Item Home_Theater_Mode received update or
-    Item integraPower received update or
-    Item integraSource received update
+    Item Home_Theater_Mode changed
   then
     logDebug("rules", "Home Theater Mode Rule Ran")
+    
     if (Home_Theater_Mode.state == 0) {
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
@@ -50,6 +49,30 @@ rule "Home Theater Mode"
       if (integraSource.state != 43) {
         sendCommand(integraSource, 43)
       }
+    }
+  end
+
+rule "Set Home Theater Mode"
+  when
+    Item integraPower changed or
+    Item integraSource changed
+  then
+    logDebug("rules", "Set Home Theater Mode Rule Ran")
+    
+    if (integraPower.state == OFF) {
+      sendCommand(Home_Theater_Mode, 0)
+    } else if (integraPower.state == ON && integraSource.state == 1) {
+      sendCommand(Home_Theater_Mode, 1)
+    } else if (integraPower.state == ON && integraSource.state == 17) {
+      sendCommand(Home_Theater_Mode, 2)
+    } else if (integraPower.state == ON && integraSource.state == 5) {
+      sendCommand(Home_Theater_Mode, 3)
+    } else if (integraPower.state == ON && integraSource.state == 43) {
+    sendCommand(Home_Theater_Mode, 4)
+    } else if (integraPower.state == ON && integraSource.state == 43) {
+      sendCommand(Home_Theater_Mode, 5)
+    } else {
+      sendCommand(Home_Theater_Mode, 6)
     }
   end
 
