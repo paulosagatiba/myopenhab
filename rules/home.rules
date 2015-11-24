@@ -10,6 +10,7 @@ rule "Home Theater Mode"
   then
     logDebug("rules", "Home Theater Mode Rule Ran")
     
+    // If someone changes Home_Theater_Mode via gui, change receiver state
     if (Home_Theater_Mode.state == 0) {
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
@@ -59,6 +60,7 @@ rule "Set Home Theater Mode"
   then
     logDebug("rules", "Set Home Theater Mode Rule Ran")
     
+    //If someone changes state of receiver manually, change Home_Theater_Mode
     if (integraPower.state == OFF) {
       sendCommand(Home_Theater_Mode, 0)
     } else if (integraPower.state == ON && integraSource.state == 1) {
