@@ -1,10 +1,12 @@
 sitemap home label="Falcons Fire Home"
 {
-  Frame {
+  Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora, 6=Unknown]
+    Slider item=integraVolume sendFrequency=400
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora]
+    Slider item=integraZ2Volume sendFrequency=400
   }
-  Frame {
+  Frame label="Advanced"{
     Text label="Basement Receiver" icon="cellar" {
       Frame label="Main" {
         Switch item=integraPower
