@@ -80,34 +80,38 @@ rule "Set Home Theater Mode"
 
 // Sending Commands for Bar Speaker Mode to Receiver
 
-rule "Bar Speakers OFF Mode"
+rule "Bar Speaker Mode"
   when
-    Item Bar_Speaker_Mode received update 0
+    Item Bar_Speaker_Mode changed
   then
-    sendCommand(integraZ2Power, OFF)
+    logDebug("rules", "Bar Speaker Mode Rule Ran")
+    
+    if (Bar_Speaker_Mode.state == 0) {
+      if (integraZ2Power.state != OFF) {
+        sendCommand(integraZ2Power, OFF)
+      } 
+    else if (Bar_Speaker_Mode.state == 4 {
+      if (integraZ2Power.state != ON) {
+        sendCommand(integraZ2Power, ON)
+      }
+      if (integraZ2Source.state != 43) {
+        sendCommand(integraZ2Source, 43)
+      }
+    }
   end
   
-rule "Bar Speakers Pandora Mode"
+rule "Set Bar Speaker Mode"
   when
-    Item Bar_Speaker_Mode received update 4
+    Item integraZ2Power changed or
+    Item integraZ2Source changed
   then
-    sendCommand(integraZ2Power, ON)
-    sendCommand(integraZ2Source, 43)
-  end
-  
-// Check Receiver and make sure Bar_Speaker_Mode reflects correct mode
-
-rule "Set Bar Speaker Mode OFF"
-  when
-    Item integraZ2Power changed from ON to OFF
-  then
-    sendCommand(Bar_Speaker_Mode, 0)
-  end
-  
-rule "Set Bar Speaker Mode Pandora"
-  when
-    Item integraZ2Power received update ON and
-    Item integraZ2Source received update 43
-  then
-    sendCommand(Bar_Speaker_Mode, 4)
+    logDebug("rules", "Set Bar Speaker Mode Rule Ran")
+    
+    if (integraZ2Power.state == OFF) {
+      sendCommand(Bar_Speaker_Mode, 0)
+    } else if (integraZ2Power.state == ON && integraZ2Source == 43) {
+      sendCommand(Bar_Speaker_Mode, 4)
+    } else {
+      sendCommand(Bar_Speaker_Mode, 6)
+    }
   end
