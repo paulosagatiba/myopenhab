@@ -1,1 +1,25 @@
-new one
+sitemap home label="Falcons Fire Home 2"
+{
+  Frame label="Home Theater" {
+    Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=CablePandora, 6=Unknown]
+    Slider item=integraVolume sendFrequency=400
+    Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
+    Slider item=integraZ2Volume sendFrequency=400
+  }
+  Frame label="Advanced"{
+    Text label="Basement Receiver" icon="cellar" {
+      Frame label="Main" {
+        Switch item=integraPower
+        Selection item=integraSource mappings=[0="DVD", 1="CBL/SAT", 2="Chromecast", 3="FireTV", 4="HDMI AUX 5", 5="HDMI AUX 6", 16="BD/DVD", 35="CD", 36="FM", 43="NET/USB", 45=Airplay, 127=OFF]
+        Selection item=integraListenMode mappings=[0=Stereo, 1=Direct, 2=Surround, 15=Mono, 31="Whole House Mode", 66="THX Cinema", 31="Whole House"]
+        Text item=integraAudio
+        Text item=integraVideo
+      }
+      Frame label="Bar Speakers" {
+        Switch item=integraZ2Power
+        Selection item=integraZ2Source mappings=[43="NET/USB", 45="Airplay", 127="OFF"]
+      }
+    }
+    Group item=nestThermostat icon="temperature"
+  }
+}
