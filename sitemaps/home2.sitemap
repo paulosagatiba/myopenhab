@@ -1,14 +1,4 @@
 sitemap location label="Location"
 {
-  Frame label="{widget:mode}" {
-    [CONFIG]
-  }
-
-  Frame label="{widget:mode}" {
-    [CONFIG]
-  }
-
-  Frame label="{widget:map,size:fill}" {
-    [CONFIG]
-  }
+  Frame label="{widget:clock}"
 }
