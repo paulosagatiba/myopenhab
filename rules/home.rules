@@ -2,6 +2,26 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
+// Turn Nest thermostat to home
+
+rule "Winter Nest Home"
+  when
+    Item NestHome_away received update "auto-away" and
+    Time cron "0 30 3 ? * MON-FRI"
+  then
+    if (Nest_ambient_temperature_f.state > 68 && Nest_can_heat == TRUE) return false
+    sendCommand(NestHome_away, home)
+  end
+  
+rule "Summer Nest Home"
+  when
+    Item NestHome_away received update "auto-away" and
+    Time cron "0 30 4 ? * MON-FRI"
+  then
+    if (Nest_ambient_temperature_f.state < 75 && Nest_can_cool == TRUE) return false
+    sendCommand(NestHome_away, home)
+  end
+
 // Sending Commands for Home Theater to Receiver
 
 rule "Home Theater Mode"
