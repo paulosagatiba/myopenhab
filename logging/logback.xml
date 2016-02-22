@@ -51,6 +51,7 @@
 	<!-- temporary workaround to circumvent error messages with any obvious effect -->
 	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF" />
 	<logger name="org.atmosphere.cpr.DefaultAnnotationProcessor" level="OFF" />
+	<logger name="org.openhab.model.script.rules" level="DEBUG"/>
 	
 	<root level="WARN">
 		<appender-ref ref="FILE" />
