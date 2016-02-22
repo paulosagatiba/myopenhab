@@ -7,11 +7,10 @@ import org.openhab.core.persistence.*
 rule "Winter Nest Home"
   when
     Item NestHome_away received update "auto-away" and
-    Time cron "* * * * * *"
+    Time cron "0 30 3 ? * MON-FRI"
   then
-    logDebug("rules", "Winter Nest Home Ran1")
     if (Nest_ambient_temperature_f.state < 69 && Nest_can_heat.state == ON) {
-      logDebug("rules", "Winter Nest Home Ran2")
+      logDebug("rules", "Winter Nest - Set to Home")
       sendCommand(NestHome_away, "home")
     }
   end
