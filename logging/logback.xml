@@ -53,11 +53,6 @@
 	<logger name="org.atmosphere.cpr.DefaultAnnotationProcessor" level="OFF" />
 	<logger name="org.openhab.model.script.rules" level="DEBUG"/>
 	
-	<root level="WARN">
-		<appender-ref ref="FILE" />
-		<appender-ref ref="STDOUT" />
-	</root>
-	
 	<appender name="NESTFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
    		<file>logs/nest.log</file>
    		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -75,5 +70,10 @@
 	<logger name="org.openhab.binding.nest" level="TRACE" additivity="false">
 	   <appender-ref ref="NESTFILE" />
 	</logger>
-
+	
+	<root level="WARN">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	
 </configuration>
