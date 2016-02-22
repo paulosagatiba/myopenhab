@@ -12,7 +12,7 @@ rule "Winter Nest Home"
     logDebug("rules", "Winter Nest Home Ran1")
     if (Nest_ambient_temperature_f.state < 69 && Nest_can_heat.state == ON) {
       logDebug("rules", "Winter Nest Home Ran2")
-      sendCommand(NestHome_away, home)
+      sendCommand(NestHome_away, "home")
     }
   end
   
@@ -23,7 +23,7 @@ rule "Summer Nest Home"
   then
     if (Nest_ambient_temperature_f.state > 75 && Nest_can_cool.state == ON) {
       logDebug("rules", "Summer Nest Home Ran")
-      sendCommand(NestHome_away, home)
+      sendCommand(NestHome_away, "home")
     }
   end
 
