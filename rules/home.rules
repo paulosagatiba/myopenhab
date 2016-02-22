@@ -18,10 +18,10 @@ rule "Winter Nest Home"
 rule "Summer Nest Home"
   when
     Item NestHome_away received update "auto-away" and
-    Time cron "0 30 4 ? * MON-FRI"
+    Time cron "0 00 4 ? * MON-FRI"
   then
     if (Nest_ambient_temperature_f.state > 75 && Nest_can_cool.state == ON) {
-      logDebug("rules", "Summer Nest Home Ran")
+      logDebug("rules", "Summer Nest - Set to Home")
       sendCommand(NestHome_away, "home")
     }
   end
