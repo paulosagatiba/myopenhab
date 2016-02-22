@@ -10,7 +10,7 @@ rule "Winter Nest Home"
     Time cron "* * * * * *"
   then
     logDebug("rules", "Winter Nest Home Ran1")
-    if (Nest_ambient_temperature_f.state < 69 && Nest_can_heat == ON) {
+    if (Nest_ambient_temperature_f.state < 69 && Nest_can_heat.state == ON) {
       logDebug("rules", "Winter Nest Home Ran2")
       sendCommand(NestHome_away, home)
     }
@@ -21,7 +21,7 @@ rule "Summer Nest Home"
     Item NestHome_away received update "auto-away" and
     Time cron "0 30 4 ? * MON-FRI"
   then
-    if (Nest_ambient_temperature_f.state > 75 && Nest_can_cool == ON) {
+    if (Nest_ambient_temperature_f.state > 75 && Nest_can_cool.state == ON) {
       logDebug("rules", "Summer Nest Home Ran")
       sendCommand(NestHome_away, home)
     }
