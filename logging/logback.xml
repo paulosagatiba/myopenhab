@@ -36,6 +36,11 @@
 		<appender-ref ref="EVENTFILE" />
 		<appender-ref ref="STDOUT" />
 	</logger>
+	
+	<logger name="org.openhab.model.script.rules" level="DEBUG">
+		<appender-ref ref="EVENTFILE" />
+		<appender-ref ref="STDOUT" />
+	</logger>
 
 	<logger name="org.openhab" level="INFO"/>
 
@@ -51,7 +56,6 @@
 	<!-- temporary workaround to circumvent error messages with any obvious effect -->
 	<logger name="org.atmosphere.cpr.AtmosphereFramework" level="OFF" />
 	<logger name="org.atmosphere.cpr.DefaultAnnotationProcessor" level="OFF" />
-	<logger name="org.openhab.model.script.rules" level="DEBUG"/>
 	
 	<appender name="NESTFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
    		<file>${openhab.logdir:-logs}/nest.log</file>
