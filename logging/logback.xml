@@ -54,7 +54,7 @@
 	<logger name="org.openhab.model.script.rules" level="DEBUG"/>
 	
 	<appender name="NESTFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-   		<file>logs/nest.log</file>
+   		<file>${openhab.logdir:-logs}/nest.log</file>
    		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       			<!-- weekly rollover and archiving -->
       			<fileNamePattern>logs/nest-%d{yyyy-ww}.log.zip</fileNamePattern>
