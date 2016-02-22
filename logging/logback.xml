@@ -56,5 +56,23 @@
 		<appender-ref ref="FILE" />
 		<appender-ref ref="STDOUT" />
 	</root>
+	
+	<appender name="NESTFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+   		<file>logs/nest.log</file>
+   		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      			<!-- weekly rollover and archiving -->
+      			<fileNamePattern>logs/nest-%d{yyyy-ww}.log.zip</fileNamePattern>
+      			<!-- keep 30 days' worth of history -->
+      			<maxHistory>30</maxHistory>
+   		</rollingPolicy>
+   		<encoder>
+     		<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{30}[:%line]- %msg%n%ex{5}</pattern>
+   		</encoder>
+	</appender>
+
+	<!-- Choose level ERROR, WARN, INFO, DEBUG or TRACE for detailed logging -->
+	<logger name="org.openhab.binding.nest" level="TRACE" additivity="false">
+	   <appender-ref ref="NESTFILE" />
+	</logger>
 
 </configuration>
