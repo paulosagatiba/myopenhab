@@ -20,6 +20,13 @@ sitemap home label="Falcons Fire Home"
         Selection item=integraZ2Source mappings=[43="NET/USB", 45="Airplay", 127="OFF"]
       }
     }
-    Group item=nestThermostat icon="temperature"
+    Text label="Nest Thermostat" icon="temperature" {
+      Switch item=NestHome_away mappings=[home="Home",away="Away"]
+      Text item=Nest_ambient_temperature_f
+      Setpoint item=Nest_target_temperature_f minValue=50 maxValue=80 step=1 visibility=[dining_room_hvac_mode=="heat",dining_room_hvac_mode=="cool"]
+      Text item=Nest_humidity
+      Switch item=Nest_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
+      Text item=Nest_last_connection
+    }
   }
 }
