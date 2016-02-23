@@ -23,7 +23,7 @@ sitemap home label="Falcons Fire Home"
     Text label="Nest Thermostat" icon="temperature" {
       Switch item=NestHome_away mappings=[home="Home",away="Away"]
       Text item=Nest_ambient_temperature_f
-      Setpoint item=Nest_target_temperature_f minValue=50 maxValue=80 step=1 visibility=[dining_room_hvac_mode=="heat",dining_room_hvac_mode=="cool"]
+      Setpoint item=Nest_target_temperature_f minValue=50 maxValue=80 step=1 visibility=[NestHome_away=="home"]
       Text item=Nest_humidity
       Switch item=Nest_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
       Text item=Nest_last_connection
