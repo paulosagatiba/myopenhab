@@ -2,6 +2,13 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
+rule "Cron Job"
+  when
+    Time cron "0 30 15 ? * MON-FRI *"
+  then
+    logDebug("rules", "3:30pm Cron Job Works!")
+  end
+
 // Turn Nest thermostat to home
 
 rule "Winter Nest Home"
