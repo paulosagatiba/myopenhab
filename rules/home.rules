@@ -44,10 +44,16 @@ rule "Home Theater Mode"
     
     // If someone changes Home_Theater_Mode via gui, change receiver state
     if (Home_Theater_Mode.state == 0) {
+      if (epsonPower.state == ON) {
+        sendCommand(epsonPower, OFF)
+      }
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
       }
     } else if (Home_Theater_Mode.state == 1) {
+      if (epsonPower.state == OFF) {
+        sendCommand(epsonPower, ON)
+      }
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
@@ -55,6 +61,9 @@ rule "Home Theater Mode"
         sendCommand(integraSource, 1)
       }
     } else if (Home_Theater_Mode.state == 2) {
+      if (epsonPower.state == OFF) {
+        sendCommand(epsonPower, ON)
+      }
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
@@ -69,6 +78,9 @@ rule "Home Theater Mode"
         sendCommand(integraSource, 5)
       }
     } else if (Home_Theater_Mode.state == 4) {
+      if (epsonPower.state == OFF) {
+        sendCommand(epsonPower, ON)
+      }
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
@@ -76,6 +88,9 @@ rule "Home Theater Mode"
         sendCommand(integraSource, 43)
       }
     } else if (Home_Theater_Mode.state == 5) {
+      if (epsonPower.state == OFF) {
+        sendCommand(epsonPower, ON)
+      }
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
