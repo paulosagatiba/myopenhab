@@ -73,6 +73,9 @@ Switch integraNETStop         "Stop"                      (integraBasement) {onk
 Number integraNETService      "Service"                   {onkyo="INIT:integrareceiver:#NSVQST, *:integrareceiver:#NSV%02X0"}
 Number integraNETList         "Select List Item"          {onkyo="*:integrareceiver:#NLSL%01X"}
 
+//Epson Projector
+Switch epsonPower                          { epsonprojector="hometheaterprojector:Power:60000" }
+
 /* Scene Controller for Home Theater */
 
 Number Home_Theater_Mode			    "Home Theater Mode"
