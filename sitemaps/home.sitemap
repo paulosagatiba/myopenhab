@@ -11,7 +11,7 @@ sitemap home label="Falcons Fire Home"
     Text label="Basement Receiver" icon="cellar" {
       Frame label="Main" {
         Switch item=integraPower
-        Selection item=integraSource mappings=[0="DVD", 1="CBL/SAT", 2="Chromecast", 3="PC", 4="HDMI AUX 5", 5="HDMI AUX 6", 16="BD/DVD", 35="FireTV", 36="FM", 43="NET/USB", 45=Airplay, 127=OFF]
+        Selection item=integraSource mappings=[0="DVD", 1="CBL/SAT", 2="GAME", 3="AUX1", 4="AUX2", 5="PC", 16="BD/DVD", 17="STRM BOX", 18="TV", 34="PHONO", 35="CD", 36="FM", 43="NET/USB", 45=Airplay, 127=OFF]
         Selection item=integraListenMode mappings=[0=Stereo, 1=Direct, 2=Surround, 15=Mono, 31="Whole House Mode", 66="THX Cinema", 31="Whole House"]
         Text item=integraAudio
         Text item=integraVideo
