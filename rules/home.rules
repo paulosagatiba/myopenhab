@@ -43,6 +43,8 @@ rule "Home Theater Mode"
     logDebug("rules", "Home Theater Mode Rule Ran")
     
     // If someone changes Home_Theater_Mode via gui, change receiver state
+    
+    // OFF
     if (Home_Theater_Mode.state == 0) {
       if (epsonPower.state == ON) {
         sendCommand(epsonPower, OFF)
@@ -50,6 +52,8 @@ rule "Home Theater Mode"
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
       }
+      
+    // CABLE
     } else if (Home_Theater_Mode.state == 1) {
       if (epsonPower.state == OFF) {
         sendCommand(epsonPower, ON)
@@ -60,6 +64,8 @@ rule "Home Theater Mode"
       if (integraSource.state != 1) {
         sendCommand(integraSource, 1)
       }
+      
+    // CHROMECAST
     } else if (Home_Theater_Mode.state == 2) {
       if (epsonPower.state == OFF) {
         sendCommand(epsonPower, ON)
@@ -70,13 +76,17 @@ rule "Home Theater Mode"
       if (integraSource.state != 17) {
         sendCommand(integraSource, 17)
       }
+      
+    // FIRE TV
     } else if (Home_Theater_Mode.state == 3) {
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
-      if (integraSource.state != 5) {
-        sendCommand(integraSource, 5)
+      if (integraSource.state != 35) {
+        sendCommand(integraSource, 35)
       }
+      
+    // PANDORA NET
     } else if (Home_Theater_Mode.state == 4) {
       if (epsonPower.state == OFF) {
         sendCommand(epsonPower, ON)
@@ -87,6 +97,8 @@ rule "Home Theater Mode"
       if (integraSource.state != 43) {
         sendCommand(integraSource, 43)
       }
+    
+    // PC
     } else if (Home_Theater_Mode.state == 5) {
       if (epsonPower.state == OFF) {
         sendCommand(epsonPower, ON)
@@ -94,8 +106,8 @@ rule "Home Theater Mode"
       if (integraPower.state == OFF) {
         sendCommand(integraPower, ON)
       }
-      if (integraSource.state != 43) {
-        sendCommand(integraSource, 43)
+      if (integraSource.state != 5) {
+        sendCommand(integraSource, 5)
       }
     }
   end
@@ -118,7 +130,7 @@ rule "Set Home Theater Mode"
       sendCommand(Home_Theater_Mode, 3)
     } else if (integraPower.state == ON && integraSource.state == 43) {
     sendCommand(Home_Theater_Mode, 4)
-    } else if (integraPower.state == ON && integraSource.state == 43) {
+    } else if (integraPower.state == ON && integraSource.state == 5) {
       sendCommand(Home_Theater_Mode, 5)
     } else {
       sendCommand(Home_Theater_Mode, 6)
