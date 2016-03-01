@@ -74,7 +74,7 @@ Number integraNETService      "Service"                   {onkyo="INIT:integrare
 Number integraNETList         "Select List Item"          {onkyo="*:integrareceiver:#NLSL%01X"}
 
 //Epson Projector
-Switch epsonPower                          { epsonprojector="hometheaterprojector:Power:86400000" }
+Switch epsonPower                          { epsonprojector="hometheaterprojector:Power:60000" }
 
 /* Scene Controller for Home Theater */
 
