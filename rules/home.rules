@@ -30,8 +30,10 @@ rule "Turn Off Projector"
   when
     Item integraPower changed to OFF
   then
-    logDebug("rules", "Turned off Projector")
-    sendCommand(epsonPower, OFF)
+    if (epsonPower.state == ON) {
+      logDebug("rules", "Turned off Projector")
+      sendCommand(epsonPower, OFF)
+    }
   end
 
 // Sending Commands for Home Theater to Receiver
