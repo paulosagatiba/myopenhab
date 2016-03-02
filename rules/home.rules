@@ -117,7 +117,8 @@ rule "Home Theater Mode"
 rule "Set Home Theater Mode"
   when
     Item integraPower changed or
-    Item integraSource changed
+    Item integraSource changed or
+    System started
   then
     logDebug("rules", "Set Home Theater Mode Rule Ran")
     
@@ -164,7 +165,8 @@ rule "Bar Speaker Mode"
 rule "Set Bar Speaker Mode"
   when
     Item integraZ2Power changed or
-    Item integraZ2Source changed
+    Item integraZ2Source changed or
+    System started
   then
     logDebug("rules", "Set Bar Speaker Mode Rule Ran")
     
