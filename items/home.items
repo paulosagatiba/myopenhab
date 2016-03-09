@@ -81,3 +81,13 @@ Switch epsonPower                          { epsonprojector="hometheaterprojecto
 Number Home_Theater_Mode			    "Home Theater Mode"
 Number Home_Theater_Actual_Mode   "Current Home Theater Mode"
 Number Bar_Speaker_Mode           "Bar Speaker Mode"
+
+/* Z-Wave Stick General Stats */
+Number ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:command=info,item=sof"}
+Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:command=info,item=ack"}
+Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:command=info,item=can"}
+Number ZwaveStatsNAK "Number of NAK [%s]" (gZwaveStats) {zwave="1:command=info,item=nak"}
+Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:command=info,item=oof"}
+Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:command=info,item=time_out"}
+String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=home_id"}
+Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
