@@ -93,3 +93,4 @@ String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01) {zwave="1:command=info
 Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
 
 Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" {zwave="2"}
+Dimmer Kitchen_Lamp_Dimmer "Living Room Dimmer [%d %%]" {zwave="3"}
