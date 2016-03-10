@@ -91,3 +91,5 @@ Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:command=info,i
 Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:command=info,item=time_out"}
 String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=home_id"}
 Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
+
+Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" {zwave="2"}
