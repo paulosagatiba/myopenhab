@@ -92,5 +92,5 @@ Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:comm
 String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=home_id"}
 Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
 
-Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" {zwave="2"}
-Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" {zwave="3"}
+Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (Dimmers) {zwave="2"}
+Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" (Dimmers) {zwave="3"}
