@@ -8,7 +8,7 @@ sitemap home label="Falcons Fire Home"
   }
   Frame label="Advanced"{
     Switch     item=epsonPower         label="Power"
-    Group item=plugDimmers
+    Slider item=plugDimmers
     Slider item=Living_Room_Lamp_Dimmer
     Slider item=Kitchen_Lamp_Dimmer
     Text label="Basement Receiver" icon="cellar" {
