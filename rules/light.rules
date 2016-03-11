@@ -5,7 +5,7 @@ import org.openhab.core.persistence.*
 
 rule "Turn Off Lights at Midnight"
   when
-    Time cron "0 00 24 ? * * *"
+    Time cron "0 0 0 ? * * *"
   then
     logDebug("rules", "Turn off Lights at Midnight")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
