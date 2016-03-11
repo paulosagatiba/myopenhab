@@ -3,11 +3,11 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
-rule "Turn Off Lights at 10pm"
+rule "Turn Off Lights at Midnight"
   when
-    Time cron "0 00 20 ? * * *"
+    Time cron "0 00 24 ? * * *"
   then
-    logDebug("rules", "Turn off Lights at 10pm")
+    logDebug("rules", "Turn off Lights at Midnight")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
     sendCommand(Kitchen_Lamp_Dimmer, 0)
   end
@@ -19,6 +19,7 @@ rule "Turn On Lights at Dusk"
     var DateTime daystart = new DateTime((dawnStart.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((duskEnd.state as DateTimeType).calendar.timeInMillis)
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
+    logDebug("rules", isdark)
     if (isdark) {
       logDebug("rules", "It's Dark!")
     } else {
