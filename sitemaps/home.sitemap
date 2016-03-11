@@ -8,7 +8,7 @@ sitemap home label="Falcons Fire Home"
   }
   Frame label="Advanced"{
     Switch     item=epsonPower         label="Power"
-    Text label="Dimmers" icon="present" {
+    Text label="Dimmers" icon="switch" {
       Slider item=Living_Room_Lamp_Dimmer
       Slider item=Kitchen_Lamp_Dimmer
       Text item=dawnStart
