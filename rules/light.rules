@@ -3,7 +3,7 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
-val boolean previsdark = 0
+val boolean previsdark = false
 
 rule "Turn Off Lights at Midnight"
   when
@@ -23,11 +23,11 @@ rule "Turn On Lights at Dusk"
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
     logDebug("rules", "Current "+isdark)
     logDebug("rules", "Prev "+previsdark)
-    if (isdark && previsdark == 0) {
+    if (isdark && previsdark == false) {
       logDebug("rules", "It's Dark transition!")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
       sendCommand(Kitchen_Lamp_Dimmer, 100)
-    } else if (previsdark && isdark == 0) {
+    } else if (previsdark && isdark == false) {
       logDebug("rules", "It's Light transition!")
       sendCommand(Living_Room_Lamp_Dimmer, 0)
       sendCommand(Kitchen_Lamp_Dimmer, 0)
@@ -36,7 +36,7 @@ rule "Turn On Lights at Dusk"
     //troubleshooting
      if (isdark) {
       logDebug("rules", "It's Dark!")
-    } else if (isdark == 0) {
+    } else if (isdark == false) {
       logDebug("rules", "It's Light!")
     }
     previsdark = isdark
