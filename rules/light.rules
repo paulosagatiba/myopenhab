@@ -30,5 +30,12 @@ rule "Turn On Lights at Dusk"
       sendCommand(Living_Room_Lamp_Dimmer, 0)
       sendCommand(Kitchen_Lamp_Dimmer, 0)
     }
+    
+    //troubleshooting
+     if (isdark) {
+      logDebug("rules", "It's Dark!")
+    } else if (isdark == 0) {
+      logDebug("rules", "It's Light!")
+    }
     val boolean previsdark = isdark
   end
