@@ -7,7 +7,7 @@ sitemap home label="Falcons Fire Home"
     Slider item=integraZ2Volume sendFrequency=400
   }
   Frame label="Advanced"{
-    Switch     item=epsonPower         label="Power"
+    Switch     item=epsonPower         label="Epson Projector Power"
     Text label="Dimmers" icon="switch" {
       Slider item=Living_Room_Lamp_Dimmer
       Slider item=Kitchen_Lamp_Dimmer
