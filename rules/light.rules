@@ -21,6 +21,10 @@ rule "Turn On Lights at Dusk"
     var DateTime daystart = new DateTime((dawnStart.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((duskEnd.state as DateTimeType).calendar.timeInMillis)
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
+    logDebug("rules", "daystart "+daystart)
+    logDebug("rules", "dayend "+dayend)
+    logDebug("rules", "nowisbeforedaystart "+now.isBefore(daystart))
+    logDebug("rules", "nowisbeforedayend "+now.isAfter(dayend))
     logDebug("rules", "Current "+isdark)
     logDebug("rules", "Prev "+previsdark)
     if (isdark && previsdark == false) {
