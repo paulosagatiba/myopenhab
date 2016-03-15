@@ -18,7 +18,7 @@ rule "Turn On Lights at Dusk"
   when
     Time cron "0 * * * * ?"
   then
-    var DateTime daystart = new DateTime((dawnStart.state as DateTimeType).calendar.timeInMillis)
+    var DateTime daystart = new DateTime((dawnEnd.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((duskEnd.state as DateTimeType).calendar.timeInMillis)
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
     //logDebug("rules", "Current "+isdark)
