@@ -34,6 +34,10 @@ sitemap home label="Falcons Fire Home"
       Text item=Nest_humidity
       Switch item=Nest_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
       Text item=Nest_last_connection
+      Chart item=Nest_ambient_temperature_f period=D refresh=30000 visibility=[Chart_Period==1, Chart_Period=="Uninitialized"]  
+			Chart item=Nest_ambient_temperature_f period=W refresh=21600000 visibility=[Chart_Period==2] //week
+			Chart item=Nest_ambient_temperature_f period=M refresh=21600000 visibility=[Chart_Period==3] //month
+			Chart item=Nest_ambient_temperature_f period=4M refresh=86400000 visibility=[Chart_Period==4]//4 month
     }
   }
 }
