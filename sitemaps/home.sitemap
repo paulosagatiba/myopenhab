@@ -1,5 +1,6 @@
 sitemap home label="Falcons Fire Home"
 {
+  Text item=Nest_ambient_temperature_f
   Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
     Slider item=integraVolume sendFrequency=400
