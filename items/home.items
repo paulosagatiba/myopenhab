@@ -37,8 +37,8 @@ Number   Nest_target_temperature_f "Target Temperature [%.1f °F]"           <te
 Number   Nest_target_temperature_high_f "Target Temperature High [%.1f °F]" (nestThermostat) {nest="=[thermostats(Hallway).target_temperature_high_f]"}
 //Number   Nest_target_temperature_low_c "Target Temperature Low [%.1f °C]"   {nest="=[thermostats(Hallway).target_temperature_low_c]"}
 Number   Nest_target_temperature_low_f "Target Temperature Low [%.1f °F]"   (nestThermostat) {nest="=[thermostats(Hallway).target_temperature_low_f]"}
-//Number   Nest_ambient_temperature_c "Ambient Temperature [%.1f °C]"         {nest="<[thermostats(Hallway).ambient_temperature_c]"}
-Number   Nest_ambient_temperature_f "Ambient Temperature [%.1f °F]"         <temperature> (nestThermostat) {nest="<[thermostats(Hallway).ambient_temperature_f]"}
+//Number   Nest_ambient_temperature_c "House Temperature [%.1f °C]"         {nest="<[thermostats(Hallway).ambient_temperature_c]"}
+Number   Nest_ambient_temperature_f "House Temperature [%.1f °F]"         <temperature> (nestThermostat) {nest="<[thermostats(Hallway).ambient_temperature_f]"}
 //Number   Nest_away_temperature_high_c "Away Temperature High [%.1f °C]"     {nest="<[thermostats(Hallway).away_temperature_high_c]"}
 Number   Nest_away_temperature_high_f "Away Temperature High [%.1f °F]"     (nestThermostat) {nest="<[thermostats(Hallway).away_temperature_high_f]"}
 //Number   Nest_away_temperature_low_c "Away Temperature Low [%.1f °C]"       {nest="<[thermostats(Hallway).away_temperature_low_c]"}
