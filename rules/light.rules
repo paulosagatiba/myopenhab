@@ -14,7 +14,16 @@ rule "Turn Off Lights at Midnight"
     sendCommand(Kitchen_Lamp_Dimmer, 0)
   end
   
-rule "Turn On Lights at Dusk"
+rule "Turn On Lights in the Morning"
+  when
+    Time cron "0 30 5 ? * * *"
+  then
+    logDebug("rules", "Turn On Lights in the Morning")
+    sendCommand(Living_Room_Lamp_Dimmer, 60)
+    sendCommand(Kitchen_Lamp_Dimmer, 60)
+  end
+  
+rule "Turn On/Off Lights at Dusk/Dawn"
   when
     Time cron "0 * * * * ?"
   then
