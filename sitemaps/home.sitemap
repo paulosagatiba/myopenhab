@@ -9,10 +9,12 @@ sitemap home label="Falcons Fire Home"
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
     Slider item=integraZ2Volume sendFrequency=400
   }
+  Frame label="Main Floor" {
+    Slider item=Living_Room_Lamp_Dimmer
+    Slider item=Kitchen_Lamp_Dimmer
+  }
   Frame label="Advanced"{
     Text label="Dimmers" icon="switch" {
-      Slider item=Living_Room_Lamp_Dimmer
-      Slider item=Kitchen_Lamp_Dimmer
       Text item=dawnEnd
       Text item=duskEnd
     }
