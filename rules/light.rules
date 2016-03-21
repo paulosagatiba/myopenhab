@@ -4,6 +4,8 @@ import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
 val boolean previsdark = false
+val boolean lightsOffForTheNight = false
+val boolean prevsomeoneIsHome = false
 
 rule "Turn Off Lights at Midnight"
   when
@@ -12,6 +14,7 @@ rule "Turn Off Lights at Midnight"
     logDebug("rules", "Turn off Lights at Midnight")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
     sendCommand(Kitchen_Lamp_Dimmer, 0)
+    lightsOffForTheNight = true
   end
   
 rule "Turn On/Off Lights at Dusk/Dawn"
@@ -23,16 +26,26 @@ rule "Turn On/Off Lights at Dusk/Dawn"
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
     //logDebug("rules", "Current "+isdark)
     //logDebug("rules", "Prev "+previsdark)
+    
+    // Living Room Light
     if (isdark && previsdark == false) {
       logDebug("rules", "It's Dark transition!")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
-      sendCommand(Kitchen_Lamp_Dimmer, 100)
     } else if (previsdark && isdark == false) {
       logDebug("rules", "It's Light transition!")
+      lightsOffForTheNight = false
       sendCommand(Living_Room_Lamp_Dimmer, 0)
+    }
+    
+    if (someoneIsHome.state && prevsomeoneIsHome == false && lightsOffForTheNight == false && isdark) {
+      logDebug("rules", "Turn On Kitchen Lights!")
+      sendCommand(Kitchen_Lamp_Dimmer, 100)
+    } else if (someoneIsHome.state == false && prevsomeoneIsHome) {
+      logDebug("rules", "Turn Off Kitchen Lights!")
       sendCommand(Kitchen_Lamp_Dimmer, 0)
     }
     
     // Only want to see a lamp command on transition
     previsdark = isdark
+    prevsomeoneIsHome = someoneIsHome.state
   end
