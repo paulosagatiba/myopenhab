@@ -37,7 +37,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
       sendCommand(Living_Room_Lamp_Dimmer, 0)
     }
     
-    if (someoneIsHome.state && prevsomeoneIsHome == false && lightsOffForTheNight == false && isdark) {
+    if (someoneIsHome.state && prevsomeoneIsHome == false && lightsOffForTheNight == false) {
       logDebug("rules", "Turn On Kitchen Lights!")
       sendCommand(Kitchen_Lamp_Dimmer, 100)
     } else if (someoneIsHome.state == false && prevsomeoneIsHome) {
