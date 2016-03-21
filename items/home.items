@@ -104,6 +104,6 @@ DateTime dawnEnd "Morning Dawn End [%1$tH:%1$tM]" {astro="planet=sun,type=civilD
 DateTime duskEnd   "Evening Dusk End [%1$tH:%1$tM]"   {astro="planet=sun,type=civilDusk,property=end"}
 
 /* Device Presence Detection */
+Switch someoneIsHome "Someone Is Home!" (devicePresence)
 Switch wifi_Kail "Kail Wifi"      (devicePresence)      {nh="192.168.0.206"}
 Switch wifi_Andrea "Andrea Wifi"  (devicePresence)      {nh="192.168.0.207"}
-Switch someoneIsHome "Someone Is Home!"
