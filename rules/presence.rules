@@ -3,8 +3,10 @@ when
         Item wifi_Kail changed from OFF to ON or
         Item wifi_Andrea changed from OFF to ON
 then
-        logDebug("rules", "Update Presence to Home")
-        someoneIsHome.sendCommand(ON)
+        if (someoneIsHome.state == OFF) {
+                logDebug("rules", "Update Presence to Home")
+                someoneIsHome.sendCommand(ON)
+        }
 end
 
 
