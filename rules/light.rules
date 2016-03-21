@@ -5,7 +5,7 @@ import org.openhab.core.persistence.*
 
 val boolean previsdark = false
 val boolean lightsOffForTheNight = false
-val boolean prevsomeoneIsHome = false
+var prevsomeoneIsHome = OFF
 
 rule "Turn Off Lights at Midnight"
   when
@@ -37,7 +37,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
       sendCommand(Living_Room_Lamp_Dimmer, 0)
     }
     
-    if (someoneIsHome.state && prevsomeoneIsHome == false && lightsOffForTheNight == false) {
+    if (someoneIsHome.state == ON && prevsomeoneIsHome == OFF && lightsOffForTheNight == false) {
       logDebug("rules", "Turn On Kitchen Lights!")
       sendCommand(Kitchen_Lamp_Dimmer, 100)
     } else if (someoneIsHome.state == false && prevsomeoneIsHome) {
