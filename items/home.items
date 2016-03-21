@@ -106,4 +106,4 @@ DateTime duskEnd   "Evening Dusk End [%1$tH:%1$tM]"   {astro="planet=sun,type=ci
 /* Device Presence Detection */
 Switch wifi_Kail "Kail Wifi"      (devicePresence)      {nh="192.168.0.206"}
 Switch wifi_Andrea "Andrea Wifi"  (devicePresence)      {nh="192.168.0.207"}
-
+Switch someoneIsHome "Someone Is Home!"
