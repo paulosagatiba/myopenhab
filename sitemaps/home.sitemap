@@ -40,5 +40,6 @@ sitemap home label="Falcons Fire Home"
       Switch item=Nest_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
       Text item=Nest_last_connection
     }
+    Group item=devicePresence icon="present"
   }
 }
