@@ -85,6 +85,7 @@ Number Home_Theater_Actual_Mode   "Current Home Theater Mode"
 Number Bar_Speaker_Mode           "Bar Speaker Mode"
 
 /* Z-Wave Stick General Stats */
+/*
 Number ZwaveStatsSOF "Number Start of Frames[%s]" (gZwaveStats) {zwave="1:command=info,item=sof"}
 Number ZwaveStatsACK "Number of Acknowledgments [%s]" (gZwaveStats) {zwave="1:command=info,item=ack"}
 Number ZwaveStatsCAN "Number of CAN [%s]" (gZwaveStats) {zwave="1:command=info,item=can"}
@@ -93,6 +94,7 @@ Number ZwaveStatsOOF "Number of OOF [%s]" (gZwaveStats) {zwave="1:command=info,i
 Number ZwaveStatsTimeout "Number of Time-outs [%s]" (gZwaveStats) {zwave="1:command=info,item=time_out"}
 String ZwaveNode01HomeID    "Home ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=home_id"}
 Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info,item=node_id"}
+*/
 
 Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (plugDimmers) {zwave="2"}
 Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" (plugDimmers) {zwave="3"}
