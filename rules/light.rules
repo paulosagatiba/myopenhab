@@ -45,3 +45,12 @@ rule "Turn On/Off Lights at Dusk/Dawn"
       prevsomeoneIsHome = false
     }
   end
+
+rule "Light Switch!"
+  when
+    Item GreatRoomSwitch changed
+  then
+    logDebug("rules", "Light Switch")
+    sendCommand(Living_Room_Lamp_Dimmer, GreatRoomSwitch.state)
+    sendCommand(Kitchen_Lamp_Dimmer, GreatRoomSwitch.state)
+  end
