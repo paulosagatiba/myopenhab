@@ -8,6 +8,7 @@ This is the repository I'm using to hold my house openhab configuration.
 * Z-Wave Binding
   * Aeon Labs Aeotec Z-Wave Z-Stick, Gen5 (ZW090)
   * Leviton VRPD3-1LW
+  * GE 12729 Z-Wave Wireless Lighting Control Smart Dimmer Toggle Switch
 * Epson Binding with RS232 USB to Serial connection
   * Epson PowerLite Pro Cinema 4030
 * Onkyo Receiver Binding over Ethernet (eISCP)
