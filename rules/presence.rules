@@ -1,22 +1,22 @@
 rule "Update Presence to home"
 when
-        Item wifi_Kail changed from OFF to ON or
-        Item wifi_Andrea changed from OFF to ON
+  Item wifi_Kail changed from OFF to ON or
+  Item wifi_Andrea changed from OFF to ON
 then
-        if (someoneIsHome.state == OFF) {
-                logDebug("rules", "Update Presence to Home")
-                someoneIsHome.sendCommand(ON)
-        }
+  if (someoneIsHome.state == OFF) {
+    logDebug("rules", "Update Presence to Home")
+    someoneIsHome.sendCommand(ON)
+  }
 end
 
 
 rule "Update Presence to away"
 when
-        Item wifi_Kail changed from ON to OFF or
-        Item wifi_Andrea changed from ON to OFF
+  Item wifi_Kail changed from ON to OFF or
+  Item wifi_Andrea changed from ON to OFF
 then
-        if(wifi_Kail.state==OFF && wifi_Andrea.state==OFF){
-                logDebug("rules", "Update Presence to Away")
-                someoneIsHome.sendCommand(OFF)
-        }
+  if(wifi_Kail.state==OFF && wifi_Andrea.state==OFF){
+    logDebug("rules", "Update Presence to Away")
+    someoneIsHome.sendCommand(OFF)
+  }
 end
