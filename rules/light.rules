@@ -48,7 +48,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
 
 rule "Light Switch!"
   when
-    Item GreatRoomSwitch changed
+    Item GreatRoomSwitch received update
   then
     if (GreatRoomSwitch.state == ON) {
       logDebug("rules", "Light Switch ON!")
@@ -60,4 +60,3 @@ rule "Light Switch!"
       sendCommand(Kitchen_Lamp_Dimmer, 0)
     }
   end
-
