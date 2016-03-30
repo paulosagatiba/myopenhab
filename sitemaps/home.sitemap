@@ -7,7 +7,7 @@ sitemap home label="Falcons Fire Home"
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
     Setpoint item=integraVolume icon="video" minValue=0 maxValue=45 step=1
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
-    Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1
+    Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1 visibility=[Bar_Speaker_Mode>0]
   }
   Frame label="Main Floor" {
     Slider item=Living_Room_Lamp_Dimmer
