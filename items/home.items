@@ -100,6 +100,8 @@ Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (plugDimmers) {zwave
 Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" (plugDimmers) {zwave="3"}
 Switch GreatRoomSwitch "Great Room Switch [%d %%]" {zwave="4:command=SWITCH_MULTILEVEL"}
 Dimmer GreatRoomDimmer "Great Room Dimmer [%d %%]" {zwave="4:command=SWITCH_MULTILEVEL"}
+Dimmer BasementStairs "Basement Stair Dimmer [%d %%]" {zwave="5:command=SWITCH_MULTILEVEL"}
+Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 
 /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
   even better, but that's not too hard to hack in later */
