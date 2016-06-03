@@ -60,3 +60,19 @@ rule "Light Switch!"
       sendCommand(Kitchen_Lamp_Dimmer, 0)
     }
   end
+
+rule "Basement Stair Light"
+  when 
+    Item BasementStairs received update
+  then
+    if (BasementStairs.state == ON) {
+      logDebug("rules", "Stair Switch ON - Turn On Projector")
+      sendCommand(integraPower, OFF)
+      sendCommand(BasementProjectorSpot, ON)
+      createTimer(now.plusSeconds(10)) [| sendCommand(BasementProjectorSpot, OFF)]
+    } else if (BasementStairs.state == OFF) {
+      logDebug("rules", "Stair Switch OFF - Turn Off Projector")
+      sendCommand(BasementProjectorSpot, OFF)
+    }
+  end
+  
