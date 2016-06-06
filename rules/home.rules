@@ -25,3 +25,14 @@ rule "4pm Cron Job"
       sendCommand(NestHome_away, "home")
     }
   end
+  
+  rule "5:30pm Cron Job"
+  when
+    Time cron "0 30 17 ? * MON-FRI *"
+  then
+    logDebug("rules","5:30pm Cron Job"
+    if (Nest_ambient_temperature_f.state >= 74 && Nest_can_cool.state == ON && NestHome_away.state == "auto-away") {
+      logDebug("rules", "Summer Nest - Set to Home")
+      sendCommand(NestHome_away, "home")
+    }
+  end
