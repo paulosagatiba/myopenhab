@@ -6,7 +6,7 @@ rule "Turn Off Projector"
   when
     Item integraPower changed to OFF
   then
-    sendCommand(BasementProjectorSpot, ON)
+    sendCommand(BasementProjectorSpot, 75)
     if (epsonPower.state == ON) {
       logDebug("rules", "Turned off Projector")
       sendCommand(epsonPower, OFF)
