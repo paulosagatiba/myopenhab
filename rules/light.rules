@@ -69,6 +69,7 @@ rule "Basement Stair Light"
       logDebug("rules", "Stair Switch ON - Turn On Projector")
       sendCommand(integraPower, ON)
       sendCommand(BasementProjectorSpot, 75)
+      sendCommand(BasementStairs, 99)
       createTimer(now.plusSeconds(10)) [| sendCommand(BasementProjectorSpot, 0)]
     }
   end
