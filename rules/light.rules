@@ -63,11 +63,11 @@ rule "Light Switch!"
 
 rule "Basement Stair Light"
   when 
-    Item BasementStairsSwitch received update
+    Item BasementStairsSwitch changed
   then
     if (BasementStairsSwitch.state == ON) {
       logDebug("rules", "Stair Switch ON - Turn On Projector")
-      //sendCommand(integraPower, ON)
+      sendCommand(integraPower, ON)
       sendCommand(BasementProjectorSpot, 75)
       createTimer(now.plusSeconds(10)) [| sendCommand(BasementProjectorSpot, 0)]
     }
