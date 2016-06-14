@@ -67,7 +67,7 @@ rule "Basement Stair Light"
   then
     if (BasementStairsSwitch.state == ON) {
       logDebug("rules", "Stair Switch ON - Turn On Projector")
-      sendCommand(integraPower, ON)
+      sendCommand(epsonPower, ON)
       sendCommand(BasementProjectorSpot, 75)
       createTimer(now.plusSeconds(10)) [| sendCommand(BasementProjectorSpot, 0)]
     }
