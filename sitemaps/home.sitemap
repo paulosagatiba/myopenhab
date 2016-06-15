@@ -16,7 +16,7 @@ sitemap home label="Falcons Fire Home"
   Frame label="Advanced"{
     Text label="Dimmers" icon="switch" {
       Switch item=GreatRoomSwitch
-      Slider item=BasementStairs
+      Switch item=BasementStairsSwitch
       Slider item=BasementProjectorSpot
       Text item=dawnEnd
       Text item=duskEnd
