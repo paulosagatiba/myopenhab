@@ -8,7 +8,7 @@ rule "Turn Off Projector"
   then
     sendCommand(BasementProjectorSpot, 75)
     if (epsonPower.state == ON) {
-      logDebug("rules", "Turned off Projector")
+      logDebug("rules", "integraPower Changed - Turned off Projector")
       sendCommand(epsonPower, OFF)
     }
   end
@@ -19,7 +19,7 @@ rule "Home Theater Mode"
   when
     Item Home_Theater_Mode changed
   then
-    logDebug("rules", "Home Theater Mode Rule Ran")
+    logDebug("rules", "Home_Theater_Mode Changed - Send Commands")
     
     // If someone changes Home_Theater_Mode via gui, change receiver state
     
@@ -97,7 +97,7 @@ rule "Set Home Theater Mode"
     Item integraSource changed or
     System started
   then
-    logDebug("rules", "Set Home Theater Mode Rule Ran")
+    logDebug("rules", "integraPower OR integraSource OR System Start - Set Home_Theater_Mode")
     
     //If someone changes state of receiver manually, change Home_Theater_Mode
     if (integraPower.state == OFF) {
