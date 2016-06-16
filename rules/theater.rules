@@ -100,6 +100,17 @@ rule "Set Home Theater Mode"
   then
     logDebug("rules", "integraPower OR integraSource OR System Start - Set Home_Theater_Mode")
     
+    //Handle lights when powered on from remote
+    if (integraPower.state == ON) {
+      logDebug("rules", "integraPower ON via remote - Turn On Projector and BasementProjectorSpot")
+      sendCommand(BasementProjectorSpot, 100)
+      sendCommand(BasementStairsSwitch, ON)
+      sendCommand(epsonPower, ON)
+      createTimer(now.plusSeconds(20)) [| 
+        logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
+        sendCommand(BasementProjectorSpot, 0)]
+    }
+    
     //If someone changes state of receiver manually, change Home_Theater_Mode
     if (integraPower.state == OFF) {
       sendCommand(Home_Theater_Mode, 0)
