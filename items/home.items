@@ -110,6 +110,8 @@ Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:
 
 DateTime dawnEnd "Morning Dawn End [%1$tH:%1$tM]" {astro="planet=sun,type=civilDawn,property=end"}
 DateTime duskEnd   "Evening Dusk End [%1$tH:%1$tM]"   {astro="planet=sun,type=civilDusk,property=end"}
+DateTime Sunrise_Time   	"Sunrise [%1$tH:%1$tM]"		{astro="planet=sun, type=rise, property=end"}
+DateTime Sunset_Time   		"Sunset [%1$tH:%1$tM]"		{astro="planet=sun, type=set, property=start"}
 
 /* Device Presence Detection */
 Switch someoneIsHome "Someone Is Home!" (devicePresence)
