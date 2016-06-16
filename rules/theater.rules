@@ -146,7 +146,7 @@ rule "Set Bar Speaker Mode"
     Item integraZ2Source changed or
     System started
   then
-    logDebug("rules", "Set Bar Speaker Mode Rule Ran")
+    logDebug("rules", "integraZ2Power OR integraZ2Source OR System Start - Set Bar_Speaker_Mode")
     
     if (integraZ2Power.state == OFF) {
       sendCommand(Bar_Speaker_Mode, 0)
