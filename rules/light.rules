@@ -70,7 +70,7 @@ rule "Basement Stair Light"
       sendCommand(BasementProjectorSpot, 100)
       sendCommand(epsonPower, ON)
       sendCommand(integraPower, ON)
-      createTimer(now.plusSeconds(60)) [| sendCommand(BasementProjectorSpot, 0)]
+      createTimer(now.plusSeconds(20)) [| sendCommand(BasementProjectorSpot, 0)]
     } else if (BasementStairsSwitch.state == OFF) {
       sendCommand(BasementProjectorSpot, 0)
     }
