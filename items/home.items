@@ -4,6 +4,7 @@ Group nestThermostat "Nest Thermostat" (All)
 Group integraBasement "Home Theater" (All)
 Group plugDimmers "All Plug Dimmers" (All)
 Group devicePresence "Device Presence" (All)
+Group Lights_Random
 
 /* Nest binding Items */
 
@@ -98,7 +99,7 @@ Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info
 
 Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (plugDimmers) {zwave="2"}
 Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" (plugDimmers) {zwave="3"}
-Switch GreatRoomSwitch "Great Room Switch" {zwave="4:command=SWITCH_MULTILEVEL"}
+Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="4:command=SWITCH_MULTILEVEL"}
 Dimmer GreatRoomDimmer "Great Room Dimmer [%d %%]" {zwave="4:command=SWITCH_MULTILEVEL",refresh_interval=5}
 Dimmer BasementStairs "Basement Stair Dimmer [%d %%]" {zwave="5:command=SWITCH_MULTILEVEL"}
 Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
