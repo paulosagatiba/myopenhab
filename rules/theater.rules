@@ -8,8 +8,8 @@ rule "Turn Off Projector"
   then
     if (epsonPower.state == ON) {
       logDebug("rules", "integraPower Changed - Turned off Projector")
-      sendCommand(epsonPower, OFF)
       sendCommand(BasementProjectorSpot, 100)
+      sendCommand(epsonPower, OFF)
     }
   end
 
@@ -26,8 +26,8 @@ rule "Home Theater Mode"
     // OFF
     if (Home_Theater_Mode.state == 0) {
       if (epsonPower.state == ON) {
-        sendCommand(epsonPower, OFF)
         sendCommand(BasementProjectorSpot, 100)
+        sendCommand(epsonPower, OFF)
       }
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
