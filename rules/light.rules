@@ -69,6 +69,8 @@ rule "Basement Stair Light"
       logDebug("rules", "Stair Switch ON - Turn On Receiver & Projector")
       sendCommand(epsonPower, ON)
       sendCommand(integraPower, ON)
+    } else if (BasementStairsSwitch.state == OFF) {
+      sendCommand(BasementProjectorSpot, 0)
     }
   end
   
