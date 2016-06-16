@@ -5,13 +5,12 @@ import org.openhab.core.persistence.*
 
 val boolean previsdark = false
 val boolean lightsOffForTheNight = false
-val boolean prevsomeoneIsHome = false
 
 rule "Turn Off Lights at Midnight"
   when
     Time cron "0 0 0 ? * * *"
   then
-    logDebug("rules", "Turn off Lights at Midnight")
+    logDebug("rules", "Midnight - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
     sendCommand(Kitchen_Lamp_Dimmer, 0)
     lightsOffForTheNight = true
@@ -21,41 +20,34 @@ rule "Turn On/Off Lights at Dusk/Dawn"
   when
     Time cron "0 * * * * ?"
   then
-    var DateTime daystart = new DateTime((dawnEnd.state as DateTimeType).calendar.timeInMillis)
-    var DateTime dayend = new DateTime((duskEnd.state as DateTimeType).calendar.timeInMillis)
+    var DateTime daystart = new DateTime((Sunrise_Time.state as DateTimeType).calendar.timeInMillis)
+    var DateTime dayend = new DateTime((Sunset_Time.state as DateTimeType).calendar.timeInMillis)
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
-    //logDebug("rules", "Current "+isdark)
-    //logDebug("rules", "Prev "+previsdark)
     
     // Living Room Light
     if (isdark && previsdark == false) {
-      logDebug("rules", "It's Dark transition!")
+      logDebug("rules", "Sun is Setting! - Turn ON Living Room Light")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
-    } else if (previsdark && isdark == false) {
-      logDebug("rules", "It's Light transition!")
+    } else if (previsdark && isdark == false && Living_Room_Lamp_Dimmer.state >= 0) {
+      logDebug("rules", "Sun is Rising! - Turn OFF Living Room Light")
       lightsOffForTheNight = false
       sendCommand(Living_Room_Lamp_Dimmer, 0)
     }
     
     // Only want to see a lamp command on transition
     previsdark = isdark
-    if (someoneIsHome.state == ON) {
-      prevsomeoneIsHome = true
-    } else {
-      prevsomeoneIsHome = false
-    }
   end
 
-rule "Light Switch!"
+rule "Great Room Light Switch!"
   when
     Item GreatRoomSwitch received update
   then
     if (GreatRoomSwitch.state == ON) {
-      logDebug("rules", "Light Switch ON!")
+      logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
       sendCommand(Kitchen_Lamp_Dimmer, 100)
     } else if (GreatRoomSwitch.state == OFF) {
-      logDebug("rules", "Light Switch OFF!")
+      logDebug("rules", "GreatRoomSwitch OFF - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
       sendCommand(Living_Room_Lamp_Dimmer, 0)
       sendCommand(Kitchen_Lamp_Dimmer, 0)
     }
@@ -66,12 +58,15 @@ rule "Basement Stair Light"
     Item BasementStairsSwitch changed
   then
     if (BasementStairsSwitch.state == ON && epsonPower.state == OFF) {
-      logDebug("rules", "Stair Switch ON - Turn On Receiver & Projector")
+      logDebug("rules", "BasementStairsSwitch ON - Turn ON Receiver, Projector, & BasementProjectorSpot")
       sendCommand(BasementProjectorSpot, 100)
       sendCommand(epsonPower, ON)
       sendCommand(integraPower, ON)
-      createTimer(now.plusSeconds(20)) [| sendCommand(BasementProjectorSpot, 0)]
+      createTimer(now.plusSeconds(20)) [| 
+        logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
+        sendCommand(BasementProjectorSpot, 0)]
     } else if (BasementStairsSwitch.state == OFF) {
+      logDebug("rules", "BasementStairsSwitch OFF - Turn OFF BasementProjectorSpot")
       sendCommand(BasementProjectorSpot, 0)
     }
   end
