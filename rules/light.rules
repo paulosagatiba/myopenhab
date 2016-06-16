@@ -65,7 +65,7 @@ rule "Basement Stair Light"
   when 
     Item BasementStairsSwitch changed
   then
-    if (BasementStairsSwitch.state == ON) {
+    if (BasementStairsSwitch.state == ON && epsonPower.state == OFF) {
       logDebug("rules", "Stair Switch ON - Turn On Receiver & Projector")
       sendCommand(BasementProjectorSpot, 100)
       sendCommand(epsonPower, ON)
