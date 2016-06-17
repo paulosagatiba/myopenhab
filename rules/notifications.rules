@@ -1,0 +1,24 @@
+rule "Turn all lights off at 23.10 if alarm is activated"
+	when
+		System Started
+	then
+		sendCommand(openhabNotifications , ON)
+end
+
+rule "NestHome_away Notification"
+	when
+		Item NestHome_away changed
+	then
+		if (openhabNotifications.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Nest State changed to " + NestHome_away.state)
+		}
+end
+
+rule "epsonPower Notification"
+	when
+		Item NestHome_away changed
+	then
+		if (openhabNotifications.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Projector State changed to " + epsonPower)
+		}
+end
