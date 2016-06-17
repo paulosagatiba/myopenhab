@@ -117,3 +117,6 @@ DateTime Sunset_Time   		"Sunset [%1$tH:%1$tM]"		{astro="planet=sun, type=set, p
 Switch someoneIsHome "Someone Is Home!" (devicePresence)
 Switch wifi_Kail "Kail Wifi"      (devicePresence)      {nh="192.168.0.206"}
 Switch wifi_Andrea "Andrea Wifi"  (devicePresence)      {nh="192.168.0.207"}
+
+//Enable & Disable Notifications
+Switch openhabNotifications "Enable/Disable Notifications"
