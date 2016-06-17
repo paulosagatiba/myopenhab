@@ -1,0 +1,19 @@
+var Timer firstTimeONTimer = null
+var Timer secondTimeONTimer = null
+
+rule "Find My Phone Notification"
+	when
+		Item GreatRoomSwitch changed to ON
+	then
+		 if (firstTimeONTimer == null) {
+		  firstTimeONTimer = createTimer(now.plusSeconds(5), [|
+		    firstTimeONTimer = null
+		    ])
+		 } else if (secondTimeONTimer == null) {
+		  secondTimeONTimer = createTimer(now.plusSeconds(5), [|
+		    secondTimeONTimer = null
+		    ])
+		 } else {
+		  sendNotification("kfkkail@gmail.com", "Where's my phone?")
+		 }
+end
