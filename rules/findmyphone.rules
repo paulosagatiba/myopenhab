@@ -10,12 +10,10 @@ rule "Find My Phone Notification"
 		Item GreatRoomSwitch changed to ON
 	then
 		 if (firstTimeONTimer == null) {
-		 	logDebug("rules", "first time")
 		  firstTimeONTimer = createTimer(now.plusSeconds(5), [|
 		    firstTimeONTimer = null
 		    ])
 		 } else if (secondTimeONTimer == null) {
-		 	logDebug("rules", "second time")
 		  secondTimeONTimer = createTimer(now.plusSeconds(5), [|
 		    secondTimeONTimer = null
 		    ])
