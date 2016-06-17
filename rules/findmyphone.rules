@@ -20,6 +20,8 @@ rule "Find My Phone Notification"
 		    secondTimeONTimer = null
 		    ])
 		 } else {
+		 	firstTimeONTimer = null
+		 	secondTimeONTimer = null
 		  sendNotification("kfkkail@gmail.com", "Where's my phone?")
 		 }
 end
