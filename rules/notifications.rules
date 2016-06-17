@@ -31,3 +31,22 @@ rule "someoneIsHome Notification"
 		 	sendNotification("kfkkail@gmail.com", "someoneIsHome changed to " + someoneIsHome.state)
 		}
 end
+
+rule "Living_Room_Lamp_Dimmer Notification"
+	when
+		Item Living_Room_Lamp_Dimmer changed
+	then
+		if (openhabNotifications.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Living_Room_Lamp_Dimmer changed to " + Living_Room_Lamp_Dimmer.state)
+		}
+end
+
+rule "Kitchen_Lamp_Dimmer Notification"
+	when
+		Item Kitchen_Lamp_Dimmer changed
+	then
+		if (openhabNotifications.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Kitchen_Lamp_Dimmer changed to " + Kitchen_Lamp_Dimmer.state)
+		}
+end
+
