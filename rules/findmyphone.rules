@@ -9,17 +9,18 @@ rule "Find My Phone Notification"
 	when
 		Item GreatRoomSwitch changed to ON
 	then
-		 logDebug("rules", "blag")
 		 if (firstTimeONTimer == null) {
 		 	logDebug("rules", "first time")
 		  firstTimeONTimer = createTimer(now.plusSeconds(5), [|
 		    firstTimeONTimer = null
 		    ])
 		 } else if (secondTimeONTimer == null) {
+		 	logDebug("rules", "second time")
 		  secondTimeONTimer = createTimer(now.plusSeconds(5), [|
 		    secondTimeONTimer = null
 		    ])
 		 } else {
+		 	logDebug("rules", "Find The Phone!")
 		 	firstTimeONTimer = null
 		 	secondTimeONTimer = null
 		  sendNotification("kfkkail@gmail.com", "Where's my phone?")
