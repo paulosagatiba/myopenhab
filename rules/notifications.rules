@@ -32,6 +32,7 @@ rule "someoneIsHome Notification"
 		}
 end
 
+/*
 rule "Living_Room_Lamp_Dimmer Notification"
 	when
 		Item Living_Room_Lamp_Dimmer changed
@@ -50,3 +51,4 @@ rule "Kitchen_Lamp_Dimmer Notification"
 		}
 end
 
+*/
