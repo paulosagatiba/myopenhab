@@ -5,6 +5,7 @@ rule "Find My Phone Notification"
 	when
 		Item GreatRoomSwitch changed to ON
 	then
+		 logDebug("rules", "blag")
 		 if (firstTimeONTimer == null) {
 		 	logDebug("rules", "first time")
 		  firstTimeONTimer = createTimer(now.plusSeconds(5), [|
