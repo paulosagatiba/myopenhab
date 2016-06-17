@@ -1,4 +1,7 @@
 import org.joda.time.*
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
 var Timer firstTimeONTimer = null
 var Timer secondTimeONTimer = null
 
