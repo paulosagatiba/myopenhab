@@ -18,7 +18,7 @@ rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunse
 			 		var randLightStateNew = if (randLightStateCurrent == ON) OFF else ON
 			 		logInfo("org.openhab","Switching light " + Lights_Random.members.get(randLightIndex).name + " from " + randLightStateCurrent + " to " + randLightStateNew)
 			 		sendCommand(Lights_Random.members.get(randLightIndex), randLightStateNew)
-		        ]
+		       ]
 			}
 		}
 end
