@@ -22,3 +22,12 @@ rule "epsonPower Notification"
 		 	sendNotification("kfkkail@gmail.com", "Projector State changed to " + epsonPower.state)
 		}
 end
+
+rule "someoneIsHome Notification"
+	when
+		Item someoneIsHome changed
+	then
+		if (openhabNotifications.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "someoneIsHome changed to " + someoneIsHome.state)
+		}
+end
