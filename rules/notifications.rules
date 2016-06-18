@@ -22,7 +22,7 @@ rule "epsonPower Notification"
 		 	sendNotification("kfkkail@gmail.com", "Projector State changed to " + epsonPower.state)
 		}
 end
-
+/*
 rule "someoneIsHome Notification"
 	when
 		Item someoneIsHome changed
@@ -32,7 +32,7 @@ rule "someoneIsHome Notification"
 		}
 end
 
-/*
+
 rule "Living_Room_Lamp_Dimmer Notification"
 	when
 		Item Living_Room_Lamp_Dimmer changed
