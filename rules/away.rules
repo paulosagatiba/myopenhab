@@ -12,6 +12,7 @@ rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunse
 		if ((NestHome_away.state == "away") && (now.isBefore((Sunrise_Time.state as DateTimeType).calendar.timeInMillis) || now.isAfter((Sunset_Time.state as DateTimeType).calendar.timeInMillis))) {
 
 			// Only turn a light on/off ocasionally
+			logDebug("rules", "too much")
 		 	if ((new java.util.Random).nextInt(2) == 1) { 
 		 	
 		 		// Create a timer with a random value
