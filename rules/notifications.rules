@@ -1,4 +1,4 @@
-rule "Turn all lights off at 23.10 if alarm is activated"
+rule "System Start Init"
 	when
 		System Started
 	then
