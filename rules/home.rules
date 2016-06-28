@@ -4,33 +4,20 @@ import org.openhab.core.persistence.*
 
 // Cron Jobs
 
-rule "3:30pm Cron Job"
+rule "Turn Off Auto-Away Heat"
   when
-    Time cron "0 30 15 ? * MON-FRI *"
+    Time cron "0 */10 15-18 ? * MON-FRI *"
   then
-    logDebug("rules", "3:30pm Cron Job")
     if (Nest_ambient_temperature_f.state < 69 && Nest_can_heat.state == ON && NestHome_away.state == "auto-away") {
       logDebug("rules", "Winter Nest - Set to Home")
       sendCommand(NestHome_away, "home")
     }
   end
   
-rule "4pm Cron Job"
+rule "Turn Off Auto-Away Cool"
   when
-    Time cron "0 0 16 ? * MON-FRI *"
+    Time cron "0 */10 16-18 ? * MON-FRI *"
   then
-    logDebug("rules","4pm Cron Job"
-    if (Nest_ambient_temperature_f.state > 73 && Nest_can_cool.state == ON && NestHome_away.state == "auto-away") {
-      logDebug("rules", "Summer Nest - Set to Home")
-      sendCommand(NestHome_away, "home")
-    }
-  end
-  
-  rule "5:30pm Cron Job"
-  when
-    Time cron "0 30 17 ? * MON-FRI *"
-  then
-    logDebug("rules","5:30pm Cron Job"
     if (Nest_ambient_temperature_f.state >= 73 && Nest_can_cool.state == ON && NestHome_away.state == "auto-away") {
       logDebug("rules", "Summer Nest - Set to Home")
       sendCommand(NestHome_away, "home")
