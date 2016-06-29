@@ -99,9 +99,12 @@ Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info
 
 Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (plugDimmers) {zwave="2"}
 Dimmer Kitchen_Lamp_Dimmer "Kitchen Dimmer [%d %%]" (plugDimmers) {zwave="3"}
+Dimmer Bonus_Room_Dimmer "Bonus Room Dimmer [%d %%]" (plugDimmers) {zwave="7"}
 Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="4:command=SWITCH_MULTILEVEL"}
 Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
+
+Switch Doorbell "Doorbell" {zwave="8"}
 
 /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
   even better, but that's not too hard to hack in later */
