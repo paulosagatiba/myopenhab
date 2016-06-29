@@ -18,6 +18,7 @@ sitemap home label="Falcons Fire Home"
       Switch item=GreatRoomSwitch
       Switch item=BasementStairsSwitch
       Slider item=BasementProjectorSpot
+      Slider item=Bonus_Room_Dimmer
       Text item=dawnEnd
       Text item=duskEnd
     }
