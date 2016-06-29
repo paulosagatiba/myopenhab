@@ -22,6 +22,14 @@ rule "epsonPower Notification"
 		 	sendNotification("kfkkail@gmail.com", "Projector State changed to " + epsonPower.state)
 		}
 end
+
+rule "doorbell Notification"
+	when
+		Item Doorbell changed to ON
+	then
+		sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
+end
+
 /*
 rule "someoneIsHome Notification"
 	when
