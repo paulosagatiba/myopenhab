@@ -84,8 +84,8 @@ rule "doorbell Basement Light Notification"
 			sendCommand(BasementProjectorSpot, newLightState)
 			doorbellRange = TRUE
 			createTimer(now.plusSeconds(1)) [|
-    		sendCommand(BasementProjectorSpot, currentLightState)]
-    	createTimer(now.plusSeconds(5)) [|
-    		doorbellRange = FALSE]
-    }
+				sendCommand(BasementProjectorSpot, currentLightState)]
+			createTimer(now.plusSeconds(5)) [|
+				doorbellRange = FALSE]
+		}
 end
