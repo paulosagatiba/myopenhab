@@ -105,7 +105,8 @@ Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="4:command=SWI
 Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 
-Switch Doorbell "Doorbell" {zwave="8"}
+Contact Doorbell {zwave="8:command=ALARM"}
+Number FrontDoor_Doorbell_Battery {zwave="8:command=battery"}
 
 /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
   even better, but that's not too hard to hack in later */
