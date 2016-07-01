@@ -74,7 +74,7 @@ rule "Basement Stair Light"
   
 rule "doorbell Basement Light Notification"
 	when
-		Item Doorbell changed to ON
+		Item Doorbell received update
 	then
 		var currentLightState = BasementProjectorSpot.state;
 		var newLightState = if (currentLightState > 0) 0 else 100
@@ -82,6 +82,7 @@ rule "doorbell Basement Light Notification"
 		
 		if (doorbellRang == FALSE) {
 			sendCommand(BasementProjectorSpot, newLightState)
+			sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
 			doorbellRange = TRUE
 			createTimer(now.plusSeconds(1)) [|
 				sendCommand(BasementProjectorSpot, currentLightState)]
