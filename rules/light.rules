@@ -81,11 +81,11 @@ rule "doorbell Basement Light Notification"
 		
 		if (doorbellRang == FALSE) {
 			sendCommand(BasementProjectorSpot, newLightState)
+			sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
+			logDebug("rules", "Doorbell Range - Notify with Basement Spot Light")
 			doorbellRange = TRUE
 			createTimer(now.plusSeconds(1)) [|
-				sendCommand(BasementProjectorSpot, currentLightState)
-				sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
-				logDebug("rules", "Doorbell Range - Notify with Basement Spot Light")]
+				sendCommand(BasementProjectorSpot, currentLightState)]
 			createTimer(now.plusSeconds(5)) [|
 				doorbellRange = FALSE]
 		}
