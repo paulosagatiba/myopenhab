@@ -49,6 +49,7 @@ sitemap home label="Falcons Fire Home"
       Text item=Nest_last_connection
     }
     Group item=devicePresence icon="present"
+    Text item=FrontDoor_Doorbell_Battery
     Switch item=openhabNotifications
   }
 }
