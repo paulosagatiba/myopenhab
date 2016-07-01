@@ -23,13 +23,6 @@ rule "epsonPower Notification"
 		}
 end
 
-rule "doorbell Notification"
-	when
-		Item Doorbell changed to ON
-	then
-		sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
-end
-
 /*
 rule "someoneIsHome Notification"
 	when
