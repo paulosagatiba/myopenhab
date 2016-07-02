@@ -123,3 +123,4 @@ Switch wifi_Andrea "Andrea Wifi"  (devicePresence)      {nh="192.168.0.207"}
 
 //Enable & Disable Notifications
 Switch openhabNotifications "Enable/Disable Notifications"
+Switch openhabNotificationsAway "Enable/Disable Notifications Away"
