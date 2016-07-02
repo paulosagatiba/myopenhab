@@ -17,6 +17,9 @@ rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunse
 		 		// Create a timer with a random value
 				var int randomTime = (new java.util.Random).nextInt(300)
 				logDebug("rules","Setting random lights timer to " + randomTime + " seconds.")
+				if (openhabNotificationsAway.state == ON) {
+		 			sendNotification("kfkkail@gmail.com", "Setting random lights timer to " + randomTime + " seconds.")
+				}
 				tRandomLights = createTimer(now.plusSeconds(randomTime)) [|
 					var randLightIndex = (new java.util.Random).nextInt(Lights_Random.members.size)
 			 		var randLightStateCurrent = Lights_Random.members.get(randLightIndex).state
@@ -38,9 +41,12 @@ rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunse
 		 	if ((new java.util.Random).nextInt(2) == 1) { 
 		 	
 		 		// Create a timer with a random value
-				var int randomTime = (new java.util.Random).nextInt(300)
-				logDebug("rules","Setting random dimmer lights timer to " + randomTime + " seconds.")
-				tRandomLights = createTimer(now.plusSeconds(randomTime)) [|
+				var int randomTime1 = (new java.util.Random).nextInt(300)
+				logDebug("rules","Setting random dimmer lights timer to " + randomTime1 + " seconds.")
+				if (openhabNotificationsAway.state == ON) {
+		 			sendNotification("kfkkail@gmail.com", "Setting random lights timer to " + randomTime1 + " seconds.")
+				}
+				tRandomLights = createTimer(now.plusSeconds(randomTime1)) [|
 					var randLightIndex = (new java.util.Random).nextInt(Dimmer_Lights_Random.members.size)
 			 		var randLightStateCurrent = Dimmer_Lights_Random.members.get(randLightIndex).state
 			 		var randLightStateNew = if (randLightStateCurrent > 0) 0 else 100
