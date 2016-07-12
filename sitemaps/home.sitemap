@@ -12,15 +12,15 @@ sitemap home label="Falcons Fire Home"
     Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1 visibility=[Bar_Speaker_Mode>0]
   }
   Frame label="Main Floor" {
-    Slider item=Living_Room_Lamp_Dimmer
-    Slider item=Kitchen_Lamp_Dimmer
+    Slider item=Living_Room_Lamp_Dimmer sendFrequency=200 switchSupport
+    Slider item=Kitchen_Lamp_Dimmer sendFrequency=200 switchSupport
   }
   Frame label="Advanced"{
     Text label="Dimmers" icon="switch" {
       Switch item=GreatRoomSwitch
       Switch item=BasementStairsSwitch
-      Slider item=BasementProjectorSpot
-      Slider item=Bonus_Room_Dimmer
+      Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
+      Slider item=Bonus_Room_Dimmer sendFrequency=200 switchSupport
       Text item=dawnEnd
       Text item=duskEnd
     }
