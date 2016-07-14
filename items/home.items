@@ -22,7 +22,7 @@ String   NestHome_away "Home/Away [%s]"               <present> (nestThermostat)
 
 /* Thermostats - change to your thermostat's name */
 
-Number   Nest_humidity "Humidity [%d %%]"                                   <softner> (nestThermostat) {nest="<[thermostats(Hallway).humidity]"}
+Number   Nest_humidity "Humidity [%d %%]"                                   <water> (nestThermostat) {nest="<[thermostats(Hallway).humidity]"}
 //String   Nest_locale "Locale [%s]"                                          {nest="<[thermostats(Hallway).locale]"}
 //String   Nest_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Hallway).temperature_scale]"}
 //Switch   Nest_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Hallway).is_using_emergency_heat]"}
@@ -106,15 +106,15 @@ Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MUL
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 
 Contact Doorbell {zwave="14:command=ALARM"}
-Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" {zwave="14:command=battery"}
+Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" <cistern> {zwave="14:command=battery"}
 
 /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
   even better, but that's not too hard to hack in later */
 
-DateTime dawnEnd "Morning Dawn End [%1$tH:%1$tM]" {astro="planet=sun,type=civilDawn,property=end"}
-DateTime duskEnd   "Evening Dusk End [%1$tH:%1$tM]"   {astro="planet=sun,type=civilDusk,property=end"}
-DateTime Sunrise_Time   	"Sunrise [%1$tH:%1$tM]"		{astro="planet=sun, type=rise, property=end"}
-DateTime Sunset_Time   		"Sunset [%1$tH:%1$tM]"		{astro="planet=sun, type=set, property=start"}
+DateTime dawnEnd "Morning Dawn End [%1$tH:%1$tM]" <clock> {astro="planet=sun,type=civilDawn,property=end"}
+DateTime duskEnd   "Evening Dusk End [%1$tH:%1$tM]"   <clock> {astro="planet=sun,type=civilDusk,property=end"}
+DateTime Sunrise_Time   	"Sunrise [%1$tH:%1$tM]"		<clock> {astro="planet=sun, type=rise, property=end"}
+DateTime Sunset_Time   		"Sunset [%1$tH:%1$tM]"		<clock> {astro="planet=sun, type=set, property=start"}
 
 /* Device Presence Detection */
 Switch someoneIsHome "Someone Is Home!" (devicePresence)
