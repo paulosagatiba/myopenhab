@@ -21,8 +21,8 @@ sitemap home label="Falcons Fire Home"
       Switch item=BasementStairsSwitch
       Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
       Slider item=Bonus_Room_Dimmer sendFrequency=200 switchSupport
-      Text item=dawnEnd
-      Text item=duskEnd
+      Text item=Sunrise_Time
+      Text item=Sunset_Time
     }
     Text label="Basement Theater" icon="cellar" {
       Frame {
