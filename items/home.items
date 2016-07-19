@@ -125,4 +125,4 @@ Switch wifi_Andrea "Andrea Wifi"  <present> (devicePresence)      {nh="192.168.0
 Switch openhabNotifications "Enable/Disable Notifications"
 Switch openhabNotificationsAway "Enable/Disable Notifications Away"
 
-Number   Temperature_OWM   "Outside Temperature [%.2f °F]"   {weather="locationId=home, type=temperature, property=current"}
+Number   Temperature_OWM   "Outside Temperature [%.2f °F]"   <temperature> {weather="locationId=home, type=temperature, property=current"}
