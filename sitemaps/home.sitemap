@@ -17,6 +17,12 @@ sitemap home label="Falcons Fire Home"
     Slider item=Kitchen_Lamp_Dimmer sendFrequency=200 switchSupport
   }
   Frame label="Advanced"{
+    Text label="PIR" icon="switch" {
+      Text item=GREATROOM_PIR_BATTERY
+      Text item=GREATROOM_PIR_TEMPERATURE
+      Text item=GREATROOM_PIR_LIGHT
+      Text item=GREATROOM_PIR_REL_HUMID
+    }
     Text label="Dimmers" icon="switch" {
       Switch item=GreatRoomSwitch
       Switch item=BasementStairsSwitch
