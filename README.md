@@ -10,6 +10,7 @@ This is the repository I'm using to hold my house openhab configuration.
   * Leviton VRPD3-1LW
   * GE 12729 Z-Wave Wireless Lighting Control Smart Dimmer Toggle Switch
   * Nexia DB100Z Z-Wave Doorbell Home Sensor
+  * ZOOZ Z-Wave Plus 4-in-1 Sensor ZSE40 (motion / light / temperature / humidity)
 * Epson Binding with RS232 USB to Serial connection
   * Epson PowerLite Pro Cinema 4030
 * Onkyo Receiver Binding over Ethernet (eISCP)
