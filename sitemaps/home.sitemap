@@ -4,6 +4,7 @@ sitemap home label="Falcons Fire Home"
     Text item=Nest_ambient_temperature_f
     Text item=Temperature_OWM
     Text item=Nest_humidity
+    Text item=Humidity
     Switch item=NestHome_away mappings=[home="Home",away="Away"]
   }
   Frame label="Home Theater" {
