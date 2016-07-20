@@ -22,7 +22,7 @@ String   NestHome_away "Home/Away [%s]"               <present> (nestThermostat)
 
 /* Thermostats - change to your thermostat's name */
 
-Number   Nest_humidity "Humidity [%d %%]"                                   <water> (nestThermostat) {nest="<[thermostats(Hallway).humidity]"}
+Number   Nest_humidity "House Humidity [%d %%]"                                   <water> (nestThermostat) {nest="<[thermostats(Hallway).humidity]"}
 //String   Nest_locale "Locale [%s]"                                          {nest="<[thermostats(Hallway).locale]"}
 //String   Nest_temperature_scale "Temperature Scale [%s]"                    {nest="<[thermostats(Hallway).temperature_scale]"}
 //Switch   Nest_is_using_emergency_heat "Is using emergency heat [%s]"        {nest="<[thermostats(Hallway).is_using_emergency_heat]"}
