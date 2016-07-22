@@ -23,6 +23,24 @@ rule "epsonPower Notification"
 		}
 end
 
+rule "PIR changed"
+	when
+		Item GREATROOM_PIR_MOTION changed
+	then
+		if (openhabNotifications.state == ON && NestHome_away.state != "home") {
+		 	sendNotification("kfkkail@gmail.com", "PIR Motion updated to " + GREATROOM_PIR_MOTION.state)
+		}
+end
+
+rule "PIR Tamper changed"
+	when
+		Item GREATROOM_PIR_TAMPER changed
+	then
+		if (openhabNotifications.state == ON && NestHome_away.state != "home") {
+		 	sendNotification("kfkkail@gmail.com", "PIR Tamper updated to " + GREATROOM_PIR_TAMPER.state)
+		}
+end
+
 /*
 rule "someoneIsHome Notification"
 	when
