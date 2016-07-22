@@ -1,6 +1,6 @@
 sitemap home label="Falcons Fire Home"
 {
-  Fram label = "PIR" {
+  Frame label="PIR" {
     Text item=GREATROOM_PIR_BATTERY
     Text item=GREATROOM_PIR_TEMPERATURE
     Text item=GREATROOM_PIR_LIGHT
