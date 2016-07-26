@@ -9,6 +9,7 @@ sitemap home label="Falcons Fire Home"
   Frame {
     Text item=Nest_ambient_temperature_f
     Text item=Nest_humidity
+    Text item=Nest_hvac_state
     Switch item=NestHome_away mappings=[home="Home",away="Away"]
   }
   Frame label="Outside" {
@@ -57,6 +58,7 @@ sitemap home label="Falcons Fire Home"
       }
     }
     Text label="Nest Thermostat" icon="temperature" {
+      Text item=Nest_hvac_state
       Switch item=NestHome_away mappings=[home="Home",away="Away"]
       Text item=Nest_ambient_temperature_f
       Setpoint item=Nest_target_temperature_f minValue=50 maxValue=80 step=1 visibility=[NestHome_away=="home"]
