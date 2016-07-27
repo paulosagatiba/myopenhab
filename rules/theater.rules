@@ -165,7 +165,7 @@ rule "Starting Up Home Theater State = 3"
       sendCommand(integraPower, ON)
       sendCommand(integraSource, 1)
       createTimer(now.plusSeconds(20)) [| 
-        logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
+        logDebug("rules", "Home_Theater_State is ON (1)")
         sendCommand(BasementProjectorSpot, 0)
         sendCommand(Home_Theater_State, 1)]
     }
