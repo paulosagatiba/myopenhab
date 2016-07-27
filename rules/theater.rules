@@ -166,14 +166,16 @@ rule "Starting Up Home Theater State = 3"
       sendCommand(Home_Theater_State, 3)
       
       sendCommand(BasementProjectorSpot, 100)
-      sendCommand(epsonPower, ON)
       sendCommand(BasementStairsSwitch, ON)
+      sendCommand(epsonPower, ON)
       sendCommand(integraPower, ON)
       sendCommand(integraSource, 1)
       createTimer(now.plusSeconds(20)) [| 
-        logDebug("rules", "Home_Theater_State is ON (1)")
+        logDebug("rules", "Timer Expired - Turn off BasementProjectorSpot")
         sendCommand(BasementProjectorSpot, 0)
-        sendCommand(Home_Theater_State, 1)]
+        createTimer(now.plusSeconds(10)) [|
+          logDebug("rules", "Home_Theater_State is ON (1)")
+          sendCommand(Home_Theater_State, 1)]]
     }
     
 
