@@ -19,9 +19,10 @@ rule "Projector turned ON - start light sequence"
     Item epsonPower changed to ON
   then  
     //Handle lights when powered on from remote
-    logDebug("rules", "integraPower ON - Turn On Projector and BasementProjectorSpot")
+    logDebug("rules", "epsonPower ON - Turn On BasementProjectorSpot")
     sendCommand(BasementProjectorSpot, 100)
     sendCommand(BasementStairsSwitch, ON)
+    sendCommand(integraSource, 1)
     createTimer(now.plusSeconds(15)) [| 
       logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
       sendCommand(BasementProjectorSpot, 0)]
