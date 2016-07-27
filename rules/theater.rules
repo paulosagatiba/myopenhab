@@ -87,8 +87,6 @@ rule "Set Home Theater Mode Feedback"
     System started
   then
     //If someone changes state of receiver manually, change Home_Theater_Feedback
-    createTimer(now.plusSeconds(10)) [|
-      //to prevent interaction with rules above, wait to set Home_Theater_Mode til everything settles down
       logDebug("rules", "integraPower OR integraSource OR System Start - Set Home_Theater_Feedback")
       if (integraPower.state == OFF) {
         sendCommand(Home_Theater_Feedback, "Off")
@@ -104,7 +102,7 @@ rule "Set Home Theater Mode Feedback"
         sendCommand(Home_Theater_Feedback, "PC")
       } else {
         sendCommand(Home_Theater_Feedback, "Unknown")
-      }]
+      }
   end
 
 // Sending Commands for Bar Speaker Mode to Receiver
