@@ -2,6 +2,14 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
+rule "System Started"
+  when
+    System started
+  then
+    logDebug("rules", "System Start - Initialize Home_Theater_State")
+    sendCommand(Home_Theater_State, 0)
+  end
+
 // Sending Commands for Home Theater to Receiver
 rule "Home Theater Mode"
   when
