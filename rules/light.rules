@@ -74,3 +74,11 @@ rule "doorbell Basement Light Notification"
 				doorbellRang = false]
 		}
 end
+
+rule "Basement Switch Turn off ProjectorSpotLights"
+  when
+    Item BasementStairsSwitch changed to OFF
+  then
+    logDebug("rules", "BasementStairsSwitch OFF - Turn Off BasementProjectorSpot")
+    sendCommand(BasementProjectorSpot, 0)
+  end
