@@ -161,7 +161,7 @@ rule "Starting Up Home Theater State = 3"
     Item integraPower changed to ON or
     Item BasementStairsSwitch changed to ON
   then
-    if(Home_Theater_State == 0) {
+    if(Home_Theater_State.state == 0) {
       logDebug("rules", "Home_Theater_State is Starting Up (3)")
       sendCommand(Home_Theater_State, 3)
       
@@ -191,7 +191,7 @@ rule "Shutting Down Home Theater State = 2"
     Item epsonPower changed to OFF or
     Item integraPower changed to OFF
   then
-    if(Home_Theater_State == 1) {
+    if(Home_Theater_State.state == 1) {
       logDebug("rules", "Home_Theater_State is Shutting Down (2)")
       sendCommand(Home_Theater_State, 2)
       sendCommand(BasementProjectorSpot, 100)
