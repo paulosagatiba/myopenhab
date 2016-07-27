@@ -52,7 +52,7 @@ Number   Nest_away_temperature_low_f "Away Temperature Low [%.1f °F]"       (ne
 //String   Nest_name_long "Name Long [%s]"                                    {nest="<[thermostats(Hallway).name_long]"}
 //Switch   Nest_is_online "Is Online [%s]"                                    {nest="<[thermostats(Hallway).is_online]"}
 DateTime Nest_last_connection "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]" <calendar> (nestThermostat) {nest="<[thermostats(Hallway).last_connection]"}
-String   Nest_hvac_state "HVAC State [%s]"                                  (nestThermostat) {nest="<[thermostats(Hallway).hvac_state]"}
+String   Nest_hvac_state "HVAC State [%s]"                                  <temperature> (nestThermostat) {nest="<[thermostats(Hallway).hvac_state]"}
 
 /* Integra Receiver binding Items */
 
