@@ -2,37 +2,6 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
-rule "Turn Off Projector"
-  when
-    Item integraPower changed to OFF
-  then
-    if (epsonPower.state == ON) {
-      logDebug("rules", "integraPower Changed - Turned off Projector")
-      sendCommand(BasementProjectorSpot, 100)
-      sendCommand(epsonPower, OFF)
-    }
-  end
-  
-rule "Home Theater ON Sequence"
-  when
-    Item BasementStairsSwitch changed to ON
-  then
-    
-    logDebug("rules", "epsonPower or BasementStairsSwitch ON - Turn On Home Theater Sequence")
-    sendCommand(BasementProjectorSpot, 100)
-    if(epsonPower.state == OFF) {
-      sendCommand(epsonPower, ON)
-    }
-    if(BasementStairsSwitch.state == OFF) {
-      sendCommand(BasementStairsSwitch, ON)
-    }
-    sendCommand(integraPower, ON)
-    sendCommand(integraSource, 1)
-    createTimer(now.plusSeconds(20)) [| 
-      logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
-      sendCommand(BasementProjectorSpot, 0)]
-  end
-
 // Sending Commands for Home Theater to Receiver
 rule "Home Theater Mode"
   when
@@ -111,37 +80,30 @@ rule "Home Theater Mode"
     }
   end
 
-rule "Set Home Theater Mode"
+rule "Set Home Theater Mode Feedback"
   when
     Item integraPower changed or
     Item integraSource changed or
     System started
   then
-    
-    if (integraPower.state == ON) {
-      if (epsonPower.state == OFF) {
-        sendCommand(epsonPower, ON)
-      }
-    }
-    
-    //If someone changes state of receiver manually, change Home_Theater_Mode
+    //If someone changes state of receiver manually, change Home_Theater_Feedback
     createTimer(now.plusSeconds(10)) [|
       //to prevent interaction with rules above, wait to set Home_Theater_Mode til everything settles down
-      logDebug("rules", "integraPower OR integraSource OR System Start - Set Home_Theater_Mode")
+      logDebug("rules", "integraPower OR integraSource OR System Start - Set Home_Theater_Feedback")
       if (integraPower.state == OFF) {
-        sendCommand(Home_Theater_Mode, 0)
+        sendCommand(Home_Theater_Feedback, "Off")
       } else if (integraPower.state == ON && integraSource.state == 1) {
-        sendCommand(Home_Theater_Mode, 1)
+        sendCommand(Home_Theater_Feedback, "Cable")
       } else if (integraPower.state == ON && integraSource.state == 17) {
-        sendCommand(Home_Theater_Mode, 2)
+        sendCommand(Home_Theater_Feedback, "Chromecast")
       } else if (integraPower.state == ON && integraSource.state == 5) {
-        sendCommand(Home_Theater_Mode, 3)
+        sendCommand(Home_Theater_Feedback, "FireTV")
       } else if (integraPower.state == ON && integraSource.state == 43) {
-      sendCommand(Home_Theater_Mode, 4)
+      sendCommand(Home_Theater_Feedback, "Pandora")
       } else if (integraPower.state == ON && integraSource.state == 5) {
-        sendCommand(Home_Theater_Mode, 5)
+        sendCommand(Home_Theater_Feedback, "PC")
       } else {
-        sendCommand(Home_Theater_Mode, 6)
+        sendCommand(Home_Theater_Feedback, "Unknown")
       }]
   end
 
@@ -181,5 +143,56 @@ rule "Set Bar Speaker Mode"
       sendCommand(Bar_Speaker_Mode, 4)
     } else {
       sendCommand(Bar_Speaker_Mode, 6)
+    }
+  end
+
+
+// New Theater States
+
+rule "Starting Up Home Theater State = 3"
+  when
+    Item epsonPower changed to ON or
+    Item integraPower changed to ON or
+    Item BasementStairsSwitch changed to ON
+  then
+    if(Home_Theater_State == 0) {
+      logDebug("rules", "Home_Theater_State is Starting Up (3)")
+      sendCommand(Home_Theater_State, 3)
+      
+      sendCommand(BasementProjectorSpot, 100)
+      sendCommand(epsonPower, ON)
+      sendCommand(BasementStairsSwitch, ON)
+      sendCommand(integraPower, ON)
+      sendCommand(integraSource, 1)
+      createTimer(now.plusSeconds(20)) [| 
+        logDebug("rules", "Timer Expired - Turn OFF BasementProjectorSpot")
+        sendCommand(BasementProjectorSpot, 0)
+        sendCommand(Home_Theater_State, 1)]
+    }
+    
+
+  end
+
+/*  Don't need this one right now, since we are using a timeout in Starting up state. No trigger that moves from starting up to ON
+rule "ON & OFF Home Theater State = 1 & 0"
+  when
+  then
+  end
+*/
+
+rule "Shutting Down Home Theater State = 2"
+  when
+    Item epsonPower changed to OFF or
+    Item integraPower changed to OFF
+  then
+    if(Home_Theater_State == 1) {
+      logDebug("rules", "Home_Theater_State is Shutting Down (2)")
+      sendCommand(Home_Theater_State, 2)
+      sendCommand(BasementProjectorSpot, 100)
+      sendCommand(epsonPower, OFF)
+      sendCommand(integraPower, OFF)
+      createTimer(now.plusSeconds(10)) [| 
+        logDebug("rules", "Timer Expired - Home_Theater_State is OFF (0)")
+        sendCommand(Home_Theater_State, 0)]
     }
   end

@@ -83,9 +83,10 @@ String epsonPowerState                     { epsonprojector="hometheaterprojecto
 
 /* Scene Controller for Home Theater */
 
-Number Home_Theater_Mode			    "Home Theater Mode"
-Number Home_Theater_Actual_Mode   "Current Home Theater Mode"
-Number Bar_Speaker_Mode           "Bar Speaker Mode"
+Number Home_Theater_Mode        "Home Theater Mode"
+Text Home_Theater_Feedback        "Home Theater Feedback"
+Number Home_Theater_State       "Home Theater State"
+Number Bar_Speaker_Mode         "Bar Speaker Mode"
 
 /* Z-Wave Stick General Stats */
 /*
