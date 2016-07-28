@@ -1,12 +1,6 @@
 sitemap home label="Falcons Fire Home"
 {
-  Frame label="PIR" {
-    Text item=GREATROOM_PIR_BATTERY
-    Text item=GREATROOM_PIR_TEMPERATURE
-    Text item=GREATROOM_PIR_LIGHT
-    Text item=GREATROOM_PIR_REL_HUMID
-  }
-  Frame {
+  Frame label="Nest" {
     Text item=Nest_ambient_temperature_f
     Text item=Nest_humidity
     Text item=Nest_hvac_state
@@ -15,6 +9,22 @@ sitemap home label="Falcons Fire Home"
   Frame label="Outside" {
     Text item=Temperature_OWM
     Text item=Humidity
+  }
+  Frame label="PIR Great Room" {
+    Text item=GREATROOM_PIR_MOTION
+    Text item=GERATROOM_PIR_TAMPER
+    Text item=GREATROOM_PIR_BATTERY
+    Text item=GREATROOM_PIR_TEMPERATURE
+    Text item=GREATROOM_PIR_LIGHT
+    Text item=GREATROOM_PIR_REL_HUMID
+  }
+  Frame label="PIR Basement" {
+    Text item=BASEMENT_PIR_MOTION
+    Text item=BASEMENT_PIR_TAMPER
+    Text item=BASEMENT_PIR_BATTERY
+    Text item=BASEMENT_PIR_TEMPERATURE
+    Text item=BASEMENT_PIR_LIGHT
+    Text item=BASEMENT_PIR_REL_HUMID
   }
   Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
