@@ -12,7 +12,7 @@ sitemap home label="Falcons Fire Home"
   }
   Frame label="PIR Great Room" {
     Text item=GREATROOM_PIR_MOTION
-    Text item=GERATROOM_PIR_TAMPER
+    Text item=GREATROOM_PIR_TAMPER
     Text item=GREATROOM_PIR_BATTERY
     Text item=GREATROOM_PIR_TEMPERATURE
     Text item=GREATROOM_PIR_LIGHT
