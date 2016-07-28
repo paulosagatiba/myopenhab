@@ -130,16 +130,16 @@ Switch openhabNotificationsAway "Enable/Disable Notifications Away"
 Number   Temperature_OWM   "Outside Temperature [%.2f °F]"   <temperature> {weather="locationId=home, type=temperature, property=current, unit=fahrenheit"}
 Number   Humidity      "Outside Humidity [%d %%]"        <water> {weather="locationId=home, type=atmosphere, property=humidity"}
 
-Contact GREATROOM_PIR_TAMPER "Motion Tamper [MAP(zwave_motion.map):%s]" {zwave="15:command=ALARM"}
+Contact GREATROOM_PIR_TAMPER "Motion Tamper" {zwave="15:command=ALARM"}
 Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <cistern> {zwave="15:command=BATTERY"}
 Number GREATROOM_PIR_TEMPERATURE "Great Room Temperature [%.2f °F]" <temperature> {zwave="15:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number GREATROOM_PIR_LIGHT "Great Room Light Level [%.1f %%]" <slider> {zwave="15:command=sensor_multilevel,sensor_type=3"}
 Number GREATROOM_PIR_REL_HUMID "Great Room Humidity [%.0f %%]" <water> {zwave="15:command=sensor_multilevel,sensor_type=5"}
-Contact GREATROOM_PIR_MOTION "Great Room Motion [MAP(zwave_motion.map):%s]" {zwave="15:command=BASIC"}
+Contact GREATROOM_PIR_MOTION "Great Room Motion" {zwave="15:command=BASIC"}
 
-Contact BASEMENT_PIR_TAMPER "Motion Tamper [MAP(zwave_motion.map):%s]" {zwave="16:command=ALARM"}
+Contact BASEMENT_PIR_TAMPER "Motion Tamper" {zwave="16:command=ALARM"}
 Number BASEMENT_PIR_BATTERY "Motion Battery [%d %%]" <cistern> {zwave="16:command=BATTERY"}
 Number BASEMENT_PIR_TEMPERATURE "Great Room Temperature [%.2f °F]" <temperature> {zwave="16:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number BASEMENT_PIR_LIGHT "Great Room Light Level [%.1f %%]" <slider> {zwave="16:command=sensor_multilevel,sensor_type=3"}
 Number BASEMENT_PIR_REL_HUMID "Great Room Humidity [%.0f %%]" <water> {zwave="16:command=sensor_multilevel,sensor_type=5"}
-Contact BASEMENT_PIR_MOTION "Great Room Motion [MAP(zwave_motion.map):%s]" {zwave="16:command=BASIC"}
+Contact BASEMENT_PIR_MOTION "Great Room Motion" {zwave="16:command=BASIC"}
