@@ -28,6 +28,7 @@ sitemap home label="Falcons Fire Home"
   }
   Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
+    Text item=Home_Theater_Feedback
     Setpoint item=integraVolume icon="video" minValue=0 maxValue=45 step=1 visibility=[Home_Theater_Mode>0]
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
     Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1 visibility=[Bar_Speaker_Mode>0]
