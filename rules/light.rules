@@ -82,3 +82,32 @@ rule "Basement Switch Turn off ProjectorSpotLights"
     logDebug("rules", "BasementStairsSwitch OFF - Turn Off BasementProjectorSpot")
     sendCommand(BasementProjectorSpot, 0)
   end
+
+rule "Basement Light PIR Motion"
+  when
+    Item BASEMENT_PIR_MOTION changed
+  then
+    if(BasementPIRLightControl.state == ON) {
+      if(BASEMENT_PIR_MOTION.state == OPEN  && BASEMENT_PIR_LIGHT.state <= 50) {
+        logDebug("rules", "Basement Motion Detected - Turn On BasementProjectorSpot")
+        sendCommand(BasementProjectorSpot, 100)
+      } else if (BASEMENT_PIR_MOTION.state == CLOSED && BasementStairsSwitch == OFF) {
+        logDebug("rules", "Basement Motion No Longer Detected - Turn Off BasementProjectorSpot")
+        sendCommand(BasementProjectorSpot, 0)
+      }
+    }
+  end
+
+rule "Great Room Light PIR Motion"
+  when
+    Item GREATROOM_PIR_MOTION changed
+  then
+    if(GreatRoomPIRLightControl.state == ON)
+      if(GREATROOM_PIR_MOTION.state == OPEN  && GREATROOM_PIR_LIGHT.state <= 50) {
+        logDebug("rules", "Great Room Motion Detected - Turn On Living_Room_Lamp_Dimmer")
+        sendCommand(Living_Room_Lamp_Dimmer, 100)
+      } else if (GREATROOM_PIR_MOTION.state == CLOSED && GreatRoomSwitch.state == OFF) {
+        logDebug("rules", "Great Room Motion No Longer Detected - Turn Off Living_Room_Lamp_Dimmer")
+        sendCommand(Living_Room_Lamp_Dimmer, 0)
+      }
+  end

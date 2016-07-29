@@ -3,6 +3,9 @@ rule "System Start Init"
 		System Started
 	then
 		sendCommand(openhabNotifications , ON)
+		sendCommand(BasementPIRLightControl , ON)
+		sendCommand(GreatRoomPIRLightControl , ON)
+		sendCommand(PIRMotionDetection , ON)
 end
 
 rule "NestHome_away Notification"
@@ -23,21 +26,39 @@ rule "epsonPower Notification"
 		}
 end
 
-rule "PIR changed"
+rule "Great Room PIR changed"
 	when
 		Item GREATROOM_PIR_MOTION changed
 	then
-		if (openhabNotifications.state == ON && NestHome_away.state != "home") {
-		 	sendNotification("kfkkail@gmail.com", "PIR Motion updated to " + GREATROOM_PIR_MOTION.state)
+		if (PIRMotionDetection.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Great Room PIR Motion updated to " + GREATROOM_PIR_MOTION.state)
 		}
 end
 
-rule "PIR Tamper changed"
+rule "Great Room PIR Tamper changed"
 	when
 		Item GREATROOM_PIR_TAMPER changed
 	then
-		if (openhabNotifications.state == ON && NestHome_away.state != "home") {
-		 	sendNotification("kfkkail@gmail.com", "PIR Tamper updated to " + GREATROOM_PIR_TAMPER.state)
+		if (PIRMotionDetection.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Great Room PIR Tamper updated to " + GREATROOM_PIR_TAMPER.state)
+		}
+end
+
+rule "Basement PIR changed"
+	when
+		Item BASEMENT_PIR_MOTION changed
+	then
+		if (PIRMotionDetection.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Basement PIR Motion updated to " + BASEMENT_PIR_MOTION.state)
+		}
+end
+
+rule "Basement PIR Tamper changed"
+	when
+		Item BASEMENT_PIR_TAMPER changed
+	then
+		if (PIRMotionDetection.state == ON) {
+		 	sendNotification("kfkkail@gmail.com", "Basement PIR Tamper updated to " + BASEMENT_PIR_TAMPER.state)
 		}
 end
 

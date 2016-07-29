@@ -1,8 +1,12 @@
 sitemap home label="Falcons Fire Home"
 {
-  Frame label="Nest" {
+  Frame label="Indoor" {
     Text item=Nest_ambient_temperature_f
+    Text item=GREATROOM_PIR_TEMPERATURE
+    Text item=BASEMENT_PIR_TEMPERATURE
     Text item=Nest_humidity
+    Text item=GREATROOM_PIR_REL_HUMID
+    Text item=BASEMENT_PIR_REL_HUMID
     Text item=Nest_hvac_state
     Switch item=NestHome_away mappings=[home="Home",away="Away"]
   }
@@ -10,45 +14,38 @@ sitemap home label="Falcons Fire Home"
     Text item=Temperature_OWM
     Text item=Humidity
   }
-  Frame label="PIR Great Room" {
-    Text item=GREATROOM_PIR_MOTION
-    Text item=GREATROOM_PIR_TAMPER
-    Text item=GREATROOM_PIR_BATTERY
-    Text item=GREATROOM_PIR_TEMPERATURE
-    Text item=GREATROOM_PIR_LIGHT
-    Text item=GREATROOM_PIR_REL_HUMID
-  }
-  Frame label="PIR Basement" {
-    Text item=BASEMENT_PIR_MOTION
-    Text item=BASEMENT_PIR_TAMPER
-    Text item=BASEMENT_PIR_BATTERY
-    Text item=BASEMENT_PIR_TEMPERATURE
-    Text item=BASEMENT_PIR_LIGHT
-    Text item=BASEMENT_PIR_REL_HUMID
-  }
+
   Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
-    Text item=Home_Theater_Feedback
+    Text item=Home_Theater_Feedback icon="video"
     Setpoint item=integraVolume icon="video" minValue=0 maxValue=45 step=1 visibility=[Home_Theater_Mode>0]
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
     Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1 visibility=[Bar_Speaker_Mode>0]
   }
-  Frame label="Main Floor" {
+  Frame label="Light Control" {
     Slider item=Living_Room_Lamp_Dimmer sendFrequency=200 switchSupport
     Slider item=Kitchen_Lamp_Dimmer sendFrequency=200 switchSupport
+    Slider item=Bonus_Room_Dimmer sendFrequency=200 switchSupport
+    Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
+    Switch item=BasementStairsSwitch
   }
-  Frame label="Advanced"{
+  Text label="Advanced"{
     Text label="PIR" icon="switch" {
-      Text item=GREATROOM_PIR_BATTERY
-      Text item=GREATROOM_PIR_TEMPERATURE
-      Text item=GREATROOM_PIR_LIGHT
-      Text item=GREATROOM_PIR_REL_HUMID
+        Frame label="PIR Great Room" {
+          Text item=GREATROOM_PIR_MOTION
+          Text item=GREATROOM_PIR_TAMPER
+          Text item=GREATROOM_PIR_BATTERY
+          Text item=GREATROOM_PIR_LIGHT
+        }
+        Frame label="PIR Basement" {
+          Text item=BASEMENT_PIR_MOTION
+          Text item=BASEMENT_PIR_TAMPER
+          Text item=BASEMENT_PIR_BATTERY
+          Text item=BASEMENT_PIR_LIGHT
+        }
     }
     Text label="Dimmers" icon="switch" {
       Switch item=GreatRoomSwitch
-      Switch item=BasementStairsSwitch
-      Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
-      Slider item=Bonus_Room_Dimmer sendFrequency=200 switchSupport
       Text item=Sunrise_Time
       Text item=Sunset_Time
     }
@@ -81,5 +78,8 @@ sitemap home label="Falcons Fire Home"
     Text item=FrontDoor_Doorbell_Battery
     Switch item=openhabNotifications
     Switch item=openhabNotificationsAway
+    Switch item=BasementPIRLightControl
+    Switch item=GreatRoomPIRLightControl
+    Switch item=PIRMotionDetection
   }
 }
