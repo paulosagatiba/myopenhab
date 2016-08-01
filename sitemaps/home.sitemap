@@ -29,6 +29,7 @@ sitemap home label="Falcons Fire Home"
     Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
     Switch item=BasementStairsSwitch
   }
+  Frame {
   Text label="Advanced" icon="settings"{
     Text label="PIR" icon="switch" {
         Frame label="PIR Great Room" {
@@ -81,5 +82,6 @@ sitemap home label="Falcons Fire Home"
     Switch item=BasementPIRLightControl
     Switch item=GreatRoomPIRLightControl
     Switch item=PIRMotionDetection
+  }
   }
 }
