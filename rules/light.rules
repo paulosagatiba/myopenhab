@@ -88,7 +88,7 @@ rule "Basement Light PIR Motion"
     Item BASEMENT_PIR_MOTION changed
   then
     if(BasementPIRLightControl.state == ON) {
-      if(BASEMENT_PIR_MOTION.state == OPEN  && BASEMENT_PIR_LIGHT.state <= 50) {
+      if(BASEMENT_PIR_MOTION.state == OPEN  && BASEMENT_PIR_LIGHT.state <= 20) {
         logDebug("rules", "Basement Motion Detected - Turn On BasementProjectorSpot")
         sendCommand(BasementProjectorSpot, 100)
       } else if (BASEMENT_PIR_MOTION.state == CLOSED && BasementStairsSwitch == OFF) {
@@ -103,7 +103,7 @@ rule "Great Room Light PIR Motion"
     Item GREATROOM_PIR_MOTION changed
   then
     if(GreatRoomPIRLightControl.state == ON)
-      if(GREATROOM_PIR_MOTION.state == OPEN  && GREATROOM_PIR_LIGHT.state <= 50) {
+      if(GREATROOM_PIR_MOTION.state == OPEN  && GREATROOM_PIR_LIGHT.state <= 20) {
         logDebug("rules", "Great Room Motion Detected - Turn On Living_Room_Lamp_Dimmer")
         sendCommand(Living_Room_Lamp_Dimmer, 100)
       } else if (GREATROOM_PIR_MOTION.state == CLOSED && GreatRoomSwitch.state == OFF) {
