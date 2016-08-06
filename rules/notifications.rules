@@ -34,7 +34,7 @@ rule "Great Room PIR changed"
 		 	sendNotification("kfkkail@gmail.com", "Great Room PIR Motion updated to " + GREATROOM_PIR_MOTION.state)
 		}
 end
-
+/*
 rule "Great Room PIR Tamper changed"
 	when
 		Item GREATROOM_PIR_TAMPER changed
@@ -43,7 +43,7 @@ rule "Great Room PIR Tamper changed"
 		 	sendNotification("kfkkail@gmail.com", "Great Room PIR Tamper updated to " + GREATROOM_PIR_TAMPER.state)
 		}
 end
-
+*/
 rule "Basement PIR changed"
 	when
 		Item BASEMENT_PIR_MOTION changed
@@ -53,6 +53,7 @@ rule "Basement PIR changed"
 		}
 end
 
+/*
 rule "Basement PIR Tamper changed"
 	when
 		Item BASEMENT_PIR_TAMPER changed
@@ -61,7 +62,7 @@ rule "Basement PIR Tamper changed"
 		 	sendNotification("kfkkail@gmail.com", "Basement PIR Tamper updated to " + BASEMENT_PIR_TAMPER.state)
 		}
 end
-
+*/
 /*
 rule "someoneIsHome Notification"
 	when
