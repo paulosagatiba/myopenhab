@@ -16,7 +16,7 @@ rule "Turn Off Auto-Away Heat"
   
 rule "Turn Off Auto-Away Cool"
   when
-    Time cron "0 */10 16-18 ? * MON-FRI *"
+    Time cron "0 */10 15-18 ? * MON-FRI *"
   then
     if (Nest_ambient_temperature_f.state >= 73 && Nest_can_cool.state == ON && NestHome_away.state == "auto-away") {
       logDebug("rules", "Summer Nest - Set to Home")
