@@ -39,6 +39,8 @@ rule "I'm Home - Turn Off Motion Detection"
     Time cron "0 0 16 ? * MON-FRI *"
   then
     //Right now, just using cron to turn off motion detection
-    logDebug("rules", "I'm Home - Turn Off Motion Detection")
-    sendCommand(PIRMotionDetection , OFF)
+    if(NestHome_away.state != "away") {
+      logDebug("rules", "I'm Home - Turn Off Motion Detection")
+      sendCommand(PIRMotionDetection , OFF)
+    }
   end
