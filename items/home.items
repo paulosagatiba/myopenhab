@@ -108,7 +108,7 @@ Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MUL
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 
 Contact Doorbell {zwave="14:command=ALARM"}
-Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" <cistern> {zwave="14:command=battery"}
+Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" <cistern> {zwave="14:command=BATTERY"}
 
 /* Use the Astro binding to see when it's dark or light outside. Using a light sensor would be
   even better, but that's not too hard to hack in later */
