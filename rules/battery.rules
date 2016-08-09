@@ -1,0 +1,26 @@
+rule "BASEMENT_PIR_BATTERY Notification"
+	when
+		Item BASEMENT_PIR_BATTERY updated
+	then
+		if (BASEMENT_PIR_BATTERY.state <= 10) {
+		 	sendNotification("kfkkail@gmail.com", "Basement PIR needs batteries 2xAAA - " + BASEMENT_PIR_BATTERY.state)
+		}
+end
+
+rule "GREATROOM_PIR_BATTERY Notification"
+	when
+		Item GREATROOM_PIR_BATTERY updated
+	then
+		if (GREATROOM_PIR_BATTERY.state <= 10) {
+		 	sendNotification("kfkkail@gmail.com", "Great Room PIR needs batteries 2xAAA - " + GREATROOM_PIR_BATTERY.state)
+		}
+end
+
+rule "FrontDoor_Doorbell_Battery Notification"
+	when
+		Item FrontDoor_Doorbell_Battery updated
+	then
+		if (FrontDoor_Doorbell_Battery.state <= 10) {
+		 	sendNotification("kfkkail@gmail.com", "Doorbell needs batteries 2xAA - " + FrontDoor_Doorbell_Battery.state)
+		}
+end
