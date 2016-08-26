@@ -17,3 +17,4 @@ This is the repository I'm using to hold my house openhab configuration.
 * Onkyo Receiver Binding over Ethernet (eISCP)
   * Integra DTR-20.7 Receiver
 * Astro Binding
+* Weather Binding
