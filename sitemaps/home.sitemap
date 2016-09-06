@@ -75,9 +75,6 @@ sitemap home label="Falcons Fire Home"
       Switch item=Nest_hvac_mode mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
       Text item=Nest_last_connection
     }
-    Switch item=GarageDoorSwitch
-    Text item=GarageDoorString
-    Text item=GarageDoorContact
     Switch item=GarageDoorShutter
     Group item=devicePresence icon="present"
     Text item=FrontDoor_Doorbell_Battery
