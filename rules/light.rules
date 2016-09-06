@@ -14,6 +14,7 @@ rule "Turn Off Lights at Midnight"
     logDebug("rules", "Midnight - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
     sendCommand(Kitchen_Lamp_Dimmer, 0)
+    sendCommand(GarageDoorSwitch, OFF)
     lightsOffForTheNight = true
   end
   
