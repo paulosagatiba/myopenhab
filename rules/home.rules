@@ -26,7 +26,7 @@ rule "Turn Off Auto-Away Cool"
 
 rule "I'm Away - Turn On Motion Detection"
   when
-    Time cron "0 0 9 ? * MON-FRI *" or
+    Time cron "0 0 8 ? * MON-FRI *" or
     NestHome_away changed to "auto-away"
   then
     //Right now, just using auto away or cron to turn on motion detection
