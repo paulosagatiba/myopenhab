@@ -106,7 +106,7 @@ Dimmer Bonus_Room_Dimmer "Bonus Room Dimmer [%d %%]" (Dimmer_Lights_Random) {zwa
 Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="18:command=SWITCH_BINARY"}
 Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
-Dimmer BasementArt "Basement Art Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
+Dimmer BasementArt "Basement Art Dimmer [%d %%]" {zwave="19:command=SWITCH_MULTILEVEL"}
 
 Contact Doorbell {zwave="14:command=ALARM"}
 Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" <cistern> {zwave="14:command=BATTERY"}
