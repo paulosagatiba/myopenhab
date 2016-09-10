@@ -83,6 +83,7 @@ rule "Basement Switch Turn off ProjectorSpotLights"
     if(BasementStairsSwitch.state == OFF) {
     	logDebug("rules", "BasementStairsSwitch OFF - Turn Off BasementProjectorSpot")
     	sendCommand(BasementProjectorSpot, 0)
+    	sendCommand(BasementArt, 0)
     }
   end
 
@@ -94,9 +95,11 @@ rule "Basement Light PIR Motion"
       if(BASEMENT_PIR_MOTION.state == OPEN  && BASEMENT_PIR_LIGHT.state <= 20) {
         logDebug("rules", "Basement Motion Detected - Turn On BasementProjectorSpot")
         sendCommand(BasementProjectorSpot, 100)
+        sendCommand(BasementArt, 100)
       } else if (BASEMENT_PIR_MOTION.state == CLOSED) {
         logDebug("rules", "Basement Motion No Longer Detected - Turn Off BasementProjectorSpot")
         sendCommand(BasementProjectorSpot, 0)
+        sendCommand(BasementArt, 0)
       }
     }
   end
