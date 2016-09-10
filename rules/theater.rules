@@ -171,9 +171,10 @@ rule "Starting Up Home Theater State = 3"
       sendCommand(BasementStairsSwitch, ON)
       sendCommand(epsonPower, ON)
       sendCommand(integraPower, ON)
+      Thread::sleep(1000)
       sendCommand(integraSource, 1)
       sendCommand(integraVolume, 20)
-      createTimer(now.plusSeconds(20)) [| 
+      createTimer(now.plusSeconds(19)) [| 
         logDebug("rules", "Timer Expired - Turn off BasementProjectorSpot")
         sendCommand(BasementProjectorSpot, 0)
         sendCommand(BasementArt, 0)
