@@ -84,6 +84,7 @@ sitemap home label="Falcons Fire Home"
     Switch item=BasementPIRLightControl
     Switch item=GreatRoomPIRLightControl
     Switch item=PIRMotionDetection
+    Switch item=HomeTheaterSwitch
   }
   }
 }
