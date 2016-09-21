@@ -16,9 +16,9 @@ rule "Home Theater Mode"
     Item Home_Theater_Mode changed
   then
     logDebug("rules", "Home_Theater_Mode Changed - Send Commands")
-    
+
     // If someone changes Home_Theater_Mode via gui, change receiver state
-    
+
     // OFF
     if (Home_Theater_Mode.state == 0) {
       if (epsonPower.state == ON) {
@@ -29,7 +29,7 @@ rule "Home Theater Mode"
       if (integraPower.state == ON) {
         sendCommand(integraPower, OFF)
       }
-      
+
     // CABLE
     } else if (Home_Theater_Mode.state == 1) {
       if (epsonPower.state == OFF) {
@@ -41,7 +41,7 @@ rule "Home Theater Mode"
       if (integraSource.state != 1) {
         sendCommand(integraSource, 1)
       }
-      
+
     // CHROMECAST
     } else if (Home_Theater_Mode.state == 2) {
       if (epsonPower.state == OFF) {
@@ -53,7 +53,7 @@ rule "Home Theater Mode"
       if (integraSource.state != 17) {
         sendCommand(integraSource, 17)
       }
-      
+
     // FIRE TV
     } else if (Home_Theater_Mode.state == 3) {
       if (integraPower.state == OFF) {
@@ -62,7 +62,7 @@ rule "Home Theater Mode"
       if (integraSource.state != 35) {
         sendCommand(integraSource, 35)
       }
-      
+
     // PANDORA NET
     } else if (Home_Theater_Mode.state == 4) {
       if (epsonPower.state == OFF) {
@@ -74,7 +74,7 @@ rule "Home Theater Mode"
       if (integraSource.state != 43) {
         sendCommand(integraSource, 43)
       }
-    
+
     // PC
     } else if (Home_Theater_Mode.state == 5) {
       if (epsonPower.state == OFF) {
@@ -121,11 +121,11 @@ rule "Bar Speaker Mode"
     Item Bar_Speaker_Mode changed
   then
     logDebug("rules", "Bar Speaker Mode Rule Ran")
-    
+
     if (Bar_Speaker_Mode.state == 0) {
       if (integraZ2Power.state != OFF) {
         sendCommand(integraZ2Power, OFF)
-      } 
+      }
     else if (Bar_Speaker_Mode.state == 4 {
       if (integraZ2Power.state != ON) {
         sendCommand(integraZ2Power, ON)
@@ -135,7 +135,7 @@ rule "Bar Speaker Mode"
       }
     }
   end
-  
+
 rule "Set Bar Speaker Mode"
   when
     Item integraZ2Power changed or
@@ -143,7 +143,7 @@ rule "Set Bar Speaker Mode"
     System started
   then
     logDebug("rules", "integraZ2Power OR integraZ2Source OR System Start - Set Bar_Speaker_Mode")
-    
+
     if (integraZ2Power.state == OFF) {
       sendCommand(Bar_Speaker_Mode, 0)
     } else if (integraZ2Power.state == ON && integraZ2Source == 43) {
@@ -163,12 +163,13 @@ rule "Starting Up Home Theater State = 3"
   then
     callScript("StartupHomeTheater.script")
   end
-  
+
 rule "Starting Up Home Theater State = 3 Basement Stair Switch"
   when
     Item BasementStairsSwitch changed to ON
   then
     if(HomeTheaterSwitch.state == ON) {
+      logDebug("rules","BasementStairsSwitch changed to ON")
       callScript("StartupHomeTheater.script")
     }
   end
@@ -192,7 +193,7 @@ rule "Shutting Down Home Theater State = 2"
       sendCommand(BasementArt, 100)
       sendCommand(epsonPower, OFF)
       sendCommand(integraPower, OFF)
-      createTimer(now.plusSeconds(5)) [| 
+      createTimer(now.plusSeconds(5)) [|
         logDebug("rules", "Timer Expired - Home_Theater_State is OFF (0)")
         sendCommand(Home_Theater_State, 0)]
     }
