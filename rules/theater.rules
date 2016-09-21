@@ -159,31 +159,18 @@ rule "Set Bar Speaker Mode"
 rule "Starting Up Home Theater State = 3"
   when
     Item epsonPower changed to ON or
-    Item integraPower changed to ON or
+    Item integraPower changed to ON
+  then
+    callScript("StartupHomeTheater.script")
+  end
+  
+rule "Starting Up Home Theater State = 3 Basement Stair Switch"
+  when
     Item BasementStairsSwitch changed to ON
   then
-    if(Home_Theater_State.state == 0) {
-      logDebug("rules", "Home_Theater_State is Starting Up (3)")
-      sendCommand(Home_Theater_State, 3)
-      
-      sendCommand(BasementProjectorSpot, 100)
-      sendCommand(BasementArt, 100)
-      sendCommand(BasementStairsSwitch, ON)
-      sendCommand(epsonPower, ON)
-      sendCommand(integraPower, ON)
-      Thread::sleep(1000)
-      sendCommand(integraSource, 1)
-      sendCommand(integraVolume, 20)
-      createTimer(now.plusSeconds(19)) [| 
-        logDebug("rules", "Timer Expired - Turn off BasementProjectorSpot")
-        sendCommand(BasementProjectorSpot, 0)
-        sendCommand(BasementArt, 0)
-        createTimer(now.plusSeconds(5)) [|
-          logDebug("rules", "Home_Theater_State is ON (1)")
-          sendCommand(Home_Theater_State, 1)]]
+    if(HomeTheaterSwitch.state == ON) {
+      callScript("StartupHomeTheater.script")
     }
-    
-
   end
 
 /*  Don't need this one right now, since we are using a timeout in Starting up state. No trigger that moves from starting up to ON
