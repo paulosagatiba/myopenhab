@@ -169,7 +169,7 @@ rule "Starting Up Home Theater State = 3 Basement Stair Switch"
     Item BasementStairsSwitch changed to ON
   then
     if(HomeTheaterSwitch.state == ON) {
-      logDebug("rules","BasementStairsSwitch changed to ON")
+      logDebug("rules","BasementStairsSwitch changed to ON - Startup Home Theater")
       callScript("StartupHomeTheater.script")
     }
   end
