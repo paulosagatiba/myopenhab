@@ -186,15 +186,5 @@ rule "Shutting Down Home Theater State = 2"
     Item epsonPower changed to OFF or
     Item integraPower changed to OFF
   then
-    if(Home_Theater_State.state == 1) {
-      logDebug("rules", "Home_Theater_State is Shutting Down (2)")
-      sendCommand(Home_Theater_State, 2)
-      sendCommand(BasementProjectorSpot, 100)
-      sendCommand(BasementArt, 100)
-      sendCommand(epsonPower, OFF)
-      sendCommand(integraPower, OFF)
-      createTimer(now.plusSeconds(5)) [|
-        logDebug("rules", "Timer Expired - Home_Theater_State is OFF (0)")
-        sendCommand(Home_Theater_State, 0)]
-    }
+    callScript("ShutdownHomeTheater.script")
   end
