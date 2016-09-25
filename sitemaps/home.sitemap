@@ -85,8 +85,8 @@ sitemap home label="Falcons Fire Home"
     Switch item=GreatRoomPIRLightControl
     Switch item=PIRMotionDetection
     Switch item=HomeTheaterSwitch
-    Text label="Alarm [%s]" item=alarmMessage icon="clock" {
-        Frame label="Alarm" {
+    Text label="Set Nest to Home at [%s]" item=alarmMessage icon="clock" {
+        Frame label="Time" {
             Setpoint item=alarmHour minValue=0 maxValue=23 step=1
             Setpoint item=alarmMinute minValue=0 maxValue=55 step=5
         }
