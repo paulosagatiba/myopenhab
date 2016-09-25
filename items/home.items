@@ -154,3 +154,17 @@ Switch GarageDoorSwitch         "Garage Door Open" <contact> {myq="0"}
 Contact GarageDoorContact       "Garage Door [%s]" <contact> {myq="0"}
 String GarageDoorString         "Garage Door [%s]"           {myq="0"}
 Rollershutter GarageDoorShutter "Garage Door Open"           {myq="0"}
+
+//Alarm to set Nest to Home, after being away
+Switch  alarmMonday     "Monday"     <switch>
+Switch  alarmTuesday   "Tuesday"   <switch>
+Switch  alarmWednesday   "Wednesday"   <switch>
+Switch  alarmThursday "Thursday" <switch>
+Switch  alarmFriday    "Friday"    <switch>
+Switch  alarmSaturday    "Saturday"    <switch>
+Switch  alarmSunday    "Sunday"    <switch>
+
+String alarmMessage "%s"
+
+Number alarmHour "Hour [%d]" <clock>
+Number alarmMinute "Minute [%d]" <clock>

@@ -1,0 +1,105 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import org.openhab.action.squeezebox.*
+
+import java.util.concurrent.locks.ReentrantLock
+
+var Timer timer1 = null
+var java.util.concurrent.locks.ReentrantLock lock1 = new java.util.concurrent.locks.ReentrantLock()
+
+rule "Initialization"
+ when
+   System started
+ then
+     postUpdate(alarmHour,  8)
+     postUpdate(alarmMinute, 15)
+     postUpdate(alarmMonday,     ON)
+     postUpdate(alarmTuesday,   ON)
+     postUpdate(alarmWednesday,   ON)
+     postUpdate(alarmThursday, ON)
+     postUpdate(alarmFriday,    ON)
+     postUpdate(alarmSaturday,    OFF)
+     postUpdate(alarmSunday,    OFF)
+ end
+
+rule "Set Alarm"
+when
+    Item alarmHour changed or
+    Item alarmMinute changed
+then
+  // If the UI to change the Alarm time is clicked several times the code below
+  // is subject to race conditions. Therefore we make sure that all events
+  // are processed one after the other.
+  lock1.lock()
+  try {
+    var String msg = ""
+
+    // Copy the Alarm-Time from the UI to local variables
+    var hour = alarmHour.state as DecimalType
+    var minute = alarmMinute.state as DecimalType
+
+    // Combine the hour and minutes to one string to be displayed in the
+    // user interface
+    if (hour < 10) { msg = "0" }
+    msg = msg + alarmHour.state.format("%d") + ":"
+
+    if (minute < 10) { msg = msg + "0" }
+    msg = msg + alarmMinute.state.format("%d")
+    postUpdate(alarmMessage,msg)
+
+    // calculate the alarm time [min]
+    var int alarm1
+    alarm1 = (alarmHour.state as DecimalType).intValue * 60 +
+                (alarmMinute.state as DecimalType).intValue
+    alarm1 = alarm1.intValue
+
+    // calculate current time [min]
+    var int currentTime1
+    currentTime1 = now.getMinuteOfDay
+    currentTime1 = currentTime1.intValue
+
+    // calculate the difference between the requested alarm time and
+    // current time (again in minutes)
+    var int delta1
+    delta1 = (alarm1 - currentTime1)
+    delta1 = delta1.intValue
+
+    // add one day (1440 minutes) if alarm time for today already passed
+    if (currentTime1 > alarm1) { delta1 = delta1 + 1440 }
+
+    // check if there is already an alarm timer; cancel it if present
+    if (timer1 != null) {
+       timer1.cancel
+       timer1 = null
+    }
+
+    // create a new timer using the calculated delta [min]
+    timer1 = createTimer(now.plusMinutes(delta1)) [|
+        // This code will be executed if the timer triggers
+        // ************************************************
+        // check if alarm clock is armed for this weekday
+        var Number day = now.getDayOfWeek
+        if (((day == 1) && (alarmMonday.state == ON))     ||
+            ((day == 2) && (alarmTuesday.state == ON))   ||
+            ((day == 3) && (alarmWednesday.state == ON))   ||
+            ((day == 4) && (alarmThursday.state == ON)) ||
+            ((day == 5) && (alarmFriday.state == ON))    ||
+            ((day == 6) && (alarmSaturday.state == ON))    ||
+            ((day == 7) && (alarmSunday.state == ON))) {
+                // The things to do if the alarm clock is enabled for this day of week:
+                // ...
+                // ...
+                logDebug("rules", "Alarm has triggered - Set Nest to Home")
+                sendCommand(NestHome_away,"home")
+           }
+           // Re-Arm the timer to trigger again tomorrow (same time)
+           timer1.reschedule(now.plusHours(24))
+        // ************************************************
+        // Here the code ends that executes once the timer triggers
+        ]
+  } finally  {
+     // release the lock - we are ready to process the next event
+     lock1.unlock()
+  }
+end

@@ -85,6 +85,23 @@ sitemap home label="Falcons Fire Home"
     Switch item=GreatRoomPIRLightControl
     Switch item=PIRMotionDetection
     Switch item=HomeTheaterSwitch
+    Frame label="System" {
+        Text label="Alarm [%s]" item=alarmMessage icon="clock" {
+            Frame label="Alarm" {
+                Setpoint item=alarmHour minValue=0 maxValue=23 step=1
+                Setpoint item=alarmMinute minValue=0 maxValue=55 step=5
+            }
+            Frame label="Weekday" {
+                Switch item=alarmMonday
+                Switch item=alarmTuesday
+                Switch item=alarmWednesday
+                Switch item=alarmThursday
+                Switch item=alarmFriday
+                Switch item=alarmSaturday
+                Switch item=alarmSunday
+            }
+        }
+    }
   }
   }
 }
