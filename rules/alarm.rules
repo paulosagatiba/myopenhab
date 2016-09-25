@@ -90,7 +90,8 @@ then
                 // The things to do if the alarm clock is enabled for this day of week:
                 // ...
                 // ...
-                logDebug("rules", "Alarm has triggered - Set Nest to Home")
+                logDebug("rules", "Alarm triggered - Set Nest to Home")
+                sendNotification("kfkkail@gmail.com", "Alarm triggered - Set Nest to Home")
                 sendCommand(NestHome_away,"home")
            }
            // Re-Arm the timer to trigger again tomorrow (same time)
