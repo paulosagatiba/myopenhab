@@ -14,11 +14,11 @@ rule "Initialization"
  then
      postUpdate(alarmHour,  8)
      postUpdate(alarmMinute, 15)
-     postUpdate(alarmMonday,     ON)
-     postUpdate(alarmTuesday,   ON)
-     postUpdate(alarmWednesday,   ON)
-     postUpdate(alarmThursday, ON)
-     postUpdate(alarmFriday,    ON)
+     postUpdate(alarmMonday,     OFF)
+     postUpdate(alarmTuesday,   OFF)
+     postUpdate(alarmWednesday,   OFF)
+     postUpdate(alarmThursday, OFF)
+     postUpdate(alarmFriday,    OFF)
      postUpdate(alarmSaturday,    OFF)
      postUpdate(alarmSunday,    OFF)
  end
