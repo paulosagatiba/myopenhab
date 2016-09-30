@@ -11,9 +11,10 @@ rule "Turn Off Lights at Midnight"
   when
     Time cron "0 0 0 ? * * *"
   then
-    logDebug("rules", "Midnight - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
+    logDebug("rules", "Midnight - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
     sendCommand(Living_Room_Lamp_Dimmer, 0)
-    sendCommand(Kitchen_Lamp_Dimmer, 0)
+    sendCommand(Kitchen_Undercabinet1_Dimmer, 0)
+    sendCommand(Kitchen_Undercabinet2_Dimmer, 0)
     sendCommand(GarageDoorSwitch, OFF)
     lightsOffForTheNight = true
   end
@@ -45,13 +46,15 @@ rule "Great Room Light Switch!"
     Item GreatRoomSwitch received update
   then
     if (GreatRoomSwitch.state == ON) {
-      logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
+      logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
-      sendCommand(Kitchen_Lamp_Dimmer, 100)
+      sendCommand(Kitchen_Undercabinet1_Dimmer, 100)
+      sendCommand(Kitchen_Undercabinet2_Dimmer, 100)
     } else if (GreatRoomSwitch.state == OFF) {
-      logDebug("rules", "GreatRoomSwitch OFF - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_Lamp_Dimmer")
+      logDebug("rules", "GreatRoomSwitch OFF - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
       sendCommand(Living_Room_Lamp_Dimmer, 0)
-      sendCommand(Kitchen_Lamp_Dimmer, 0)
+      sendCommand(Kitchen_Undercabinet1_Dimmer, 0)
+      sendCommand(Kitchen_Undercabinet2_Dimmer, 0)
     }
   end
   
