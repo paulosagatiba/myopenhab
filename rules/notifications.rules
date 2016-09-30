@@ -83,7 +83,7 @@ rule "Living_Room_Lamp_Dimmer Notification"
 		}
 end
 
-rule "Kitchen_Lamp_Dimmer Notification"
+rule "Kitchen_UndercabinetX_Dimmer Notification"
 	when
 		Item Kitchen_Undercabinet1_Dimmer changed or
 		Item Kitchen_Undercabinet2_Dimmer changed
