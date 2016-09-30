@@ -26,7 +26,6 @@ sitemap home label="Falcons Fire Home"
     Switch item=GreatRoomSwitch
     Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
     Switch item=BasementStairsSwitch
-    Slider item=Bonus_Room_Dimmer sendFrequency=200 switchSupport
   }
   Frame {
   Text label="Advanced" icon="settings"{
@@ -46,7 +45,8 @@ sitemap home label="Falcons Fire Home"
     }
     Text label="Dimmers" icon="switch" {
       Slider item=Living_Room_Lamp_Dimmer sendFrequency=200 switchSupport
-      Slider item=Kitchen_Lamp_Dimmer sendFrequency=200 switchSupport
+      Slider item=Kitchen_Undercabinet1_Dimmer sendFrequency=200 switchSupport
+      Slider item=Kitchen_Undercabinet2_Dimmer sendFrequency=200 switchSupport
       Slider item=BasementArt
       Text item=Sunrise_Time
       Text item=Sunset_Time
