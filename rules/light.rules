@@ -18,7 +18,7 @@ rule "Turn Off Lights at Midnight"
     sendCommand(GarageDoorSwitch, OFF)
     lightsOffForTheNight = true
   end
-  
+
 rule "Turn On/Off Lights at Dusk/Dawn"
   when
     Time cron "0 * * * * ?"
@@ -26,7 +26,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
     var DateTime daystart = new DateTime((Sunrise_Time.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((Sunset_Time.state as DateTimeType).calendar.timeInMillis)
     val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
-    
+
     // Living Room Light
     if (isdark && previsdark == false) {
       logDebug("rules", "Sun is Setting! - Turn ON Living Room Light")
@@ -36,7 +36,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
       lightsOffForTheNight = false
       sendCommand(Living_Room_Lamp_Dimmer, 0)
     }
-    
+
     // Only want to see a lamp command on transition
     previsdark = isdark
   end
@@ -57,16 +57,16 @@ rule "Great Room Light Switch!"
       sendCommand(Kitchen_UnderCabinet2_Dimmer, 0)
     }
   end
-  
+
 rule "doorbell Basement Light Notification"
 	when
 		Item Doorbell received update
 	then
 		var currentLightState = BasementProjectorSpot.state
 		var newLightState = if (currentLightState > 0) 0 else 100
-		
+
 		logDebug("rules", "doorbellRange " + doorbellRang + " " + Doorbell.state)
-		
+
 		if (doorbellRang == false) {
 			sendCommand(BasementProjectorSpot, newLightState)
 			sendNotification("kfkkail@gmail.com", "Doorbell Rang!!")
