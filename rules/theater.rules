@@ -6,8 +6,9 @@ rule "System Started"
   when
     System started
   then
-    logDebug("rules", "System Start - Initialize Home_Theater_State")
-    sendCommand(Home_Theater_State, 0)
+    createTimer(now.plusSeconds(30)) [|
+      logDebug("rules", "System Start - Initialize Home_Theater_State")
+      sendCommand(Home_Theater_State, 0)]
   end
 
 // Sending Commands for Home Theater to Receiver

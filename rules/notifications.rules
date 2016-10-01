@@ -2,10 +2,11 @@ rule "System Start Init"
 	when
 		System Started
 	then
-		sendCommand(openhabNotifications , ON)
-		sendCommand(BasementPIRLightControl , ON)
-		sendCommand(GreatRoomPIRLightControl , ON)
-		sendCommand(PIRMotionDetection , ON)
+		createTimer(now.plusSeconds(30)) [|
+			sendCommand(openhabNotifications , ON)
+			sendCommand(BasementPIRLightControl , ON)
+			sendCommand(GreatRoomPIRLightControl , ON)
+			sendCommand(PIRMotionDetection , ON)]
 end
 
 rule "NestHome_away Notification"
