@@ -1,0 +1,8 @@
+var Number wakeUpDimmer
+
+    wakeUpDimmer=BasementArt.state
+    while(wakeUpDimmer>0){
+        wakeUpDimmer=wakeUpDimmer-5
+        sendCommand(BasementArt,wakeUpDimmer)
+        Thread::sleep(1000)
+    }
