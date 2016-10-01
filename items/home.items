@@ -103,7 +103,7 @@ Number ZwaveNode01NetworkID "Node ID [%s]" (gZwaveNode01) {zwave="1:command=info
 
 Dimmer Living_Room_Lamp_Dimmer "Living Room Dimmer [%d %%]" (plugDimmers) {zwave="2"}
 Dimmer Kitchen_UnderCabinet1_Dimmer "Kitchen Undercabinet 1 [%d %%]" (plugDimmers) {zwave="3"}
-Dimmer Kitchen_Undercabinet2_Dimmer "Kitchen Undercabinet 2 [%d %%]" (plugDimmers) {zwave="7"}
+Dimmer Kitchen_UnderCabinet2_Dimmer "Kitchen Undercabinet 2 [%d %%]" (plugDimmers) {zwave="7"}
 Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="18:command=SWITCH_BINARY"}
 Switch BasementStairsSwitch "Basement Stair Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot Dimmer [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}

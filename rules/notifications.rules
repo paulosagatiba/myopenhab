@@ -83,13 +83,13 @@ rule "Living_Room_Lamp_Dimmer Notification"
 		}
 end
 
-rule "Kitchen_UndercabinetX_Dimmer Notification"
+rule "Kitchen_UnderCabinetX_Dimmer Notification"
 	when
-		Item Kitchen_Undercabinet1_Dimmer changed or
-		Item Kitchen_Undercabinet2_Dimmer changed
+		Item Kitchen_UnderCabinet1_Dimmer changed or
+		Item Kitchen_UnderCabinet2_Dimmer changed
 	then
 		if (openhabNotifications.state == ON) {
-		 	sendNotification("kfkkail@gmail.com", "Kitchen_UndercabinetX_Dimmer changed to " + Kitchen_Undercabinet1_Dimmer.state)
+		 	sendNotification("kfkkail@gmail.com", "Kitchen_UnderCabinetX_Dimmer changed to " + Kitchen_UnderCabinet1_Dimmer.state)
 		}
 end
 
