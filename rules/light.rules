@@ -46,9 +46,6 @@ rule "Great Room Light Switch!"
     Item GreatRoomSwitch received update
   then
     if (GreatRoomSwitch.state == ON) {
-      //delete this
-      callScript("basementArtDimCommand.script")
-
       logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
       sendCommand(Living_Room_Lamp_Dimmer, 100)
       sendCommand(Kitchen_UnderCabinet1_Dimmer, 100)
