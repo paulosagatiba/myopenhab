@@ -6,3 +6,5 @@ var Number wakeUpDimmer
         sendCommand(BasementArt,wakeUpDimmer)
         Thread::sleep(1000)
     }
+
+logDebug("rules", "Done Dimming")
