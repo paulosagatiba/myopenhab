@@ -115,8 +115,8 @@ rule "Great Room Light PIR Motion"
       if(GREATROOM_PIR_MOTION.state == OPEN  && GREATROOM_PIR_LIGHT.state <= 15) {
         logDebug("rules", "Great Room Motion Detected - Turn On Living_Room_Lamp_Dimmer")
         sendCommand(Living_Room_Lamp_Dimmer, 100)
-        sendCommand(Kitchen_UnderCabinet1_Dimmer, 100)
-        sendCommand(Kitchen_UnderCabinet2_Dimmer, 100)
+        sendCommand(Kitchen_UnderCabinet1_Dimmer, 40)
+        sendCommand(Kitchen_UnderCabinet2_Dimmer, 40)
       } else if (GREATROOM_PIR_MOTION.state == CLOSED && GreatRoomSwitch.state == OFF) {
         logDebug("rules", "Great Room Motion No Longer Detected - Turn Off Living_Room_Lamp_Dimmer")
         sendCommand(Living_Room_Lamp_Dimmer, 0)
