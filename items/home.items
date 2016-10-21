@@ -105,6 +105,7 @@ Dimmer Living_Room_Lamp_Dimmer "Living Room Lamp [%d %%]" (plugDimmers) {zwave="
 Dimmer Kitchen_UnderCabinet1_Dimmer "Kitchen Undercabinet 1 [%d %%]" (plugDimmers) {zwave="3"}
 Dimmer Kitchen_UnderCabinet2_Dimmer "Kitchen Undercabinet 2 [%d %%]" (plugDimmers) {zwave="7"}
 Switch GreatRoomSwitch "Great Room Switch" (Lights_Random) {zwave="18:command=SWITCH_BINARY"}
+Number GreatRoomSwitch_State       "Great Room Switch State"
 Switch BasementStairsSwitch "Basement Stairs Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 Dimmer BasementArt "Basement Art Dimmer [%d %%]" {zwave="19:command=SWITCH_MULTILEVEL"}
