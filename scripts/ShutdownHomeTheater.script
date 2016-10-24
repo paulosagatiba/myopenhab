@@ -3,6 +3,7 @@ if(Home_Theater_State.state == 1) {
   sendCommand(Home_Theater_State, 2)
   sendCommand(BasementProjectorSpot, 100)
   sendCommand(BasementArt, 100)
+  sendCommand(integraVolume, 20)
   sendCommand(epsonPower, OFF)
   sendCommand(integraPower, OFF)
   createTimer(now.plusSeconds(5)) [|
