@@ -5,9 +5,8 @@ Group devicePresence "Device Presence"
 Group Lights_Random
 Group Dimmer_Lights_Random
 
-Group:Number:AVG IndoorTemperature "Indoor Average Temperature [%.1f °F]"
-Group:Number:AVG IndoorHumidity "Indoor Average Humidity [%d %%]"
-
+Group:Number:AVG IndoorTemperature "Indoor Average Temperature [%.1f °F]" <temperature>
+Group:Number:AVG IndoorHumidity "Indoor Average Humidity [%d %%]" <water>
 /* Nest binding Items */
 
 DateTime Nest_last_connection "Last Nest Connection [%1$tm/%1$td %1$tH:%1$tM]"  {nest="<[last_connection]"}
