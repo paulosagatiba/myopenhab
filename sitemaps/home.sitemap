@@ -79,6 +79,17 @@ sitemap home label="Falcons Fire Home"
     Switch item=GarageDoorShutter
     Group item=devicePresence icon="present"
     Text item=FrontDoor_Doorbell_Battery
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-0"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==0]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-10"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==10]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-20"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==20]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-30"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==30]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-40"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==40]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-50"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==50]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-60"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==60]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-70"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==70]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-80"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==80]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-90"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==90]
+    Text item=FrontDoor_Doorbell_Battery	icon="cistern-100"	label="Doorbell Battery [%d %%]"	visibility=[Doorbell_Battery_Icon==100]
     Switch item=openhabNotifications
     Switch item=openhabNotificationsAway
     Switch item=BasementPIRLightControl
