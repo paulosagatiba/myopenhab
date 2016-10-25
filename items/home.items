@@ -1,9 +1,7 @@
-Group All
-
-Group nestThermostat "Nest Thermostat" (All)
-Group integraBasement "Home Theater" (All)
-Group plugDimmers "All Plug Dimmers" (All)
-Group devicePresence "Device Presence" (All)
+Group nestThermostat "Nest Thermostat"
+Group integraBasement "Home Theater"
+Group plugDimmers "All Plug Dimmers"
+Group devicePresence "Device Presence"
 Group Lights_Random
 Group Dimmer_Lights_Random
 
