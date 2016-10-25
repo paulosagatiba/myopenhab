@@ -27,3 +27,42 @@ rule "FrontDoor_Doorbell_Battery Notification"
 		 	sendNotification("kfkkail@gmail.com", "Doorbell needs batteries 2xAA - " + FrontDoor_Doorbell_Battery.state)
 		}
 end
+
+rule "FrontDoor_Doorbell_Battery Icon"
+    when 
+    	Item FrontDoor_Doorbell_Battery received update
+    then
+    	if (FrontDoor_Doorbell_Battery.state>=0 && FrontDoor_Doorbell_Battery.state<5) {
+    		postUpdate(Doorbell_Battery_Icon, 0)
+    	}
+    	if (FrontDoor_Doorbell_Battery.state>=5 && FrontDoor_Doorbell_Battery.state<11) {
+    		postUpdate(Doorbell_Battery_Icon, 10)
+    	}
+    	if (FrontDoor_Doorbell_Battery.state>=11 && FrontDoor_Doorbell_Battery.state<21) {
+    		postUpdate(Doorbell_Battery_Icon, 20)
+    	}
+    	if (FrontDoor_Doorbell_Battery.state>=21 && FrontDoor_Doorbell_Battery.state<31) {
+    		postUpdate(Doorbell_Battery_Icon, 30)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=31 && FrontDoor_Doorbell_Battery.state<41) {
+    		postUpdate(Doorbell_Battery_Icon, 40)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=41 && FrontDoor_Doorbell_Battery.state<51) {
+    		postUpdate(Doorbell_Battery_Icon, 50)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=51 && FrontDoor_Doorbell_Battery.state<61) {
+    		postUpdate(Doorbell_Battery_Icon, 60)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=61 && FrontDoor_Doorbell_Battery.state<71) {
+    		postUpdate(Doorbell_Battery_Icon, 70)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=71 && FrontDoor_Doorbell_Battery.state<81) {
+    		postUpdate(Doorbell_Battery_Icon, 80)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=81 && FrontDoor_Doorbell_Battery.state<91) {
+    		postUpdate(Doorbell_Battery_Icon, 90)
+    	}
+	if (FrontDoor_Doorbell_Battery.state>=91 && FrontDoor_Doorbell_Battery.state<=100) {
+    		postUpdate(Doorbell_Battery_Icon, 100)
+    	}
+    end
