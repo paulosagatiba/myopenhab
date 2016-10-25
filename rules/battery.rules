@@ -1,6 +1,6 @@
 rule "BASEMENT_PIR_BATTERY Notification"
 	when
-		Item BASEMENT_PIR_BATTERY updated
+		Item BASEMENT_PIR_BATTERY received update
 	then
 		logDebug("rules", "BASEMENT_PIR_BATTERY updated to " + BASEMENT_PIR_BATTERY.state + "%")
 		if (BASEMENT_PIR_BATTERY.state <= 10) {
@@ -10,7 +10,7 @@ end
 
 rule "GREATROOM_PIR_BATTERY Notification"
 	when
-		Item GREATROOM_PIR_BATTERY updated
+		Item GREATROOM_PIR_BATTERY received update
 	then
 		logDebug("rules", "GREATROOM_PIR_BATTERY updated to " + GREATROOM_PIR_BATTERY.state + "%")
 		if (GREATROOM_PIR_BATTERY.state <= 10) {
@@ -20,7 +20,7 @@ end
 
 rule "FrontDoor_Doorbell_Battery Notification"
 	when
-		Item FrontDoor_Doorbell_Battery updated
+		Item FrontDoor_Doorbell_Battery received update
 	then
 		logDebug("rules", "FrontDoor_Doorbell_Battery updated to " + FrontDoor_Doorbell_Battery.state + "%")
 		if (FrontDoor_Doorbell_Battery.state <= 10) {
