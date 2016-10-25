@@ -20,3 +20,8 @@ This is the repository I'm using to hold my house openhab configuration.
 * Weather Binding
 * Chamberlain MyQ Binding
   * Chamberlain CIGBU Internet Gateway For MyQ Enabled Garage Door Openers
+
+# Works in Progress
+* Samsung TV serial or IP binding
+  * Samsung UN28H4500 28-Inch
+  * Samsung UN65HU8550FXZA 65-Inch
