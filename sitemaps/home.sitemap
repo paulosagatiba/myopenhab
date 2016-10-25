@@ -1,31 +1,26 @@
 sitemap home label="Falcons Fire Home"
 {
+  Frame label="Light Control" {
+    Switch item=GreatRoomSwitch
+    Switch item=BasementStairsSwitch
+    Slider item=BasementArt
+  }
   Frame label="Indoor" {
-    Text item=Nest_ambient_temperature_f
-    Text item=GREATROOM_PIR_TEMPERATURE
-    Text item=BASEMENT_PIR_TEMPERATURE
-    Text item=Nest_humidity
-    Text item=GREATROOM_PIR_REL_HUMID
-    Text item=BASEMENT_PIR_REL_HUMID
+    Group item=IndoorTemperature
+    Group item=IndoorHumidity
     Text item=Nest_hvac_state
     Switch item=NestHome_away mappings=[home="Home",away="Away"]
   }
-  Frame label="Outside" {
+  Frame label="Outdoor" {
     Text item=Temperature_OWM
     Text item=Humidity
   }
-
   Frame label="Home Theater" {
     Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Cable, 2=Chromecast, 3=FireTV, 4=Pandora, 5=PC, 6=Unknown]
     Text item=Home_Theater_Feedback icon="video"
     Setpoint item=integraVolume icon="video" minValue=0 maxValue=45 step=1 visibility=[Home_Theater_Mode>0]
     Selection item=Bar_Speaker_Mode icon="video" mappings=[0=off, 4=Pandora, 6=Unknown]
     Setpoint item=integraZ2Volume icon="video" minValue=0 maxValue=45 step=1 visibility=[Bar_Speaker_Mode>0]
-  }
-  Frame label="Light Control" {
-    Switch item=GreatRoomSwitch
-    Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
-    Switch item=BasementStairsSwitch
   }
   Frame {
   Text label="Advanced" icon="settings"{
@@ -47,7 +42,7 @@ sitemap home label="Falcons Fire Home"
       Slider item=Living_Room_Lamp_Dimmer sendFrequency=200 switchSupport
       Slider item=Kitchen_UnderCabinet1_Dimmer sendFrequency=200 switchSupport
       Slider item=Kitchen_UnderCabinet2_Dimmer sendFrequency=200 switchSupport
-      Slider item=BasementArt
+      Slider item=BasementProjectorSpot sendFrequency=200 switchSupport
       Text item=Sunrise_Time
       Text item=Sunset_Time
     }
