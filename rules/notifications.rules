@@ -2,9 +2,10 @@ import org.openhab.model.script.actions.Timer
 
 rule "System Start Init"
 	when
-		System Started
+		System started
 	then
 		createTimer(now.plusSeconds(60)) [|
+			logDebug("rules", "System Started - Initialize Values")
 			sendCommand(openhabNotifications , OFF)
 			sendCommand(BasementPIRLightControl , ON)
 			sendCommand(GreatRoomPIRLightControl , ON)
