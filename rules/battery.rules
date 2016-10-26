@@ -4,7 +4,7 @@ rule "BASEMENT_PIR_BATTERY Notification"
 	then
 		logDebug("rules", "BASEMENT_PIR_BATTERY updated to " + BASEMENT_PIR_BATTERY.state + "%")
 		if (BASEMENT_PIR_BATTERY.state <= 10) {
-		 	sendNotification("kfkkail@gmail.com", "Basement PIR needs batteries 2xAAA - " + BASEMENT_PIR_BATTERY.state)
+		 	sendNotification("kfkkail@gmail.com", "Basement PIR batteries 2xAAA - " + BASEMENT_PIR_BATTERY.state + "%")
 		}
 end
 
@@ -14,7 +14,7 @@ rule "GREATROOM_PIR_BATTERY Notification"
 	then
 		logDebug("rules", "GREATROOM_PIR_BATTERY updated to " + GREATROOM_PIR_BATTERY.state + "%")
 		if (GREATROOM_PIR_BATTERY.state <= 10) {
-		 	sendNotification("kfkkail@gmail.com", "Great Room PIR needs batteries 2xAAA - " + GREATROOM_PIR_BATTERY.state)
+		 	sendNotification("kfkkail@gmail.com", "Great Room PIR batteries 2xAAA - " + GREATROOM_PIR_BATTERY.state + "%")
 		}
 end
 
@@ -24,7 +24,7 @@ rule "FrontDoor_Doorbell_Battery Notification"
 	then
 		logDebug("rules", "FrontDoor_Doorbell_Battery updated to " + FrontDoor_Doorbell_Battery.state + "%")
 		if (FrontDoor_Doorbell_Battery.state <= 10) {
-		 	sendNotification("kfkkail@gmail.com", "Doorbell needs batteries 2xAA - " + FrontDoor_Doorbell_Battery.state)
+		 	sendNotification("kfkkail@gmail.com", "Doorbell batteries 2xAA - " + FrontDoor_Doorbell_Battery.state + "%")
 		}
 end
 
