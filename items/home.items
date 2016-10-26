@@ -138,7 +138,7 @@ Switch PIRMotionDetection "Enable/Disable PIR Motion Detection"
 
 Switch GreatRoomPIRLightControl "Enable/Disable Great Room PIR Light Control"
 Contact GREATROOM_PIR_TAMPER "Motion Tamper [%s]" {zwave="15:command=ALARM"}
-Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <cistern> {zwave="15:command=BATTERY"}
+Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="15:command=BATTERY"}
 Number GREATROOM_PIR_TEMPERATURE "Great Room Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="15:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number GREATROOM_PIR_LIGHT "Great Room Light Level [%.1f %%]" <slider> {zwave="15:command=sensor_multilevel,sensor_type=3"}
 Number GREATROOM_PIR_REL_HUMID "Great Room Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="15:command=sensor_multilevel,sensor_type=5"}
@@ -146,7 +146,7 @@ Contact GREATROOM_PIR_MOTION "Great Room Motion [%s]" {zwave="15:command=BASIC"}
 
 Switch BasementPIRLightControl "Enable/Disable Basement PIR Light Control"
 Contact BASEMENT_PIR_TAMPER "Motion Tamper [%s]" {zwave="17:command=ALARM"}
-Number BASEMENT_PIR_BATTERY "Motion Battery [%d %%]" <cistern> {zwave="17:command=BATTERY"}
+Number BASEMENT_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="17:command=BATTERY"}
 Number BASEMENT_PIR_TEMPERATURE "Basement Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="17:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number BASEMENT_PIR_LIGHT "Basement Light Level [%.1f %%]" <slider> {zwave="17:command=sensor_multilevel,sensor_type=3"}
 Number BASEMENT_PIR_REL_HUMID "Basement Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="17:command=sensor_multilevel,sensor_type=5"}
