@@ -1,7 +1,7 @@
 sitemap home label="A+K Home Theater"
 {
   Frame label="Home Theater" {
-    Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1=Watch Cable, 3=Watch FireTV, 4=Listen to Pandora]
+    Selection item=Home_Theater_Mode icon="video" mappings=[0=off, 1="Watch Cable", 3="Watch FireTV", 4="Listen to Pandora"]
     Text item=Home_Theater_Feedback icon="video"
     Setpoint item=integraVolume icon="video" minValue=0 maxValue=45 step=1 visibility=[Home_Theater_Mode>0]
   }
