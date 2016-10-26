@@ -12,7 +12,16 @@ rule "System Start Init"
 			sendCommand(PIRMotionDetection , ON)
 			sendCommand(GreatRoomSwitch_State, 0)
 			sendCommand(Home_Theater_State, 0)
-			sendCommand(Bar_Speaker_Mode, 0)]
+			sendCommand(Bar_Speaker_Mode, 0)
+			postUpdate(alarmHour,  8)
+		        postUpdate(alarmMinute, 15)
+		        postUpdate(alarmMonday,     OFF)
+		        postUpdate(alarmTuesday,   OFF)
+		        postUpdate(alarmWednesday,   OFF)
+		        postUpdate(alarmThursday, OFF)
+		        postUpdate(alarmFriday,    OFF)
+		        postUpdate(alarmSaturday,    OFF)
+		        postUpdate(alarmSunday,    OFF)]
 end
 
 rule "NestHome_away Notification"
