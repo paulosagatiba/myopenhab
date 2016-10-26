@@ -45,6 +45,11 @@ rule "Great Room Light Switch!"
   when
     Item GreatRoomSwitch received update
   then
+    logDebug("rules", "GreatRoomSwitch_State = " + GreatRoomSwitch_State.state)
+    if (GreatRoomSwitch_State.state == Uninitialized) {
+    	postUpdate(GreatRoomSwitch_State, 0)
+    }
+    
     if (GreatRoomSwitch.state == ON && GreatRoomSwitch_State.state == 0) {
       sendCommand(GreatRoomSwitch_State, 1)
       logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
