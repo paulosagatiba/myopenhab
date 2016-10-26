@@ -8,22 +8,6 @@ import java.util.concurrent.locks.ReentrantLock
 var Timer timer1 = null
 var java.util.concurrent.locks.ReentrantLock lock1 = new java.util.concurrent.locks.ReentrantLock()
 
-rule "Initialization"
- when
-   System started
- then
-    createTimer(now.plusSeconds(30)) [|
-      postUpdate(alarmHour,  8)
-      postUpdate(alarmMinute, 15)
-      postUpdate(alarmMonday,     OFF)
-      postUpdate(alarmTuesday,   OFF)
-      postUpdate(alarmWednesday,   OFF)
-      postUpdate(alarmThursday, OFF)
-      postUpdate(alarmFriday,    OFF)
-      postUpdate(alarmSaturday,    OFF)
-      postUpdate(alarmSunday,    OFF)]
- end
-
 rule "Set Alarm"
 when
     Item alarmHour changed or
