@@ -78,7 +78,7 @@ Number integraNETService      "Service"                   {onkyo="INIT:integrare
 Number integraNETList         "Select List Item"          {onkyo="*:integrareceiver:#NLSL%01X"}
 
 //Epson Projector
-Switch HomeTheaterSwitch "Enable/Disable Turn On Home Theater w/ Switch"
+Switch HomeTheaterSwitch "Turn On Home Theater w/ Switch"
 Switch epsonPower                          <projector_benq> { epsonprojector="hometheaterprojector:Power:60000" }
 String epsonPowerState                     { epsonprojector="hometheaterprojector:PowerState:60000" }
 
@@ -128,15 +128,15 @@ Switch wifi_Kail "Kail Wifi"      <present> (devicePresence)      {nh="192.168.0
 Switch wifi_Andrea "Andrea Wifi"  <present> (devicePresence)      {nh="192.168.0.207"}
 
 //Enable & Disable Notifications
-Switch openhabNotifications "Enable/Disable Notifications"
-Switch openhabNotificationsAway "Enable/Disable Notifications Away"
+Switch openhabNotifications "Notifications"
+Switch openhabNotificationsAway "Notifications Away"
 
 Number   Temperature_OWM   "Outside Temperature [%.1f °F]"   <temperature> {weather="locationId=home, type=temperature, property=current, unit=fahrenheit"}
 Number   Humidity      "Outside Humidity [%d %%]"        <water> {weather="locationId=home, type=atmosphere, property=humidity"}
 
-Switch PIRMotionDetection "Enable/Disable PIR Motion Detection"
+Switch PIRMotionDetection "PIR Motion Detection"
 
-Switch GreatRoomPIRLightControl "Enable/Disable Great Room PIR Light Control"
+Switch GreatRoomPIRLightControl "Great Room PIR Light Control"
 Contact GREATROOM_PIR_TAMPER "Motion Tamper [%s]" {zwave="15:command=ALARM"}
 Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="15:command=BATTERY"}
 Number GREATROOM_PIR_TEMPERATURE "Great Room Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="15:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
@@ -144,7 +144,7 @@ Number GREATROOM_PIR_LIGHT "Great Room Light Level [%d %%]" <slider> {zwave="15:
 Number GREATROOM_PIR_REL_HUMID "Great Room Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="15:command=sensor_multilevel,sensor_type=5"}
 Contact GREATROOM_PIR_MOTION <motion> "Great Room Motion [%s]" {zwave="15:command=BASIC"}
 
-Switch BasementPIRLightControl "Enable/Disable Basement PIR Light Control"
+Switch BasementPIRLightControl "Basement PIR Light Control"
 Contact BASEMENT_PIR_TAMPER "Motion Tamper [%s]" {zwave="17:command=ALARM"}
 Number BASEMENT_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="17:command=BATTERY"}
 Number BASEMENT_PIR_TEMPERATURE "Basement Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="17:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
