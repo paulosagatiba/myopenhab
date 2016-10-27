@@ -2,5 +2,5 @@ Strategies {
 	default=everyChange
 }
 Items {
-	*:strategy=everyChange
+	gMyOpenHAB*:strategy=everyChange
 }
