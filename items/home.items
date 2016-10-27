@@ -142,7 +142,7 @@ Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="15:comma
 Number GREATROOM_PIR_TEMPERATURE "Great Room Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="15:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number GREATROOM_PIR_LIGHT "Great Room Light Level [%d %%]" <slider> {zwave="15:command=sensor_multilevel,sensor_type=3"}
 Number GREATROOM_PIR_REL_HUMID "Great Room Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="15:command=sensor_multilevel,sensor_type=5"}
-Contact GREATROOM_PIR_MOTION <motion> "Great Room Motion [%s]" {zwave="15:command=BASIC"}
+Contact GREATROOM_PIR_MOTION "Great Room Motion [%s]" <motion> {zwave="15:command=BASIC"}
 
 Switch BasementPIRLightControl "Basement PIR Light Control"
 Contact BASEMENT_PIR_TAMPER "Motion Tamper [%s]" {zwave="17:command=ALARM"}
@@ -150,7 +150,7 @@ Number BASEMENT_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="17:comman
 Number BASEMENT_PIR_TEMPERATURE "Basement Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="17:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
 Number BASEMENT_PIR_LIGHT "Basement Light Level [%d %%]" <slider> {zwave="17:command=sensor_multilevel,sensor_type=3"}
 Number BASEMENT_PIR_REL_HUMID "Basement Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="17:command=sensor_multilevel,sensor_type=5"}
-Contact BASEMENT_PIR_MOTION <motion> "Basement Motion [%s]" {zwave="17:command=BASIC"}
+Contact BASEMENT_PIR_MOTION "Basement Motion [%s]" <motion> {zwave="17:command=BASIC"}
 
 Rollershutter GarageDoorShutter "Garage Door" <garagedoor> {myq="0"}
 
