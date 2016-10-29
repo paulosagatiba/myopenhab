@@ -1,20 +1,19 @@
-/*
+
 import org.openhab.model.script.actions.Timer
     var Timer timerMasterBathToilet
 
 rule "Turn on fan, but only let it run for 15 minutes"
   when
-    Item MyItem received update
+    Item MasterBathFanSwitch received update
   then
-    if(MyItem.state == ON) {
+    if(MasterBathFanSwitch.state == ON) {
       if(timerMasterBathToilet!=null) {
         timerMasterBathToilet.cancel
         timerMasterBathToilet = null
       }
       timerMasterBathToilet = createTimer(now.plusMinutes(15)) [|
-        SendCommand(MyItem, OFF)
+        SendCommand(MasterBathFanSwitch, OFF)
         timerMasterBathToilet = null
       ]
     }
   end
-*/
