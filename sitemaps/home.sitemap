@@ -37,6 +37,12 @@ sitemap home label="Falcons Fire Home"
           Text item=BASEMENT_PIR_BATTERY
           Text item=BASEMENT_PIR_LIGHT
         }
+        Frame label="PIR Upstairs" {
+          Text item=UPSTAIRS_PIR_MOTION
+          Text item=UPSTAIRS_PIR_TAMPER
+          Text item=UPSTAIRS_PIR_BATTERY
+          Text item=UPSTAIRS_PIR_LIGHT
+        }
     }
     Text label="Dimmers" icon="switch" {
       Slider item=Living_Room_Lamp_Dimmer sendFrequency=200 switchSupport
