@@ -143,6 +143,14 @@ Number   Humidity      "Outside Humidity [%d %%]"        <water> {weather="locat
 
 Switch PIRMotionDetection "PIR Motion Detection"
 
+Switch UpstairsPIRLightControl "Upstairs PIR Light Control"
+Contact UPSTAIRS_PIR_TAMPER "Motion Tamper [%s]" {zwave="21:command=ALARM"}
+Number UPSTAIRS_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="21:command=BATTERY"}
+Number UPSTAIRS_PIR_TEMPERATURE "Upstairs Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="21:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
+Number UPSTAIRS_PIR_LIGHT "Upstairs Light Level [%.0f %%]" <slider> {zwave="21:command=sensor_multilevel,sensor_type=3"}
+Number UPSTAIRS_PIR_REL_HUMID "Upstairs Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="21:command=sensor_multilevel,sensor_type=5"}
+Contact UPSTAIRS_PIR_MOTION "Upstairs Motion [%s]" <motion> {zwave="21:command=BASIC"}
+
 Switch GreatRoomPIRLightControl "Great Room PIR Light Control"
 Contact GREATROOM_PIR_TAMPER "Motion Tamper [%s]" {zwave="15:command=ALARM"}
 Number GREATROOM_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="15:command=BATTERY"}
@@ -158,14 +166,6 @@ Number BASEMENT_PIR_TEMPERATURE "Basement Temperature [%.1f °F]" <temperature> 
 Number BASEMENT_PIR_LIGHT "Basement Light Level [%.0f %%]" <slider> {zwave="17:command=sensor_multilevel,sensor_type=3"}
 Number BASEMENT_PIR_REL_HUMID "Basement Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="17:command=sensor_multilevel,sensor_type=5"}
 Contact BASEMENT_PIR_MOTION "Basement Motion [%s]" <motion> {zwave="17:command=BASIC"}
-
-Switch UpstairsPIRLightControl "Upstairs PIR Light Control"
-Contact UPSTAIRS_PIR_TAMPER "Motion Tamper [%s]" {zwave="21:command=ALARM"}
-Number UPSTAIRS_PIR_BATTERY "Motion Battery [%d %%]" <battery> {zwave="21:command=BATTERY"}
-Number UPSTAIRS_PIR_TEMPERATURE "Upstairs Temperature [%.1f °F]" <temperature> (IndoorTemperature) {zwave="21:command=sensor_multilevel,sensor_type=1,sensor_scale=1"}
-Number UPSTAIRS_PIR_LIGHT "Upstairs Light Level [%.0f %%]" <slider> {zwave="21:command=sensor_multilevel,sensor_type=3"}
-Number UPSTAIRS_PIR_REL_HUMID "Upstairs Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="21:command=sensor_multilevel,sensor_type=5"}
-Contact UPSTAIRS_PIR_MOTION "Upstairs Motion [%s]" <motion> {zwave="21:command=BASIC"}
 
 Rollershutter GarageDoorShutter "Garage Door" <garagedoor> {myq="0"}
 

@@ -49,7 +49,7 @@ rule "Great Room Light Switch!"
     if (GreatRoomSwitch_State.state == Uninitialized || GreatRoomSwitch_State.state == Undefined) {
     	postUpdate(GreatRoomSwitch_State, 0)
     }
-    
+
     if (GreatRoomSwitch.state == ON && GreatRoomSwitch_State.state == 0) {
       sendCommand(GreatRoomSwitch_State, 1)
       logDebug("rules", "GreatRoomSwitch ON - Turn ON Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
@@ -123,12 +123,12 @@ rule "Great Room Light PIR Motion"
     Item GREATROOM_PIR_MOTION changed
   then
     if(GreatRoomPIRLightControl.state == ON && GreatRoomSwitch.state == OFF)
-      if(GREATROOM_PIR_MOTION.state == OPEN  && GREATROOM_PIR_LIGHT.state <= 15) {
+      if((GREATROOM_PIR_MOTION.state == OPEN || UPSTAIRS_PIR_MOTION.state == OPEN)  && GREATROOM_PIR_LIGHT.state <= 15) {
         logDebug("rules", "Great Room Motion Detected - Turn On Living_Room_Lamp_Dimmer")
         sendCommand(Living_Room_Lamp_Dimmer, 40)
         sendCommand(Kitchen_UnderCabinet1_Dimmer, 20)
         sendCommand(Kitchen_UnderCabinet2_Dimmer, 20)
-      } else if (GREATROOM_PIR_MOTION.state == CLOSED) {
+      } else if (GREATROOM_PIR_MOTION.state == CLOSED && UPSTAIRS_PIR_MOTION.state == CLOSED) {
         logDebug("rules", "Great Room Motion No Longer Detected - Turn Off Living_Room_Lamp_Dimmer")
         sendCommand(Living_Room_Lamp_Dimmer, 0)
         sendCommand(Kitchen_UnderCabinet1_Dimmer, 0)
