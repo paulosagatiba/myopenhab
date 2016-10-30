@@ -6,8 +6,11 @@ if(Home_Theater_State.state == 0) {
   sendCommand(BasementArt, 100)
   sendCommand(BasementStairsSwitch, ON)
   sendCommand(epsonPower, ON)
+  Thread::sleep(2000)
+  sendCommand(integraVolume, 20)
+  sendCommand(integraSource, 1)
   sendCommand(integraPower, ON)
-  createTimer(now.plusSeconds(20)) [|
+  createTimer(now.plusSeconds(18)) [|
     logDebug("rules", "Timer Expired - Turn off BasementProjectorSpot")
     sendCommand(BasementProjectorSpot, 0)
     createTimer(now.plusSeconds(5)) [|
