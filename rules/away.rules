@@ -31,32 +31,6 @@ rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunse
 		}
 end
 
-rule "Randomly turn on & off lights between 06.00-23.00 if before or after sunset and if alarm is activated - Dimmers"
-	when
-		Time cron "0 */10 6-23 * * ?"
-	then
-		if ((NestHome_away.state == "away") && (now.isBefore((Sunrise_Time.state as DateTimeType).calendar.timeInMillis) || now.isAfter((Sunset_Time.state as DateTimeType).calendar.timeInMillis))) {
-
-			// Only turn a light on/off ocasionally
-		 	if ((new java.util.Random).nextInt(2) == 1) { 
-		 	
-		 		// Create a timer with a random value
-				var int randomTime1 = (new java.util.Random).nextInt(300)
-				logDebug("rules","Setting random dimmer lights timer to " + randomTime1 + " seconds.")
-				if (openhabNotificationsAway.state == ON) {
-		 			sendNotification("kfkkail@gmail.com", "Setting random lights timer to " + randomTime1 + " seconds.")
-				}
-				tRandomLights = createTimer(now.plusSeconds(randomTime1)) [|
-					var randLightIndex = (new java.util.Random).nextInt(Dimmer_Lights_Random.members.size)
-			 		var randLightStateCurrent = Dimmer_Lights_Random.members.get(randLightIndex).state
-			 		var randLightStateNew = if (randLightStateCurrent > 0) 0 else 100
-			 		logDebug("rules","Switching light " + Dimmer_Lights_Random.members.get(randLightIndex).name + " from " + randLightStateCurrent + " to " + randLightStateNew)
-			 		sendCommand(Dimmer_Lights_Random.members.get(randLightIndex), randLightStateNew)
-		       ]
-			}
-		}
-end
-
 rule "Turn all lights off at 23.10 if alarm is activated"
 	when
 		Time cron "0 10 23 * * ?"
