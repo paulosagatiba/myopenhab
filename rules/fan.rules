@@ -15,7 +15,7 @@ rule "Turn on fan, but only let it run for 15 minutes"
 
       timerMasterBathToilet = createTimer(now.plusMinutes(15)) [|
         logDebug("rules", "Master Bath Fan Timer Expired - Turn Off")
-        SendCommand(MasterBathFanSwitch, OFF)
+        sendCommand(MasterBathFanSwitch, OFF)
         timerMasterBathToilet.cancel
       ]
     } else {
