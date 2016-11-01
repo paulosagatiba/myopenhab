@@ -117,6 +117,7 @@ Number GreatRoomSwitch_State       "Great Room Switch State"
 Switch BasementStairsSwitch "Basement Stairs Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 Dimmer BasementArt "Basement Art Dimmer [%d %%]" {zwave="19:command=SWITCH_MULTILEVEL"}
+Switch OutdoorModule "Outdoor Module" (lightsAtNight) {zwave="22:command=SWITCH_MULTILEVEL"}
 
 Contact Doorbell {zwave="14:command=ALARM"}
 Number FrontDoor_Doorbell_Battery "Doorbell Battery [%d %%]" {zwave="14:command=BATTERY"}
