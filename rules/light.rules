@@ -3,42 +3,66 @@ import org.openhab.core.library.types.*
 import org.openhab.model.script.actions.*
 import org.openhab.core.persistence.*
 
-val boolean previsdark = false
-val boolean lightsOffForTheNight = false
 val boolean doorbellRang = false
+var Timer sunsetTimer
+var Timer dawnTimer
+var Timer preDawnTimer
 
-rule "Turn Off Lights at Midnight"
+rule "Turn Off Lights at Midnight for the Night"
   when
     Time cron "0 0 0 ? * * *"
   then
-    logDebug("rules", "Midnight - Turn OFF Living_Room_Lamp_Dimmer & Kitchen_UndercabinetX_Dimmer")
-    sendCommand(Living_Room_Lamp_Dimmer, 0)
-    sendCommand(Kitchen_UnderCabinet1_Dimmer, 0)
-    sendCommand(Kitchen_UnderCabinet2_Dimmer, 0)
-    sendCommand(GarageDoorSwitch, OFF)
-    lightsOffForTheNight = true
+    logDebug("rules", "Midnight - Turn OFF Lights at Midnight")
+    goodNightAtMidnight?.members.forEach(Switch|
+    	sendCommand(Switch, OFF)
+    )
+    
+    lightsAtNight?.members.forEach(Switch|
+    	sendCommand(Switch, OFF)
+    )
   end
 
 rule "Turn On/Off Lights at Dusk/Dawn"
   when
-    Time cron "0 * * * * ?"
+    Time cron "0 0 2 ? * * *"
   then
     var DateTime daystart = new DateTime((Sunrise_Time.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((Sunset_Time.state as DateTimeType).calendar.timeInMillis)
-    val boolean isdark = now.isBefore(daystart) || now.isAfter(dayend)
-
-    // Living Room Light
-    if (isdark && previsdark == false) {
-      logDebug("rules", "Sun is Setting! - Turn ON Living Room Light")
-      sendCommand(Living_Room_Lamp_Dimmer, 100)
-    } else if (previsdark && isdark == false && Living_Room_Lamp_Dimmer.state >= 0) {
-      logDebug("rules", "Sun is Rising! - Turn OFF Living Room Light")
-      lightsOffForTheNight = false
-      sendCommand(Living_Room_Lamp_Dimmer, 0)
+ 
+    // Cancel Timers to avoid reschedule
+    if(sunsetTimer!=null) {
+        logDebug("rules", "Timer sunsetTimer Cancelled")
+        sunsetTimer.cancel()
+    }
+    if(preDawnTimer!=null) {
+        logDebug("rules", "Timer preDawnTimer Cancelled")
+        preDawnTimer.cancel()
+    }
+    if(dawnTimer!=null) {
+        logDebug("rules", "Timer dawnTimer Cancelled")
+        dawnTimer.cancel()
     }
 
-    // Only want to see a lamp command on transition
-    previsdark = isdark
+    logDebug("rules","Timer sunsetTimer created") 
+    sunsetTimer = createTimer(dayend.minusMinutes(15)) [|
+    	logDebug("Rules","sunsetTimer ended - Turn On Group lightsAtNight") 
+	lightsAtNight?.members.forEach(Switch|
+	    sendCommand(Switch, ON)
+	)]
+	
+    logDebug("rules","Timer preDawnTimer created") 
+    preDawnTimer = createTimer(daystart.minusMinutes(150)) [|
+    	logDebug("Rules","preDawnTimer ended - Turn On Group lightsAtNight") 
+	lightsAtNight?.members.forEach(Switch|
+	    sendCommand(Switch, ON)
+	)]
+    
+    logDebug("rules","Timer dawnTimer created") 
+    dawnTimer = createTimer(daystart.plusMinutes(5)) [|
+    	logDebug("Rules","dawnTimer ended - Turn Off Group lightsAtNight") 
+	lightsAtNight?.members.forEach(Switch|
+	    sendCommand(Switch, OFF)
+	)]
   end
 
 rule "Great Room Light Switch!"
