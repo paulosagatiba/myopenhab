@@ -9,7 +9,8 @@ Group integraBasement "Home Theater"
 Group plugDimmers "All Plug Dimmers"
 Group devicePresence "Device Presence"
 Group Lights_Random
-Group Dimmer_Lights_Random
+Group goodNightAtMidnight // Turn off these switch items at midnight
+Group lightsAtNight // Basically a christmas light controller
 
 Group:Number:AVG IndoorTemperature "Indoor Average Temperature [%.1f °F]" <temperature>
 Group:Number:AVG IndoorHumidity "Indoor Average Humidity [%.0f %%]" <water>
@@ -167,7 +168,7 @@ Number BASEMENT_PIR_LIGHT "Basement Light Level [%.0f %%]" <slider> {zwave="17:c
 Number BASEMENT_PIR_REL_HUMID "Basement Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="17:command=sensor_multilevel,sensor_type=5"}
 Contact BASEMENT_PIR_MOTION "Basement Motion [%s]" <motion> {zwave="17:command=BASIC"}
 
-Rollershutter GarageDoorShutter "Garage Door" <garagedoor> {myq="0"}
+Rollershutter GarageDoorShutter "Garage Door" <garagedoor> (goodNightAtMidnight) {myq="0"}
 
 //Alarm to set Nest to Home, after being away
 Switch  alarmMonday     "Monday"     <switch>
