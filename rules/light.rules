@@ -1,7 +1,4 @@
 import org.joda.time.*
-import org.openhab.core.library.types.*
-import org.openhab.model.script.actions.*
-import org.openhab.core.persistence.*
 
 val boolean doorbellRang = false
 var Timer sunsetTimer
@@ -70,7 +67,7 @@ rule "Great Room Light Switch!"
     Item GreatRoomSwitch received update
   then
     logDebug("rules", "GreatRoomSwitch_State = " + GreatRoomSwitch_State.state)
-    if (GreatRoomSwitch_State.state == Uninitialized || GreatRoomSwitch_State.state == Undefined) {
+    if (GreatRoomSwitch_State.state == NULL || GreatRoomSwitch_State.state == Undefined) {
     	postUpdate(GreatRoomSwitch_State, 0)
     }
 
