@@ -1,6 +1,4 @@
-
-import org.openhab.model.script.actions.Timer
-    var Timer timerMasterBathToilet
+var Timer timerMasterBathToilet
 
 rule "Turn on fan, but only let it run for 15 minutes"
   when
