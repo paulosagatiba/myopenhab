@@ -1,5 +1,3 @@
-import org.openhab.model.script.actions.Timer
-
 rule "System Start Init"
 	when
 		System started
