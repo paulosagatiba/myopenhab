@@ -114,7 +114,7 @@ Dimmer Kitchen_UnderCabinet2_Dimmer "Kitchen Undercabinet 2 [%d %%]" (plugDimmer
 Switch GreatRoomSwitch "Great Room Switch" (Lights_Random, gMyOpenHAB) {zwave="18:command=SWITCH_BINARY"}
 Switch MasterBathFanSwitch "Master Bath Fan" {zwave="20:command=SWITCH_BINARY"}
 Number GreatRoomSwitch_State "Great Room Switch State"
-Switch BasementStairsSwitch "Basement Stairs Switch" {zwave="5:command=SWITCH_MULTILEVEL"}
+Switch BasementStairsSwitch "Basement Stairs Switch" (gMyOpenHAB) {zwave="5:command=SWITCH_MULTILEVEL"}
 Dimmer BasementProjectorSpot "Basement Projector Spot [%d %%]" {zwave="6:command=SWITCH_MULTILEVEL"}
 Dimmer BasementArt "Basement Art Dimmer [%d %%]" {zwave="19:command=SWITCH_MULTILEVEL"}
 Switch OutdoorModule "Outdoor Module" (lightsAtNight) {zwave="22:command=SWITCH_BINARY"}
