@@ -169,7 +169,7 @@ Number BASEMENT_PIR_LIGHT "Basement Light Level [%.0f %%]" <slider> {zwave="17:c
 Number BASEMENT_PIR_REL_HUMID "Basement Humidity [%.0f %%]" <water> (IndoorHumidity) {zwave="17:command=sensor_multilevel,sensor_type=5"}
 Contact BASEMENT_PIR_MOTION "Basement Motion [%s]" <motion> {zwave="17:command=BASIC"}
 
-Rollershutter GarageDoorShutter "Garage Door" <garagedoor> (goodNightAtMidnight) {myq="0"}
+Rollershutter GarageDoorShutter "Garage Door" <garagedoor> (gMyOpenHAB) (goodNightAtMidnight) {myq="0"}
 
 //Alarm to set Nest to Home, after being away
 Switch  alarmMonday     "Monday"     <switch>
