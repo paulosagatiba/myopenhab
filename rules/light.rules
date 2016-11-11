@@ -16,7 +16,7 @@ rule "Turn Off Lights at Midnight for the Night"
     goodNightAtMidnight?.members.forEach(Switch|
     	sendCommand(Switch, OFF)
     )
-    
+
     lightsAtNight?.members.forEach(Switch|
     	sendCommand(Switch, OFF)
     )
@@ -28,7 +28,7 @@ rule "Turn On/Off Lights at Dusk/Dawn"
   then
     var DateTime daystart = new DateTime((Sunrise_Time.state as DateTimeType).calendar.timeInMillis)
     var DateTime dayend = new DateTime((Sunset_Time.state as DateTimeType).calendar.timeInMillis)
- 
+
     // Cancel Timers to avoid reschedule
     if(sunsetTimer!=null) {
         logDebug("rules", "Timer sunsetTimer Cancelled")
@@ -43,23 +43,23 @@ rule "Turn On/Off Lights at Dusk/Dawn"
         dawnTimer.cancel()
     }
 
-    logDebug("rules","Timer sunsetTimer created") 
+    logDebug("rules","Timer sunsetTimer created")
     sunsetTimer = createTimer(dayend.minusMinutes(15)) [|
-    	logDebug("Rules","sunsetTimer ended - Turn On Group lightsAtNight") 
+    	logDebug("Rules","sunsetTimer ended - Turn On Group lightsAtNight")
 	lightsAtNight?.members.forEach(Switch|
 	    sendCommand(Switch, ON)
 	)]
-	
-    logDebug("rules","Timer preDawnTimer created") 
+
+    logDebug("rules","Timer preDawnTimer created")
     preDawnTimer = createTimer(daystart.minusMinutes(150)) [|
-    	logDebug("Rules","preDawnTimer ended - Turn On Group lightsAtNight") 
+    	logDebug("Rules","preDawnTimer ended - Turn On Group lightsAtNight")
 	lightsAtNight?.members.forEach(Switch|
 	    sendCommand(Switch, ON)
 	)]
-    
-    logDebug("rules","Timer dawnTimer created") 
+
+    logDebug("rules","Timer dawnTimer created")
     dawnTimer = createTimer(daystart.plusMinutes(5)) [|
-    	logDebug("Rules","dawnTimer ended - Turn Off Group lightsAtNight") 
+    	logDebug("Rules","dawnTimer ended - Turn Off Group lightsAtNight")
 	lightsAtNight?.members.forEach(Switch|
 	    sendCommand(Switch, OFF)
 	)]
@@ -144,7 +144,8 @@ rule "Basement Light PIR Motion"
 
 rule "Great Room Light PIR Motion"
   when
-    Item GREATROOM_PIR_MOTION changed
+    Item GREATROOM_PIR_MOTION changed or
+    Item UPSTAIRS_PIR_MOTION changed
   then
     if(GreatRoomPIRLightControl.state == ON && GreatRoomSwitch.state == OFF)
       if((GREATROOM_PIR_MOTION.state == OPEN || UPSTAIRS_PIR_MOTION.state == OPEN)  && GREATROOM_PIR_LIGHT.state <= 15) {
