@@ -32,7 +32,13 @@ rule "I'm Away - Turn On Motion Detection"
     //Right now, just using auto away or cron to turn on motion detection
     logDebug("rules", "Turn On Motion Detection")
     sendCommand(PIRMotionDetection , ON)
-    sendCommand(GarageDoorSwitch, OFF)
+    sendCommand(GarageDoorShutter, DOWN)
+    createTimer(now.plusMinutes(60), [|
+      if(GarageDoorShutter.state == "UP") {
+        sendNotification("kfkkail@gmail.com", "You Idiot! You left the garage door open!")
+        sendCommand(GarageDoorShutter, DOWN)
+      }
+    ])
   end
   
 rule "I'm Home - Turn Off Motion Detection"
